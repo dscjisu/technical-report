@@ -11,10 +11,9 @@ import path from "node:path";
 
 // ---- Config -----------------------------------------------------------------
 const CONFIG = {
-  data: "https://www.kaggle.com/competitions/gemma-for-bharat-gd-go-c-jis-university-2026/",
-  logoPath: "./gdg_logo.png",
-  outputPng: "./qr-output.png",
-  outputSvg: "./qr-output.svg",
+  data: "https://meet.google.com/gps-ejck-wbb",
+  logoPath: "branding/gdg_logo.png",
+  outputSvg: "gdg_qr_generate/output/qr-output.svg",
   size: 1024, // high-res for posters/social
 };
 
@@ -93,15 +92,9 @@ async function generate() {
     },
   });
 
-  // PNG (raster — for social, slides, prints)
-  const pngBuffer = await qr.getRawData("png");
-  await fs.writeFile(CONFIG.outputPng, pngBuffer);
-
   // SVG (vector — for posters, vector editors, infinite-scale prints)
   const svgBuffer = await qr.getRawData("svg");
   await fs.writeFile(CONFIG.outputSvg, svgBuffer);
-
-  console.log(`✓ PNG saved → ${CONFIG.outputPng}  (${CONFIG.size}×${CONFIG.size})`);
   console.log(`✓ SVG saved → ${CONFIG.outputSvg}`);
   console.log(`→ Encoded URL: ${CONFIG.data}`);
 }
