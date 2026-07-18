@@ -79,6 +79,9 @@
 % a numbered pill used to mark policy / step blocks
 \newcommand{\pill}[2]{\tikz[baseline]{\node[fill=#1,text=white,font=\bfseries\small,%
   rounded corners=3pt,inner xsep=7pt,inner ysep=2.5pt]{#2};}}
+% dark-text pill — for light fills (e.g. yellow) where white text has poor contrast
+\newcommand{\pillk}[2]{\tikz[baseline]{\node[fill=#1,text=Ink,font=\bfseries\small,%
+  rounded corners=3pt,inner xsep=7pt,inner ysep=2.5pt]{#2};}}
 
 \begin{document}
 
@@ -115,18 +118,31 @@
 
 % ============================== ABOUT ==============================
 \ghead{About this Playbook}{About this Playbook}
-This document is the operating manual of \textbf{GDG on Campus JIS University}. Where the
-\emph{Technical Report} records \emph{what} the chapter has done, this playbook sets out \emph{how}
-the chapter should be run — how the core team is formed, how it must conduct itself, how an event is
-cleared and documented, and the standards every lead is expected to hold.
+This document is the operating manual of \textbf{GDG on Campus JIS University} — the standard every
+lead is expected to follow. It sets out how the chapter is run: how the core team is formed and what
+each role owns; how the community is expected to conduct itself; the integrity, privacy and terms the
+chapter holds to; how an event is cleared, run and documented on campus; how events are managed on
+GitHub; and how participation certificates are issued.
+
+Leadership turns over every year, and with it the people, the energy and the ideas. What must
+\emph{not} turn over is the standard — the way things are done here, the promises the chapter makes to
+its members and partners, and the record it keeps of its own work. This playbook is that constant. It
+is the chapter's shared, written agreement with itself, so that a new lead never has to guess the
+process or re-learn it the hard way, and so the chapter's way of working survives every handover
+intact.
+
+It is deliberately practical. Where there is a process — an approval chain, a document to keep, a
+standard to meet — it is written here exactly, not left to memory or to a private chat. Treat it as
+binding for the routine, and as a floor, never a ceiling, for everything else you choose to build on
+top of it.
 
 \begin{tcolorbox}[enhanced,colback=Mist,colframe=Mist,arc=4pt,left=14pt,right=14pt,top=10pt,bottom=10pt,
     borderline west={3pt}{0pt}{GBlue}]
   {\bfseries\color{Ink}How to use it.}\\[2pt]
-  Read it in full before your first event. It is written so a new lead never has to guess the process
-  or re-learn it the hard way. It is deliberately practical: exact email chains, exact documents to
-  keep, exact standards to meet. Treat it as binding for the routine, and as a floor — not a ceiling —
-  for everything else.
+  Read it in full before your first event, and return to it whenever a question of process or conduct
+  comes up. When this playbook speaks to a situation, it is the answer; when it does not, decide in its
+  spirit — honestly, in the community's interest — and then write down what you decided, so the next
+  lead inherits an answer rather than the same open question.
 \end{tcolorbox}
 
 \begin{tcolorbox}[enhanced,colback=white,colframe=GGrn,boxrule=1pt,arc=4pt,
@@ -139,52 +155,49 @@ cleared and documented, and the standards every lead is expected to hold.
 \clearpage
 
 
-\phantomsection\addcontentsline{toc}{section}{Contents}
-\section*{\color{Ink}Contents}
-\gbar[\linewidth]\\[8pt]
-\begingroup
-\hypersetup{linkcolor=Ink}
-\renewcommand{\contentsname}{}
-\vspace{-3.4em}
-\tableofcontents
-\endgroup
-\clearpage
-
-
 % ============================== ACKNOWLEDGEMENT ==============================
 \ghead{Acknowledgement \& Declaration}{Acknowledgement \& Declaration}
-{\color{Slate}Signed at the handover of leadership, from the outgoing Organiser to the incoming one.}
+{\color{Slate}Signed at the handover of leadership, from the outgoing Organiser to the incoming one.
+This page is renewed and re-signed every year.}
+\vspace{12pt}
+
+\begin{center}
+  {\large\bfseries\color{Ink}Leadership Handover}\qquad
+  {\large\color{Slate}Season}\;\;{\large\bfseries\color{Ink}20\rule{0.9cm}{0.4pt}\,--\,20\rule{0.9cm}{0.4pt}}
+\end{center}
 \vspace{14pt}
 
 \begin{tcolorbox}[enhanced,colback=white,colframe=Line,boxrule=0.8pt,arc=5pt,
     left=18pt,right=18pt,top=16pt,bottom=16pt,borderline west={3.5pt}{0pt}{GBlue}]
   {\bfseries\large\color{Ink}Declaration}\\[6pt]
   I have read and understood the guidelines set out in this playbook — the standards of integrity, the
-  Code of Conduct, the privacy and terms of the community, and the processes for running and
-  documenting events. As the incoming Organiser of \textbf{GDG on Campus JIS University}, I accept
-  responsibility for upholding them, for the conduct of the core team I form, and for the honest
-  record of the work done during my tenure.\\[6pt]
+  Code of Conduct, the privacy and terms of the community, the lines of authority, and the processes
+  for forming a team and for running and documenting events. As the incoming Organiser of
+  \textbf{GDG on Campus JIS University}, I accept responsibility for upholding them, for the conduct of
+  the core team I form, and for the honest record of the work done during my tenure.\\[6pt]
   I accept the chapter as it is handed to me, and I undertake to hand it forward — a little larger, a
   little truer than I found it — to whoever carries it next.
 \end{tcolorbox}
 
-\vspace{26pt}
-\begin{tcolorbox}[enhanced,colback=Mist,colframe=Mist,arc=5pt,left=16pt,right=16pt,top=16pt,bottom=18pt]
-\begin{minipage}[t]{0.47\linewidth}
-  {\footnotesize\color{Slate}\textsc{Handed over by \;\textperiodcentered\; Outgoing Organiser}}\\[34pt]
-  {\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]
-  \textbf{Name} \hfill {\small\color{Slate}Signature \& Date}\\[10pt]
-  {\small\color{Slate}Organiser, GDG on Campus JIS University\\ Season \rule{1.8cm}{0.4pt} \;\textperiodcentered\; Roll No.\ \rule{2.4cm}{0.4pt}}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.47\linewidth}
-  {\footnotesize\color{Slate}\textsc{Accepted by \;\textperiodcentered\; Incoming Organiser}}\\[34pt]
-  {\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]
-  \textbf{Name} \hfill {\small\color{Slate}Signature \& Date}\\[10pt]
-  {\small\color{Slate}Organiser, GDG on Campus JIS University\\ Season \rule{1.8cm}{0.4pt} \;\textperiodcentered\; Roll No.\ \rule{2.4cm}{0.4pt}}
-\end{minipage}
+\vspace{22pt}
+
+\begin{tcolorbox}[enhanced,colback=Mist,colframe=Mist,arc=5pt,left=18pt,right=18pt,top=14pt,bottom=18pt]
+  {\footnotesize\color{Slate}\textsc{Handed over by \;\textperiodcentered\; Outgoing Organiser}}\\[46pt]
+  \begin{minipage}[b]{0.56\linewidth}{\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]\textbf{Name}\end{minipage}\hfill
+  \begin{minipage}[b]{0.38\linewidth}{\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]{\small\color{Slate}Signature \& Date}\end{minipage}\\[12pt]
+  {\small\color{Slate}Organiser, GDG on Campus JIS University \;\textperiodcentered\; Season \rule{2.2cm}{0.4pt} \;\textperiodcentered\; Roll No.\ \rule{2.6cm}{0.4pt}}
 \end{tcolorbox}
 
-\vspace{10pt}
+\vspace{16pt}
+
+\begin{tcolorbox}[enhanced,colback=Mist,colframe=Mist,arc=5pt,left=18pt,right=18pt,top=14pt,bottom=18pt]
+  {\footnotesize\color{Slate}\textsc{Accepted by \;\textperiodcentered\; Incoming Organiser}}\\[46pt]
+  \begin{minipage}[b]{0.56\linewidth}{\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]\textbf{Name}\end{minipage}\hfill
+  \begin{minipage}[b]{0.38\linewidth}{\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]{\small\color{Slate}Signature \& Date}\end{minipage}\\[12pt]
+  {\small\color{Slate}Organiser, GDG on Campus JIS University \;\textperiodcentered\; Season \rule{2.2cm}{0.4pt} \;\textperiodcentered\; Roll No.\ \rule{2.6cm}{0.4pt}}
+\end{tcolorbox}
+
+\vspace{16pt}
 {\footnotesize\color{Slate}\emph{Countersigned by the Faculty Advisor, Department of Computer Science \& Engineering:}
 \;\rule{5.5cm}{0.4pt}}
 \clearpage
@@ -194,16 +207,6 @@ cleared and documented, and the standards every lead is expected to hold.
 \ghead{Forming the Core Team}{Forming the Core Team}
 The core team is the engine of the chapter. Its size and composition decide the year more than any
 single event does. Form it deliberately.
-
-\begin{tcolorbox}[enhanced,colback=white,colframe=GRed,boxrule=1pt,arc=4pt,
-    left=14pt,right=14pt,top=10pt,bottom=10pt]
-  {\bfseries\color{GRed}\faIcon{exclamation-triangle}~The lesson from 2025–26.}\\[2pt]
-  The team was \textbf{19 people, including the lead}. At that size two problems appeared: the group
-  became hard to coordinate — too many voices, slow decisions, diffused ownership — and participation
-  was uneven, with a share of members carrying little of the actual load. \textbf{A working team of
-  ten beats a nominal team of nineteen.} Recruit for commitment and a clear deliverable, not for
-  headcount.
-\end{tcolorbox}
 
 \vspace{4pt}
 {\bfseries\color{Ink}Principles}
@@ -220,22 +223,13 @@ single event does. Form it deliberately.
 \vspace{6pt}
 {\bfseries\color{Ink}Standing roles} \quad{\footnotesize\color{Slate}— fixed every season; fill these first.}
 \par\vspace{6pt}
-\renewcommand{\arraystretch}{1.25}\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.4cm} X@{}}\textbf{Standing role} & \textbf{Mandate} \\[3pt]\arrayrulecolor{Line}\hline\rule{0pt}{2.4ex}\pill{GBlue}{Head Mentor} & Owns technical direction and quality. Guides members, reviews what the chapter ships, and keeps the bar high across every domain the chapter runs. \\[8pt]\pill{GRed}{Outreach \& Content} & Owns partnerships, speaker and community outreach, and everything the chapter publishes — announcements, social posts, captions and event copy. The chapter's public voice. \\[8pt]\pill{GYel}{Design} & Owns the visual identity — posters, banners, certificates, decks and social creatives — held consistent with the Google / GDG brand. \\[8pt]\end{tabularx}
+\renewcommand{\arraystretch}{1.25}\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{4.4cm} X@{}}\textbf{Standing role} & \textbf{Mandate} \\[3pt]\arrayrulecolor{Line}\hline\rule{0pt}{2.4ex}\pill{GBlue}{Mentor Manager} & Owns technical direction and quality. Guides members, reviews what the chapter ships, and keeps the bar high across every domain the chapter runs. \\[8pt]\pill{GRed}{Outreach} & Builds the chapter's reach — connecting with other GDG chapters and communities, and creating the memes and attractive promotion that draw people in to join and work with the chapter. \\[8pt]\pillk{GYel}{Content} & Writes the captions and posts across the chapter's social channels — the day-to-day public voice of the chapter. \\[8pt]\pill{GGrn}{Design} & Owns the visual identity — posters, banners, certificates, decks and social creatives — held consistent with the Google / GDG brand. \\[8pt]\end{tabularx}
 
 \vspace{10pt}
 {\bfseries\color{Ink}Flexible roles} \quad{\footnotesize\color{Slate}— sized to the year.}\\[2pt]
 Beyond the standing roles, keep the remaining seats flexible and open them according to what the year
 actually needs — more mentors for a hackathon-heavy calendar, more outreach for a partnership push,
 and so on. Add roles when there is work to justify them, and only then.
-
-\begin{tcolorbox}[enhanced,colback=Mist,colframe=Mist,arc=4pt,left=14pt,right=14pt,top=10pt,bottom=10pt,
-    borderline west={3pt}{0pt}{GGrn}]
-  {\bfseries\color{Ink}\faIcon{code-branch}~Where this is heading.}\\[2pt]
-  The detailed definition of each role is being moved onto \textbf{GitHub}, where events will be
-  created and managed as issues and boards — inspired by GitHub's own \emph{Open Source Friday}
-  model. The per-role responsibilities, and the GitHub workflow that backs them, are documented in a
-  later section of this playbook \emph{(in progress)}.
-\end{tcolorbox}
 \clearpage
 
 
@@ -251,17 +245,28 @@ ambiguity about what the chapter expects.
   {\pill{GBlue}{01}}\;\;{\large\bfseries\color{Ink}\faIcon{balance-scale}~~Integrity}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   
-We represent the chapter, the Department and Google honestly.
+The chapter runs on trust — of its members, the Department, Google and its partners. We keep that
+trust by holding to the following, without exception.
 \begin{itemize}[leftmargin=1.4em,itemsep=3pt,topsep=2pt]
   \item \textbf{Report figures as recorded.} Attendance, footfall and outcomes are reported as they
-        actually happened. We do not inflate numbers.
-  \item \textbf{Handle resources transparently.} Any funds, sponsorship or swag are accounted for and
-        used for the community, not for private benefit.
+        actually happened. We never inflate numbers or overstate results.
+  \item \textbf{Handle resources transparently.} Any funds, sponsorship, swag or credits are accounted
+        for and spent on the community — never for private benefit.
+  \item \textbf{Act in the chapter's interest.} The lead and the team hold their positions in trust
+        for the community; the role, its access and its partners are never used for personal gain.
+  \item \textbf{Declare conflicts of interest.} Where a personal, financial or outside interest could
+        colour a decision, it is disclosed and the person steps back from that decision.
+  \item \textbf{Recruit and assign fairly.} Roles, opportunities and recognition are given on merit and
+        commitment — not on favouritism, and openly.
+  \item \textbf{Honour commitments.} What is promised to speakers, partners, co-hosts and members is
+        delivered; if it cannot be, it is communicated early and honestly.
   \item \textbf{Give credit.} Speakers, partners, volunteers and prior leads are acknowledged for
-        their work.
+        their work; we do not take credit for what others did.
   \item \textbf{Represent affiliation truthfully.} We use the Google / GDG name and marks only as
-        permitted under Google's community and brand guidelines, and never imply endorsement we do
-        not have.
+        permitted under Google's community and brand guidelines, and never imply an endorsement,
+        partnership or authority the chapter does not have.
+  \item \textbf{Protect the chapter's name.} Every dealing — online and in person — is conducted so as
+        to leave the chapter's standing stronger, not spent.
 \end{itemize}
 \end{tcolorbox}
 
@@ -271,18 +276,25 @@ We represent the chapter, the Department and Google honestly.
   {\pill{GRed}{02}}\;\;{\large\bfseries\color{Ink}\faIcon{file-signature}~~Terms of Service — Membership}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   
-These terms govern membership of the chapter.
+These terms govern membership and the running of the chapter.
 \begin{itemize}[leftmargin=1.4em,itemsep=3pt,topsep=2pt]
-  \item \textbf{Who may join.} Membership is open to students of JIS University, and to others only as
-        expressly extended by the lead for a given activity.
+  \item \textbf{Who may join.} The chapter is open to anyone interested. There is no barrier to joining
+        beyond wanting to take part and agreeing to the Code of Conduct.
+  \item \textbf{Lines of authority.} The highest authority of the chapter is the \textbf{Faculty
+        Advisor}, followed by the \textbf{chapter lead} (Organiser). Decisions and escalations follow
+        that order.
+  \item \textbf{Whose events these are.} Events are organised \textbf{by the chapter, not by the
+        Department}. Every event the chapter runs is owned solely by the chapter and its co-hosts, as
+        applicable.
+  \item \textbf{Operating home.} The chapter operates under the Department of Computer Science \&
+        Engineering, JIS University, and within Google's program terms for GDG on Campus.
+  \item \textbf{Communication channels.} The main community group is kept \textbf{free of any promotion
+        other than the club's own}. A separate, dedicated group is maintained for promotions and event
+        cross-posts, so the main group stays clean.
   \item \textbf{Voluntary participation.} Membership and all participation are voluntary and carry no
         payment or guarantee of position.
-  \item \textbf{Operating authority.} The chapter operates under the Department of Computer Science \&
-        Engineering, JIS University, and within Google's program terms for GDG on Campus.
-  \item \textbf{Responsible conduct.} Members act in the chapter's name only with the lead's
-        authorisation and must uphold the Code of Conduct at all times.
-  \item \textbf{Removal.} The lead, in consultation with the Faculty Advisor, may remove a member for
-        a serious or repeated breach of these terms or the Code of Conduct.
+  \item \textbf{Responsible conduct.} Members act and speak in the chapter's name only with the lead's
+        authorisation, and uphold the Code of Conduct at all times.
   \item \textbf{Work \& credit.} Work produced for the chapter may be used by the chapter for its
         events, reports and promotion, with the contributor credited.
 \end{itemize}
@@ -294,18 +306,25 @@ These terms govern membership of the chapter.
   {\pill{GYel}{03}}\;\;{\large\bfseries\color{Ink}\faIcon{user-shield}~~Privacy Policy}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   
-How the chapter handles the personal information of members and attendees.
+How the chapter handles the personal information of its members and attendees.
 \begin{itemize}[leftmargin=1.4em,itemsep=3pt,topsep=2pt]
-  \item \textbf{What we collect.} Name, roll number, academic year, email, phone number, event
-        attendance, and event photographs.
+  \item \textbf{What we collect.} Name, roll number, academic year, email, phone number, social or
+        GitHub handles where relevant, event registration and attendance, and event photographs.
   \item \textbf{Why we collect it.} Registration, attendance records, issuing certificates, event
-        reporting, and communication with members.
-  \item \textbf{Where it is stored.} In the chapter's dedicated Google Drive folders, with access
-        limited to the core team members who need it.
+        reporting, and communication with members — nothing beyond running the community.
+  \item \textbf{Consent.} By registering for an event or joining a channel, a member consents to their
+        data being used for those stated purposes.
+  \item \textbf{Where it is stored.} In the chapter's dedicated Google Drive folders, and in the
+        events repository for event records, with access limited to the core team members who need it.
+  \item \textbf{Who can access it.} Access and admin rights are held only by the lead and the specific
+        members whose role requires them, and are handed over cleanly when leadership changes.
   \item \textbf{Sharing.} Shared with Google or an event partner only to the extent needed to run the
-        event or issue certificates. Personal data is never sold or used for unrelated purposes.
+        event or issue certificates. Personal data is \textbf{never sold} or used for unrelated
+        purposes.
+  \item \textbf{Communication.} We contact members only through the channels and address they provide,
+        and members may opt out of non-essential messages at any time.
   \item \textbf{Photographs.} Photos taken at events may appear in reports and on chapter channels;
-        anyone may request that their image be withheld or removed.
+        anyone may ask for their image to be withheld or removed.
   \item \textbf{Retention \& removal.} Records are kept for the chapter's institutional memory. A
         member may request correction or removal of their personal data by writing to the lead.
 \end{itemize}
@@ -317,24 +336,41 @@ How the chapter handles the personal information of members and attendees.
   {\pill{GGrn}{04}}\;\;{\large\bfseries\color{Ink}\faIcon{handshake}~~Code of Conduct}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   
-Everyone in the community — members, volunteers, speakers and attendees — is expected to follow this,
-at every event, online and offline, and in all chapter channels.
+Everyone in the community — members, core team, volunteers, speakers and attendees — is expected to
+follow this, at every event, online and offline, and in all chapter channels.
 \vspace{2pt}
 {\bfseries\color{GGrn}Expected.}
 \begin{itemize}[leftmargin=1.4em,itemsep=2pt,topsep=1pt]
-  \item Be respectful, inclusive and welcoming, regardless of background or level of experience.
+  \item Be respectful, inclusive and welcoming, regardless of background, gender, or level of
+        experience.
   \item Collaborate in good faith; give and take feedback professionally.
-  \item Respect the venue, the Department, speakers and fellow members.
+  \item Respect the venue, the Department, speakers, partners and fellow members.
+  \item Keep community channels on-topic and civil, and represent the chapter well wherever you carry
+        its name.
+  \item Follow the lead's direction on chapter matters, and honour the commitments you take on.
 \end{itemize}
 {\bfseries\color{GRed}Not tolerated.}
 \begin{itemize}[leftmargin=1.4em,itemsep=2pt,topsep=1pt]
   \item Harassment, discrimination, or intimidation in any form.
-  \item Sharing others' private information; plagiarism or passing off others' work.
+  \item Sharing others' private information; plagiarism or passing off others' work as your own.
   \item Disruptive, dishonest or unsafe behaviour at events or online.
+  \item Spamming or posting outside promotion in the main community group (see the Terms), or misusing
+        the chapter's name.
 \end{itemize}
+{\bfseries\color{Ink}Membership \& removal.}\;
+Core members and other members may be asked to step down, or be removed from the community, for
+violating this Code — at the lead's supervision, and in consultation with the Faculty Advisor where
+the matter is serious.
+\vspace{3pt}\\
+{\bfseries\color{Ink}Community channels \& admin rights.}\;
+Admin rights of the main WhatsApp group are held by the \textbf{current lead}, \textbf{one or two
+trusted members}, and — as an option — \textbf{any of the former organisers}. Admin is handed over as
+leadership changes, and the main group is kept free of outside promotion.
+\vspace{3pt}\\
 {\bfseries\color{Ink}Reporting \& enforcement.}\;
 Concerns should be reported to the lead or the Faculty Advisor and are handled confidentially.
-Breaches are met with a warning and, where warranted, removal from the team or community.
+Breaches are met with a graduated response — a warning first, and removal from the team or community
+where warranted.
 \end{tcolorbox}
 \clearpage
 
@@ -425,25 +461,236 @@ what make the Technical Report possible.
 \clearpage
 
 
-% ============================== NEXT UP ==============================
-\ghead{Coming Next (In Progress)}{Coming Next \normalsize\color{Slate}(In Progress)}
-The following sections are being written and will be appended in the next revision of this playbook.
+% ============================== GITHUB EVENTS ==============================
+\ghead{Managing Events on GitHub}{Managing Events on GitHub}
+Event coordination lives in one repository — \texttt{dscjisu/events} — the single source of truth for
+the whole lifecycle. The model is GitHub's own \emph{Open Source Friday}: an event is an issue, its
+stage is a label, and an approved event publishes itself to a public listing. Nothing about an event
+lives in someone's head or a private chat. Alongside it, \textbf{every event also gets its own
+repository} for the material it produces — slides, code and resources — so nothing worth keeping is
+lost.
+\vspace{8pt}
 
-\begin{itemize}[leftmargin=1.6em,itemsep=10pt,topsep=4pt,label=\textcolor{GBlue}{\faCircle}]
-  \item {\bfseries Managing events on GitHub.}\;{\small\color{Slate}How the chapter will create and
-        run events on GitHub — issues, boards and templates — modelled on GitHub's \emph{Open Source
-        Friday}, so event listing becomes simple and transparent.}
-  \item {\bfseries Participation certificates via GitHub.}\;{\small\color{Slate}Using GitHub's email
-        service to issue participation certificates to attendees.}
-  \item {\bfseries Refreshing the \texttt{dscjisu} organisation repositories.}\;{\small\color{Slate}
-        Bringing the organisation's repositories up to date and into a maintainable state.}
+\begin{tcolorbox}[enhanced,colback=Mist,colframe=Line,boxrule=0.6pt,arc=4pt,
+    left=14pt,right=14pt,top=10pt,bottom=10pt]
+{\footnotesize\ttfamily\color{Ink}%
+dscjisu/events/\\
+\hspace*{1em}.github/\\
+\hspace*{2.2em}ISSUE\_TEMPLATE/event.yml \hfill {\rmfamily\itshape\color{Slate}the event schema}\\
+\hspace*{2.2em}workflows/update-readme.yml \hfill {\rmfamily\itshape\color{Slate}rebuilds the listing on approval}\\
+\hspace*{1em}events/NN-slug/\\
+\hspace*{2.2em}event.md \hfill {\rmfamily\itshape\color{Slate}canonical record, from the issue}\\
+\hspace*{2.2em}mou.md \hfill {\rmfamily\itshape\color{Slate}drafted MoU, committed ready}\\
+\hspace*{2.2em}graphics/ \hfill {\rmfamily\itshape\color{Slate}event banner \& thumbnail}\\
+\hspace*{1em}assets/brand/ \hfill {\rmfamily\itshape\color{Slate}GDG brand kit (provided separately)}\\
+\hspace*{1em}scripts/generate.py \hfill {\rmfamily\itshape\color{Slate}Pillow — MoU \& certificates}\\
+\hspace*{1em}README.md \hfill {\rmfamily\itshape\color{Slate}live public listing (auto-updated)}%
+}
+\end{tcolorbox}
+
+\vspace{12pt}
+{\bfseries\color{Ink}The event lifecycle}\quad{\footnotesize\color{Slate}— each event moves through these labelled stages.}
+\par\vspace{10pt}
+\noindent\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[x=1cm,y=1cm,
+    stg/.style={rounded corners=4pt,inner xsep=8pt,inner ysep=5pt,font=\bfseries,
+                text=white,minimum height=0.72cm}]
+  \node[stg,fill=Slate] (a) {need-info};
+  \node[stg,fill=GBlue,right=11pt of a] (b) {scheduled};
+  \node[stg,fill=GGrn,right=11pt of b] (c) {approved};
+  \node[stg,fill=GYel,text=Ink,right=11pt of c] (d) {graphics};
+  \node[stg,fill=GRed,right=11pt of d] (e) {MoU};
+  \node[stg,fill=GBlue,right=11pt of e] (f) {listed};
+  \node[stg,fill=GGrn,right=11pt of f] (g) {completed};
+  \foreach \s/\t in {a/b,b/c,c/d,d/e,e/f,f/g}
+    \draw[-{Latex[length=6pt]},Slate,line width=1pt] (\s.east) -- (\t.west);
+\end{tikzpicture}}
+\vspace{12pt}
+\renewcommand{\arraystretch}{1.2}\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.4cm} X@{}}\textbf{Stage \small\color{Slate}(issue label)} & \textbf{Meaning} \\[3pt]\arrayrulecolor{Line}\hline\rule{0pt}{2.8ex}\pill{Slate}{need-info} & Draft opened from the template. Required fields are still missing; the owner completes them. \\[7pt]\pill{GBlue}{scheduled} & Dated, with full details. Awaiting the on-campus approval flow (see \emph{Approval Flow}). \\[7pt]\pill{GGrn}{approved} & Cleared through the approval flow. The README listing updates automatically. \\[7pt]\pillk{GYel}{graphics-ready} & Banner and thumbnail made by the Design team and posted on the issue with the GDG event link. \\[7pt]\pill{GRed}{mou-ready} & The MoU is drafted and committed in the event repository, ready to sign. \\[7pt]\pill{GBlue}{listed} & Registration form and dashboard link set; the event is enlisted on the GDG dashboard. \\[7pt]\pill{GGrn}{completed} & Held and archived — records to Drive (see \emph{Event Records}); the event repo locked, archived and shared on socials. \\[7pt]\end{tabularx}
+\clearpage
+
+{\bfseries\color{Ink}Each event has its own repository}\\[2pt]
+Beyond the coordination hub, every event gets a dedicated repository holding the material it produces
+— the slides / PPT, any code or demos, and the resources meant to be shared. The drafted MoU and the
+event graphics live here too, so an event's whole footprint sits in one place.
+
+\vspace{4pt}
+\begin{tcolorbox}[enhanced,colback=Mist,colframe=Mist,arc=4pt,left=14pt,right=14pt,top=9pt,bottom=9pt,
+    borderline west={3pt}{0pt}{GGrn}]
+  {\bfseries\color{Ink}\faIcon{archive}~~When it's done, lock it and share it.}\\[2pt]
+  {\small\color{Slate}Once an event repository is locked and set — nothing more to add — it is
+  \textbf{archived} (made read-only) and \textbf{shared on the chapter's social profile}, so the work
+  stays public and credited even after it goes quiet.}
+\end{tcolorbox}
+
+\vspace{14pt}
+{\bfseries\color{Ink}The event issue — what it captures}\quad{\footnotesize\color{Slate}— a proposed schema; the lead finalises the fields.}
+\par\vspace{8pt}
+\renewcommand{\arraystretch}{1.15}\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.7cm} X@{}}\textbf{Field} & \textbf{Captured value} \\[3pt]\arrayrulecolor{Line}\hline\rule{0pt}{2.4ex}\textbf{Title \& type} & Event name and kind — workshop, hackathon, meetup, info session, study jam. \\[4pt]\textbf{Mode} & On-site or online. \\[4pt]\textbf{Date \& timings} & Scheduled date and start / end time. \\[4pt]\textbf{Room / venue} & Room number for on-site; platform for online. \\[4pt]\textbf{Description} & A short abstract of the event. \\[4pt]\textbf{Expected count} & Anticipated number of participants. \\[4pt]\textbf{Speaker(s)} & Names, and whether a speaker image is available to attach. \\[4pt]\textbf{Partners} & Community or industry collaborators, if any. \\[4pt]\textbf{MoU needed?} & Whether a Memorandum of Understanding is required. \\[4pt]\textbf{Registration link} & The Google Form for sign-ups. \\[4pt]\textbf{Dashboard link} & The GDG dashboard listing or external event URL. \\[4pt]\textbf{Owner} & The core member responsible for the event. \\[4pt]\end{tabularx}
+\clearpage
+
+{\bfseries\color{Ink}What GitHub manages for us}
+\begin{itemize}[leftmargin=1.4em,itemsep=4pt,topsep=3pt]
+  \item \textbf{Issues} — one per event, the single canonical record.
+  \item \textbf{Issue forms} — structured intake matching the schema, so nothing is missed.
+  \item \textbf{Labels} — the lifecycle stage of each event.
+  \item \textbf{Project board} — a kanban of every event across the stages; the \emph{Open Source
+        Friday} view the core team works from.
+  \item \textbf{Assignee} — the core member who owns the event.
+  \item \textbf{Actions} — regenerate the README on approval and automate label transitions.
+  \item \textbf{Committed artifacts} — the MoU (ready to sign), the event graphics and
+        \texttt{event.md}, all version-controlled.
+  \item \textbf{README} — the public, always-current listing the dashboard can read from.
 \end{itemize}
 
+\vspace{8pt}
+\begin{tcolorbox}[enhanced,colback=white,colframe=GGrn,boxrule=1pt,arc=4pt,
+    left=14pt,right=14pt,top=11pt,bottom=11pt]
+  {\bfseries\color{GGrn}\faIcon{clipboard-check}~~Definition of done — before an event is set out.}\\[6pt]
+  {\color{Ink}\faIcon{check-square}~Approved on campus \quad
+  \faIcon{check-square}~MoU committed \quad
+  \faIcon{check-square}~Graphics linked \quad
+  \faIcon{check-square}~Registration form set \quad
+  \faIcon{check-square}~Dashboard link set}\\[6pt]
+  {\small\color{Slate}Only when all five hold does the event move to \pill{GBlue}{listed} and get
+  enlisted on the dashboard.}
+\end{tcolorbox}
+\clearpage
+
+
+% ============================== GRAPHICS ==============================
+\ghead{Event Graphics — the Standard}{Event Graphics — the Standard}
+Event graphics are owned by the \textbf{Design team}, who make each event's poster in whatever style
+suits it — held consistent with the GDG brand. The \emph{style} is free; the \emph{deliverables and
+their sizes} are fixed, so every asset drops cleanly into the issue, the dashboard and socials.
+\vspace{6pt}
+
+\renewcommand{\arraystretch}{1.3}\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}p{3.4cm} X@{}}\textbf{Asset} & \textbf{Size} & \textbf{Use} \\[3pt]\arrayrulecolor{Line}\hline\rule{0pt}{2.6ex}\pill{GBlue}{Banner} & \textbf{2560 $\times$ 650}\,px & Event header on the dashboard and repository. \\[6pt]\pillk{GYel}{Thumbnail} & \textbf{1:1} (square) & Social card and event listing. \\[6pt]\end{tabularx}
+
 \vspace{10pt}
-\begin{tcolorbox}[enhanced,colback=white,colframe=GYel,boxrule=1pt,arc=4pt,
-    left=14pt,right=14pt,top=10pt,bottom=10pt]
-  {\bfseries\color{Ink}\faIcon{tools}~Placeholder.}\;{\small\color{Slate}This section is a marker so the
-  structure is settled; the detailed workflow will be dropped in here.}
+{\bfseries\color{Ink}When the graphics are ready}
+\begin{itemize}[leftmargin=1.4em,itemsep=4pt,topsep=3pt]
+  \item Post the \textbf{thumbnail} and the \textbf{banner} as a comment on the event issue.
+  \item Add the \textbf{GDG event link} in the same comment.
+  \item Move the event to \pillk{GYel}{graphics-ready}.
+\end{itemize}
+
+\begin{tcolorbox}[enhanced,colback=Mist,colframe=Mist,arc=4pt,left=14pt,right=14pt,top=9pt,bottom=9pt,
+    borderline west={3pt}{0pt}{GYel}]
+  {\footnotesize\color{Slate}Freedom in the look, discipline in the format. Keeping the two sizes fixed
+  means a poster made for one event fits every surface it needs to — no re-cropping, no surprises on
+  the dashboard.}
+\end{tcolorbox}
+\clearpage
+
+
+% ============================== MOU ==============================
+\ghead{The MoU — Standard Format}{The MoU — Standard Format}
+Every event that involves a co-host or partner carries a \textbf{Memorandum of Understanding}. Its
+format is fixed — the same sections every time — so nothing is negotiated from a blank page and
+nothing important is left out.
+\vspace{6pt}
+
+\renewcommand{\arraystretch}{1.2}\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.7cm} X@{}}\textbf{Section} & \textbf{Contents} \\[3pt]\arrayrulecolor{Line}\hline\rule{0pt}{2.4ex}\textbf{Parties} & GDG on Campus JIS University and the co-host / partner, each named in full. \\[4pt]\textbf{Event} & Title, date, and venue or mode. \\[4pt]\textbf{Purpose} & What the collaboration is for, in a line or two. \\[4pt]\textbf{Responsibilities} & What each party will do — venue, speakers, promotion, logistics. \\[4pt]\textbf{Contributions} & Resources each side brings — space, tooling, swag, funds (if any). \\[4pt]\textbf{Branding \& credit} & How each party is named and credited, and the terms of brand use. \\[4pt]\textbf{Data \& privacy} & How attendee data is handled — per the chapter's Privacy Policy. \\[4pt]\textbf{Term} & The dates over which the MoU is valid. \\[4pt]\textbf{Points of contact} & One named contact for each party. \\[4pt]\textbf{Signatures} & Chapter lead, Faculty Advisor, and the partner's representative. \\[4pt]\end{tabularx}
+
+\vspace{10pt}
+\begin{tcolorbox}[enhanced,colback=Mist,colframe=Mist,arc=4pt,left=14pt,right=14pt,top=9pt,bottom=9pt,
+    borderline west={3pt}{0pt}{GRed}]
+  {\bfseries\color{Ink}\faIcon{file-code}~~Defined here, and in the script.}\\[2pt]
+  {\small\color{Slate}These same sections are encoded in the GitHub script (\texttt{scripts/generate.py}),
+  which drafts \texttt{mou.md} for each event from the issue — so every MoU follows this format
+  automatically and lands in the event repository ready to sign.}
+\end{tcolorbox}
+\clearpage
+
+
+% ============================== CERTIFICATES ==============================
+\ghead{Registration \& Participation Certificates}{Registration \& Participation Certificates}
+Every event has a \textbf{Google Form} prepared before it opens. It captures sign-ups and is the basis
+of the attendance record.
+
+\vspace{4pt}
+\begin{tcolorbox}[enhanced,colback=white,colframe=GGrn,boxrule=1pt,arc=4pt,
+    left=14pt,right=14pt,top=11pt,bottom=11pt]
+  {\bfseries\color{GGrn}\faIcon{certificate}~~Eligibility.}\\[2pt]
+  A participant who fills the event's Google Form becomes \textbf{eligible for the participation
+  certificate}. The form is the single gate between attending and being certified.
+\end{tcolorbox}
+
+\vspace{10pt}
+{\bfseries\color{Ink}How the certificate is made and sent}\quad{\footnotesize\color{Slate}— the same Pillow discipline as the event graphics.}
+\par\vspace{8pt}
+\begin{tcolorbox}[enhanced,colback=white,colframe=GBlue,boxrule=1pt,arc=5pt,
+    left=14pt,right=14pt,top=9pt,bottom=9pt,width=\linewidth]
+  {\pill{GBlue}{1}}\;\;{\bfseries\color{Ink}Collect the eligible list}\\[5pt]
+  {\small\color{Slate}The event's Google Form responses are the eligible participants —\\[3pt]each row is one certificate to issue.}
+\end{tcolorbox}
+\begin{center}{\color{Slate}\Large\faIcon{long-arrow-alt-down}}\end{center}
+\begin{tcolorbox}[enhanced,colback=white,colframe=GRed,boxrule=1pt,arc=5pt,
+    left=14pt,right=14pt,top=9pt,bottom=9pt,width=\linewidth]
+  {\pill{GRed}{2}}\;\;{\bfseries\color{Ink}Fill GDG's pre-defined template}\\[5pt]
+  {\small\color{Slate}A \textbf{Pillow} script writes onto GDG's fixed certificate template,\\[3pt]filling the blanks — participant name, event and date — one per person.}
+\end{tcolorbox}
+\begin{center}{\color{Slate}\Large\faIcon{long-arrow-alt-down}}\end{center}
+\begin{tcolorbox}[enhanced,colback=white,colframe=GYel,boxrule=1pt,arc=5pt,
+    left=14pt,right=14pt,top=9pt,bottom=9pt,width=\linewidth]
+  {\pill{GYel}{3}}\;\;{\bfseries\color{Ink}Signatures at the foot}\\[5pt]
+  {\small\color{Slate}The template carries, at the bottom, the signatures of the\\[3pt]\textbf{current lead} (Organiser) and the \textbf{Faculty Advisor}.}
+\end{tcolorbox}
+\begin{center}{\color{Slate}\Large\faIcon{long-arrow-alt-down}}\end{center}
+\begin{tcolorbox}[enhanced,colback=white,colframe=GGrn,boxrule=1pt,arc=5pt,
+    left=14pt,right=14pt,top=9pt,bottom=9pt,width=\linewidth]
+  {\pill{GGrn}{4}}\;\;{\bfseries\color{Ink}Email each participant}\\[5pt]
+  {\small\color{Slate}Each eligible participant is emailed their generated certificate,\\[3pt]using the chapter's standard email footer.}
+\end{tcolorbox}
+
+\vspace{10pt}
+\begin{tcolorbox}[enhanced,colback=Mist,colframe=Mist,arc=4pt,left=14pt,right=14pt,top=9pt,bottom=9pt,
+    borderline west={3pt}{0pt}{GBlue}]
+  {\footnotesize\color{Slate}The template and both signatures are fixed; only the participant's details
+  change. That is what makes issuing hundreds of certificates a single scripted run rather than manual
+  work — and keeps every certificate identical but for the name on it.}
+\end{tcolorbox}
+\clearpage
+
+
+% ============================== ORG REPOS ==============================
+\ghead{Refreshing the Organisation Repositories}{Refreshing the Organisation Repositories}
+The \texttt{dscjisu} GitHub organisation carries several years of history. Keeping it tidy is part of
+the lead's stewardship — a newcomer landing on the org should immediately see what is active, what
+each repository is, and where the current work lives. This is done in phases.
+\vspace{6pt}
+
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{@{}p{0.5cm} >{\raggedright\arraybackslash}p{3.8cm} X@{}}
+\pill{GBlue}{1} & \textbf{Archive the old} &
+  Repositories that are no longer active are \textbf{archived} — made read-only. Nothing is deleted;
+  history is preserved, but the retired work is clearly set apart from the live surface. \\
+\pill{GRed}{2} & \textbf{Describe the rest} &
+  Every kept repository is given a \textbf{clear description} (and topics) so anyone browsing the org
+  understands what each one is, without opening it. \\
+\pill{GYel}{3} & \textbf{Split for maintenance} &
+  Later, the consolidated event folder is \textbf{divided into its respective repositories}, each one
+  owned and maintained on its own — the endpoint of the GitHub-based event workflow. \\
+\end{tabularx}
+
+\vspace{10pt}
+\begin{tcolorbox}[enhanced,colback=white,colframe=GGrn,boxrule=1pt,arc=4pt,left=14pt,right=14pt,top=10pt,bottom=10pt]
+  {\bfseries\color{GGrn}\faIcon{robot}~~Automated housekeeping.}\\[2pt]
+  {\small\color{Ink}A scheduled workflow in the org's \texttt{.github} repository orchestrates the
+  whole organisation. On a timer, it inventories every repository and \textbf{archives those with no
+  maintenance for a set period} — leaving a short \textbf{exceptions list} (the profile repos, the
+  events hub, and anything explicitly pinned as active) untouched. Housekeeping runs on a schedule,
+  not on someone remembering to do it.}
+\end{tcolorbox}
+
+\vspace{8pt}
+\begin{tcolorbox}[enhanced,colback=Mist,colframe=Mist,arc=4pt,left=14pt,right=14pt,top=9pt,bottom=9pt,
+    borderline west={3pt}{0pt}{GBlue}]
+  {\bfseries\color{Ink}\faIcon{terminal}~~And scriptable by hand.}\\[2pt]
+  {\small\color{Slate}For a one-off pass, the same actions run through the \texttt{gh} CLI —
+  \texttt{gh repo archive}, \texttt{gh repo edit -{}-description}, \texttt{gh repo edit -{}-add-topic}
+  — so a lead can bring the org up to date in a single sweep whenever needed.}
 \end{tcolorbox}
 \clearpage
 
@@ -456,6 +703,25 @@ The following sections are being written and will be appended in the next revisi
 You inherit a chapter, a community, and this playbook. Follow it where it is settled, improve it where
 it is not, and never let the standards slip below the floor it sets. When your time is done, sign the
 handover honestly and pass it on — a little larger, a little truer than you found it.
+
+\vspace{4pt}
+\textbf{The community comes first — before any event, any number, any credit, and before your own
+convenience.} Everything else in this playbook is downstream of that one idea. To lead is to take up
+the work, not to be seen doing it: to carry the load when it is heavy, to be patient when things are
+slow, and to be steady enough not to lose your cool when they go wrong. Your first duty is to the
+people — to protect the members, make room for them, and make sure no one is used or left behind.
+
+A good lead sees trouble before it arrives. Learn to read the points of failure — the unowned task,
+the overloaded volunteer, the unclear agreement, the quiet resentment — and defuse them early. Avoid
+conflict where you can; where it cannot be avoided, face it directly, fairly, and in the open, and
+take the right action even when it is the harder one. The chapter's calm is your responsibility, and
+it is built one steady decision at a time.
+
+\begin{tcolorbox}[enhanced,colback=Mist,colframe=Mist,arc=5pt,left=16pt,right=16pt,top=12pt,bottom=12pt,
+    borderline west={3pt}{0pt}{GBlue}]
+  {\small\color{Ink}Be patient. Be fair. Protect your people. Keep your word, keep your calm, and keep
+  the community first. Do that, and everything this playbook asks of you will follow naturally.}
+\end{tcolorbox}
 
 \vfill
 \begin{center}
