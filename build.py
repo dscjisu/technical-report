@@ -561,7 +561,7 @@ def dashboard():
     # growth chart
     bars, labels = [], []
     W, n = 12.0, len(rows)
-    slot = W / n; barw = slot * 0.42; Hmax = 4.2
+    slot = W / n; barw = slot * 0.42; Hmax = 3.7
     maxev = max(r[1] for r in rows)
     for i, (s, ne, inc, ft) in enumerate(rows):
         x = i * slot + slot / 2
@@ -583,7 +583,7 @@ def dashboard():
     maxmem = max((m for _, m in mrows), default=0)
     mchart = ""
     if maxmem:
-        Mh = 3.4
+        Mh = 3.0
         pts = [((i + 0.5) * (W / len(mrows)), Mh * m / maxmem) for i, (_, m) in enumerate(mrows)]
         poly = " -- ".join("(%.2f,%.2f)" % p for p in pts)
         area = (r"\fill[GBlue,opacity=0.10] (%.2f,0) -- %s -- (%.2f,0) -- cycle;"
@@ -628,20 +628,20 @@ def dashboard():
 % ============================== AT A GLANCE ==============================
 \phantomsection\addcontentsline{toc}{section}{At a Glance (2022–26)}
 \section*{\color{Ink}At a Glance \normalsize\color{Slate}(2022–26)}
-\gbar[\linewidth]\\[12pt]
+\gbar[\linewidth]\\[8pt]
 """ + tiles + r"""
-\vspace{16pt}
+\vspace{9pt}
 
 {\bfseries\color{Ink}Events per season}\quad{\footnotesize\color{Slate}— cadence has grown every year, from 3 in the founding season to 19 in 2025–26.}
 """ + chart + r"""
-\vspace{14pt}
+\vspace{8pt}
 
 {\bfseries\color{Ink}Community growth}\quad{\footnotesize\color{Slate}— approximate registered membership at the close of each season, from a founding cohort of well under a hundred to around 1,800 today.}
 """ + mchart + r"""
-\vspace{10pt}
+\vspace{6pt}
 """ + table + r"""
 
-\vspace{12pt}
+\vspace{8pt}
 {\footnotesize\color{Slate}\emph{Footfall} is cumulative event attendance across the season (range
 midpoints where a range was recorded); attendees recur across events, so this counts participation,
 not unique members.""" + (r" \;$\uparrow$\,denotes events scheduled but not yet held." if tot_inc else "") + r"""}
@@ -662,10 +662,10 @@ def lineage():
             % (c, s["year"], s["brand"], s["organiser"], s["role"], roll_tex, s["note"]))
     return (r"""
 % ============================== LINEAGE ==============================
-\phantomsection\addcontentsline{toc}{section}{Leadership Lineage}
-\section*{\color{Ink}Leadership Lineage}
+\phantomsection\addcontentsline{toc}{section}{Leadership Lineage (2022–26)}
+\section*{\color{Ink}Leadership Lineage \normalsize\color{Slate}(2022–26)}
 \gbar[\linewidth]\\[10pt]
-{\color{Slate}Each organiser inherited a chapter and grew it. This is the chain of custody.}
+{\color{Slate}Each organiser inherited a chapter and grew it, from 2022 to 2026. This is the chain of custody.}
 \vspace{12pt}
 \begin{itemize}[leftmargin=1.8em,itemsep=22pt,parsep=0pt,label=\textcolor{GBlue}{\faCircle}]
 """ + "\n".join(body) + r"""
