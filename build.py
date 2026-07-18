@@ -445,6 +445,38 @@ def cover():
 \clearpage
 """
 
+def verification():
+    return r"""
+% ============================== VERIFICATION ==============================
+\phantomsection\addcontentsline{toc}{section}{Verification}
+\section*{\color{Ink}Verification}
+\gbar[\linewidth]\\[14pt]
+
+This report has been reviewed and \textbf{verified by the Faculty Advisor} of GDG on Campus JIS
+University, Department of Computer Science \& Engineering. The events, figures and records set out in
+this document are certified as accurate to the best of the chapter's knowledge.
+
+\vspace{34pt}
+\begin{center}
+  \begin{tikzpicture}
+    \node[draw=GGrn,line width=1.6pt,rounded corners=10pt,inner xsep=20pt,inner ysep=13pt,
+          text=GGrn,font=\LARGE\bfseries] {\faIcon{check-circle}~~VERIFIED};
+  \end{tikzpicture}
+\end{center}
+
+\vspace{48pt}
+\begin{center}
+\begin{tcolorbox}[enhanced,width=12.8cm,colback=Mist,colframe=Mist,arc=5pt,
+    left=20pt,right=20pt,top=16pt,bottom=20pt]
+  {\footnotesize\color{Slate}\textsc{Verified by \;\textperiodcentered\; Faculty Advisor}}\\[52pt]
+  \begin{minipage}[b]{0.58\linewidth}{\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]\textbf{Name}\end{minipage}\hfill
+  \begin{minipage}[b]{0.36\linewidth}{\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]{\small\color{Slate}Signature \& Date}\end{minipage}\\[14pt]
+  {\small\color{Slate}Faculty Advisor, GDG on Campus JIS University\\ Department of Computer Science \& Engineering, JIS University}
+\end{tcolorbox}
+\end{center}
+\clearpage
+"""
+
 def foreword():
     return r"""
 % ============================== FOREWORD ==============================
@@ -839,7 +871,7 @@ lead shall carry it on — appending each new season to the record and keeping i
 """
 
 def build():
-    out = [PREAMBLE, r"\begin{document}", cover(), foreword(), dashboard(), lineage()]
+    out = [PREAMBLE, r"\begin{document}", cover(), verification(), foreword(), dashboard(), lineage()]
     out.append(r"""
 \phantomsection\addcontentsline{toc}{section}{Contents}
 \section*{\color{Ink}Contents}
