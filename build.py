@@ -876,8 +876,8 @@ lead shall carry it on — appending each new season to the record and keeping i
 def build():
     out = [PREAMBLE, r"\begin{document}", cover(), verification(), foreword(), dashboard(), lineage()]
     out.append(r"""
-\phantomsection\addcontentsline{toc}{section}{Contents}
-\section*{\color{Ink}Contents}
+\phantomsection\addcontentsline{toc}{section}{Contents (2021–26)}
+\section*{\color{Ink}Contents \normalsize\color{Slate}(2021–26)}
 \gbar[\linewidth]\\[8pt]
 \begingroup
 \hypersetup{linkcolor=Ink}
