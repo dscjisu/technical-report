@@ -17,7 +17,8 @@ latexmk -pdf dscjisu_report_21_26.tex   # or: pdflatex dscjisu_report_21_26.tex 
   galleries all recompute.
 - **Gallery images** — drop files into `assets/gallery/<NN>/` (zero-padded event number); they're
   optimised and laid out as a balanced grid automatically.
-- **Attendance rosters** — `assets/attendance/<NN>/roster.csv`.
+- **Attendance** — event totals are kept in `records.json`; named rosters are not included in the
+  published report.
 - **Brand assets** — `assets/brand/`.
 
 ## Related repositories

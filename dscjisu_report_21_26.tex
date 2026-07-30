@@ -20,7 +20,7 @@
 \usepackage{colortbl}
 \usepackage{multicol}
 \usepackage{csquotes}
-\usepackage{truncate}
+\usepackage{needspace}
 \usepackage[hidelinks]{hyperref}
 \usepackage{bookmark}
 \hypersetup{pdftitle={GDG on Campus JIS University — Technical Report 2022–},
@@ -53,6 +53,11 @@
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{1.5em}
+% Event cards intentionally combine ragged title columns, rules and image
+% grids; suppress harmless loose-box diagnostics while retaining overfull-box
+% warnings, which indicate content escaping its allotted width.
+\hbadness=10000
 
 % four-colour rule used as a divider throughout
 \newcommand{\gbar}[1][\linewidth]{%
@@ -77,7 +82,8 @@
 % (portrait) photos can't overflow the page and push a gallery onto the next one.
 \newlength{\galmaxh}\setlength{\galmaxh}{7.5cm}
 \newcommand{\galimg}[1]{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{0.6pt}%
-  \fcolorbox{Line}{white}{\includegraphics[width=\linewidth,height=\galmaxh,keepaspectratio]{#1}}}
+  \fcolorbox{Line}{white}{\includegraphics[
+    width=\dimexpr\linewidth-2\fboxrule\relax,height=\galmaxh,keepaspectratio]{#1}}}
 
 \begin{document}
 
@@ -117,9 +123,10 @@
 \section*{\color{Ink}Verification}
 \gbar[\linewidth]\\[14pt]
 
-This report has been reviewed and \textbf{verified by the Faculty Advisor} of GDG on Campus JIS
-University, Department of Computer Science \& Engineering. The events, figures and records set out in
-this document are certified as accurate to the best of the chapter's knowledge.
+This report has been reviewed by the \textbf{Head of Department}, \textbf{Faculty Advisor}, and
+\textbf{Initiative Lead} of GDG on Campus JIS University, Department of Computer Science \&
+Engineering. The events, figures and records set out in this document are certified as accurate to
+the best of the chapter's knowledge.
 
 This verification is made under the \textbf{2025–26} tenure, during which this document is itself
 compiled and published.
@@ -134,12 +141,30 @@ compiled and published.
 
 \vspace{48pt}
 \begin{center}
-\begin{tcolorbox}[enhanced,width=12.8cm,colback=Mist,colframe=Mist,arc=5pt,
-    left=20pt,right=20pt,top=16pt,bottom=20pt]
-  {\footnotesize\color{Slate}\textsc{Verified by \;\textperiodcentered\; Faculty Advisor}}\\[46pt]
-  \begin{minipage}[b]{0.58\linewidth}{\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]\textbf{Dr.\ Kaushik Adhikary}\;{\small\color{Slate}(2025–26)}\end{minipage}\hfill
-  \begin{minipage}[b]{0.36\linewidth}\makebox[\linewidth]{\includegraphics[height=1.05cm]{assets/brand/faculty_signature.png}}\\[-1pt]{\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]{\small\color{Slate}Signature}\end{minipage}\\[14pt]
-  {\small\color{Slate}Faculty Advisor, GDG on Campus JIS University\\ Department of Computer Science \& Engineering, JIS University}
+\begin{tcolorbox}[enhanced,width=15.8cm,colback=Mist,colframe=Mist,arc=5pt,
+    left=14pt,right=14pt,top=16pt,bottom=18pt]
+  {\footnotesize\color{Slate}\textsc{Review and approval signatures}}\\[26pt]
+  \begin{minipage}[b]{0.31\linewidth}\centering
+    {\small\bfseries Head of Department}\\[9pt]
+    \rule{0pt}{1.05cm}\\[-1pt]
+    {\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]
+    \textbf{Dr.\ Sandip Roy}\\[-1pt]
+    {\small\color{Slate}Dept. Computer Science and Engineering}
+  \end{minipage}\hfill
+  \begin{minipage}[b]{0.31\linewidth}\centering
+    {\small\bfseries Faculty Advisor}\\[9pt]
+    \makebox[\linewidth]{\includegraphics[height=1.05cm]{assets/brand/faculty_signature.png}}\\[-1pt]
+    {\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]
+    \textbf{Dr.\ Kaushik Adhikary}\\[-1pt]
+    {\small\color{Slate}GDG on Campus JIS University}
+  \end{minipage}\hfill
+  \begin{minipage}[b]{0.31\linewidth}\centering
+    {\small\bfseries Initiative Lead}\\[9pt]
+    \makebox[\linewidth]{\includegraphics[height=1.05cm]{assets/brand/ayushman_signature.jpeg}}\\[-1pt]
+    {\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]
+    \textbf{Ayushman Bhattacharya}\\[-1pt]
+    {\small\color{Slate}GDG on Campus JIS University}
+  \end{minipage}
 \end{tcolorbox}
 \end{center}
 \clearpage
@@ -196,17 +221,17 @@ season; no events were added or removed in doing so.}
 \phantomsection\addcontentsline{toc}{section}{At a Glance (2022–26)}
 \section*{\color{Ink}At a Glance \normalsize\color{Slate}(2022–26)}
 \gbar[\linewidth]\\[8pt]
-\noindent\begin{minipage}[t]{0.245\linewidth}\begin{tcolorbox}[enhanced,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,width=\linewidth,left=10pt,right=10pt,top=9pt,bottom=9pt,borderline north={3pt}{0pt}{GBlue}]{\color{GBlue}\large\faIcon{calendar-check}}\quad{\fontsize{25}{25}\selectfont\bfseries\color{Ink}4}\\[1pt]{\footnotesize\color{Slate}Seasons on record}\end{tcolorbox}\end{minipage}\hfill\begin{minipage}[t]{0.245\linewidth}\begin{tcolorbox}[enhanced,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,width=\linewidth,left=10pt,right=10pt,top=9pt,bottom=9pt,borderline north={3pt}{0pt}{GRed}]{\color{GRed}\large\faIcon{layer-group}}\quad{\fontsize{25}{25}\selectfont\bfseries\color{Ink}35}\\[1pt]{\footnotesize\color{Slate}Events held}\end{tcolorbox}\end{minipage}\hfill\begin{minipage}[t]{0.245\linewidth}\begin{tcolorbox}[enhanced,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,width=\linewidth,left=10pt,right=10pt,top=9pt,bottom=9pt,borderline north={3pt}{0pt}{GYel}]{\color{GYel}\large\faIcon{users}}\quad{\fontsize{25}{25}\selectfont\bfseries\color{Ink}4.0{\small k}}\\[1pt]{\footnotesize\color{Slate}Cumulative footfall}\end{tcolorbox}\end{minipage}\hfill\begin{minipage}[t]{0.245\linewidth}\begin{tcolorbox}[enhanced,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,width=\linewidth,left=10pt,right=10pt,top=9pt,bottom=9pt,borderline north={3pt}{0pt}{GGrn}]{\color{GGrn}\large\faIcon{user-friends}}\quad{\fontsize{25}{25}\selectfont\bfseries\color{Ink}$\sim$1.8{\small k}}\\[1pt]{\footnotesize\color{Slate}Community members}\end{tcolorbox}\end{minipage}
+\noindent\begin{minipage}[t]{0.245\linewidth}\begin{tcolorbox}[enhanced,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,width=\linewidth,left=10pt,right=10pt,top=9pt,bottom=9pt,borderline north={3pt}{0pt}{GBlue}]{\color{GBlue}\large\faIcon{calendar-check}}\quad{\fontsize{25}{25}\selectfont\bfseries\color{Ink}4}\\[1pt]{\footnotesize\color{Slate}Seasons on record}\end{tcolorbox}\end{minipage}\hfill\begin{minipage}[t]{0.245\linewidth}\begin{tcolorbox}[enhanced,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,width=\linewidth,left=10pt,right=10pt,top=9pt,bottom=9pt,borderline north={3pt}{0pt}{GRed}]{\color{GRed}\large\faIcon{layer-group}}\quad{\fontsize{25}{25}\selectfont\bfseries\color{Ink}36}\\[1pt]{\footnotesize\color{Slate}Events held}\end{tcolorbox}\end{minipage}\hfill\begin{minipage}[t]{0.245\linewidth}\begin{tcolorbox}[enhanced,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,width=\linewidth,left=10pt,right=10pt,top=9pt,bottom=9pt,borderline north={3pt}{0pt}{GYel}]{\color{GYel}\large\faIcon{users}}\quad{\fontsize{25}{25}\selectfont\bfseries\color{Ink}4.2{\small k}}\\[1pt]{\footnotesize\color{Slate}Cumulative footfall}\end{tcolorbox}\end{minipage}\hfill\begin{minipage}[t]{0.245\linewidth}\begin{tcolorbox}[enhanced,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,width=\linewidth,left=10pt,right=10pt,top=9pt,bottom=9pt,borderline north={3pt}{0pt}{GGrn}]{\color{GGrn}\large\faIcon{user-friends}}\quad{\fontsize{25}{25}\selectfont\bfseries\color{Ink}\textasciitilde\,1.8{\small k}}\\[1pt]{\footnotesize\color{Slate}Community members}\end{tcolorbox}\end{minipage}
 \vspace{9pt}
 
-{\bfseries\color{Ink}Events per season}\quad{\footnotesize\color{Slate}— cadence has grown every year, from 3 in the founding season to 19 in 2025–26.}
-\begin{center}\begin{tikzpicture}[x=1cm,y=1cm]\draw[Line] (-0.1,0) -- (12.10,0);\fill[GBlue] (0.87,0) rectangle (2.13,0.56);\node[font=\bfseries\small,color=Ink] at (1.50,0.84) {3};\fill[GRed] (3.87,0) rectangle (5.13,0.93);\node[font=\bfseries\small,color=Ink] at (4.50,1.21) {5};\fill[GYel] (6.87,0) rectangle (8.13,1.30);\node[font=\bfseries\small,color=Ink] at (7.50,1.58) {7};\fill[GGrn] (9.87,0) rectangle (11.13,3.70);\node[font=\bfseries\small,color=Ink] at (10.50,3.98) {20};\node[font=\footnotesize,color=Slate,align=center] at (1.50,-0.42) {2022 – 23};\node[font=\scriptsize,color=Slate,align=center] at (1.50,-0.86) {Abhishek\,K.};\node[font=\footnotesize,color=Slate,align=center] at (4.50,-0.42) {2023 – 24};\node[font=\scriptsize,color=Slate,align=center] at (4.50,-0.86) {Chandan\,P.};\node[font=\footnotesize,color=Slate,align=center] at (7.50,-0.42) {2024 – 25};\node[font=\scriptsize,color=Slate,align=center] at (7.50,-0.86) {Ankita\,C.};\node[font=\footnotesize,color=Slate,align=center] at (10.50,-0.42) {2025 – 26};\node[font=\scriptsize,color=Slate,align=center] at (10.50,-0.86) {Ayushman\,B.};\end{tikzpicture}\end{center}
+{\bfseries\color{Ink}Events per season}\quad{\footnotesize\color{Slate}— cadence has grown every year, from 3 in the founding season to 21 in 2025–26.}
+\begin{center}\begin{tikzpicture}[x=1cm,y=1cm]\draw[Line] (-0.1,0) -- (12.10,0);\fill[GBlue] (0.87,0) rectangle (2.13,0.53);\node[font=\bfseries\small,color=Ink] at (1.50,0.81) {3};\fill[GRed] (3.87,0) rectangle (5.13,0.88);\node[font=\bfseries\small,color=Ink] at (4.50,1.16) {5};\fill[GYel] (6.87,0) rectangle (8.13,1.23);\node[font=\bfseries\small,color=Ink] at (7.50,1.51) {7};\fill[GGrn] (9.87,0) rectangle (11.13,3.70);\node[font=\bfseries\small,color=Ink] at (10.50,3.98) {21};\node[font=\footnotesize,color=Slate,align=center] at (1.50,-0.42) {2022 – 23};\node[font=\scriptsize,color=Slate,align=center] at (1.50,-0.86) {Abhishek\,K.};\node[font=\footnotesize,color=Slate,align=center] at (4.50,-0.42) {2023 – 24};\node[font=\scriptsize,color=Slate,align=center] at (4.50,-0.86) {Chandan\,P.};\node[font=\footnotesize,color=Slate,align=center] at (7.50,-0.42) {2024 – 25};\node[font=\scriptsize,color=Slate,align=center] at (7.50,-0.86) {Ankita\,C.};\node[font=\footnotesize,color=Slate,align=center] at (10.50,-0.42) {2025 – 26};\node[font=\scriptsize,color=Slate,align=center] at (10.50,-0.86) {Ayushman\,B.};\end{tikzpicture}\end{center}
 \vspace{8pt}
 
 {\bfseries\color{Ink}Community growth}\quad{\footnotesize\color{Slate}— approximate registered membership at the close of each season, from a founding cohort of well under a hundred to around 1,800 today.}
 \begin{center}\begin{tikzpicture}[x=1cm,y=1cm]\draw[Line] (-0.1,0) -- (12.10,0);\fill[GBlue,opacity=0.10] (1.50,0) -- (1.50,0.12) -- (4.50,0.42) -- (7.50,1.00) -- (10.50,3.00) -- (10.50,0) -- cycle;\draw[GBlue,line width=1.4pt] (1.50,0.12) -- (4.50,0.42) -- (7.50,1.00) -- (10.50,3.00);\fill[white] (1.50,0.12) circle (3.6pt);\fill[GBlue] (1.50,0.12) circle (2.6pt);\fill[white] (4.50,0.42) circle (3.6pt);\fill[GRed] (4.50,0.42) circle (2.6pt);\fill[white] (7.50,1.00) circle (3.6pt);\fill[GYel] (7.50,1.00) circle (2.6pt);\fill[white] (10.50,3.00) circle (3.6pt);\fill[GGrn] (10.50,3.00) circle (2.6pt);\node[font=\bfseries\small,color=Ink] at (1.50,0.48) {$\sim$50–100};\node[font=\footnotesize,color=Slate] at (1.50,-0.42) {2022 – 23};\node[font=\bfseries\small,color=Ink] at (4.50,0.78) {$\sim$200–300};\node[font=\footnotesize,color=Slate] at (4.50,-0.42) {2023 – 24};\node[font=\bfseries\small,color=Ink] at (7.50,1.36) {$\sim$500–700};\node[font=\footnotesize,color=Slate] at (7.50,-0.42) {2024 – 25};\node[font=\bfseries\small,color=Ink] at (10.50,3.36) {$\sim$1,800};\node[font=\footnotesize,color=Slate] at (10.50,-0.42) {2025 – 26};\end{tikzpicture}\end{center}
 \vspace{6pt}
-\renewcommand{\arraystretch}{1.15}\begin{tabularx}{\linewidth}{@{}l l X c r r r@{}}\multicolumn{7}{@{}l}{\footnotesize\color{Slate}\textsc{Season ledger}}\\[3pt]\textbf{Season} & \textbf{Brand} & \textbf{Organiser} & \textbf{Core} & \textbf{Members} & \textbf{Events} & \textbf{Footfall}\\\arrayrulecolor{Line}\hline\rule{0pt}{1ex}\rule{0pt}{2.6ex}\textcolor{GBlue}{\rule[-0.2ex]{8pt}{8pt}}~\textbf{2022 – 23} & GDSC & Abhishek Kushwaha & 5 & $\sim$50–100 & 3 & 315 \\[2pt]\rule{0pt}{2.6ex}\textcolor{GRed}{\rule[-0.2ex]{8pt}{8pt}}~\textbf{2023 – 24} & GDSC & Chandan Pandey & 6 & $\sim$200–300 & 5 & 425 \\[2pt]\rule{0pt}{2.6ex}\textcolor{GYel}{\rule[-0.2ex]{8pt}{8pt}}~\textbf{2024 – 25} & GDG & Ankita Chakraborty & 8 & $\sim$500–700 & 7 & 565 \\[2pt]\rule{0pt}{2.6ex}\textcolor{GGrn}{\rule[-0.2ex]{8pt}{8pt}}~\textbf{2025 – 26} & GDG & Ayushman Bhattacharya & 12 & $\sim$1,800 & 20 & 2,720 \\[2pt]\hline\rule{0pt}{2.4ex}\textbf{Total} & & & & \textbf{$\sim$1,800} & \textbf{35} & \textbf{4,025}\\\end{tabularx}
+\renewcommand{\arraystretch}{1.15}\begin{tabularx}{\linewidth}{@{}l l X c r r r@{}}\multicolumn{7}{@{}l}{\footnotesize\color{Slate}\textsc{Season ledger}}\\[3pt]\textbf{Season} & \textbf{Brand} & \textbf{Organiser} & \textbf{Core} & \textbf{Members} & \textbf{Events} & \textbf{Footfall}\\\arrayrulecolor{Line}\hline\rule{0pt}{1ex}\rule{0pt}{2.6ex}\textcolor{GBlue}{\rule[-0.2ex]{8pt}{8pt}}~\textbf{2022 – 23} & GDSC & Abhishek Kushwaha & 5 & $\sim$50–100 & 3 & 315 \\[2pt]\rule{0pt}{2.6ex}\textcolor{GRed}{\rule[-0.2ex]{8pt}{8pt}}~\textbf{2023 – 24} & GDSC & Chandan Pandey & 6 & $\sim$200–300 & 5 & 425 \\[2pt]\rule{0pt}{2.6ex}\textcolor{GYel}{\rule[-0.2ex]{8pt}{8pt}}~\textbf{2024 – 25} & GDG & Ankita Chakraborty & 8 & $\sim$500–700 & 7 & 565 \\[2pt]\rule{0pt}{2.6ex}\textcolor{GGrn}{\rule[-0.2ex]{8pt}{8pt}}~\textbf{2025 – 26} & GDG & Ayushman Bhattacharya & 12 & $\sim$1,800 & 21 & 2,864 \\[2pt]\hline\rule{0pt}{2.4ex}\textbf{Total} & & & & \textbf{$\sim$1,800} & \textbf{36} & \textbf{4,169}\\\end{tabularx}
 
 \vspace{8pt}
 {\footnotesize\color{Slate}\emph{Footfall} is cumulative event attendance across the season (range
@@ -256,46 +281,49 @@ not unique members.}
 \end{tcolorbox}
 \vspace{5pt}
 
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{01.~Info Session — Class of 2022–23}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GBlue},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {01};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Info Session — Class of 2022–23}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {01};} & {\large\bfseries\color{Ink}Info Session — Class of 2022–23} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}The founding season's opening event. It introduced GDSC JIS University to a fresh cohort — the community's mission, the technical domains it would explore, and the ways students could take part as members and volunteers. As the first gathering under the newly-formed chapter, it doubled as the recruitment drive for the founding core team.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 27 August 2022\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 11:00 AM IST \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Abhishek Kushwaha \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & — \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{90} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/01/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/01/img-02.jpg} \end{minipage}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/01/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/01/img-02.jpg} \end{minipage}
 \end{tcolorbox}
 
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{02.~Interacting with the Unique Blockchain: From Zero to Hero}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GRed},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {02};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Interacting with the Unique Blockchain: From Zero to Hero}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {02};} & {\large\bfseries\color{Ink}Interacting with the Unique Blockchain: From Zero to Hero} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A beginner-friendly virtual workshop on the Unique Network / Polkadot ecosystem, delivered by an industry developer. It walked students with no prior Web3 background through the fundamentals of building on a substrate-based blockchain, and broadened the chapter's early programming beyond web and cloud into emerging decentralised technology.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 3 September 2022\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 4:00 PM IST \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Alexander Saft \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Unique \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{70–80} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/02/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/02/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{03.~GDG JISU Codefest 2023}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GYel},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {03};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{GDG JISU Codefest 2023}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {03};} & {\large\bfseries\color{Ink}GDG JISU Codefest 2023} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}The chapter's first hosted competitive-coding event, run on-site across a full day. Spanning tooling from GitHub, Flutter, Firebase and Android, it put 150 students in a deadline-driven build environment with mentors on the floor. Codefest established the chapter's flagship habit of large, practical, project-first gatherings.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 21 March 2023\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 10:00 AM – 3:30 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Arkaprabha Chakraborty, Manish Kr Barnwal, Soumyadeep Chowdhury, Shubhayu Majumder \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & GitHub, Flutter, Firebase, Android \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{150} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/03/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/03/img-02.jpg} \end{minipage}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/03/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/03/img-02.jpg} \end{minipage}
 \end{tcolorbox}
-
 
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
 
@@ -313,74 +341,79 @@ not unique members.}
 \end{tcolorbox}
 \vspace{5pt}
 
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{04.~Info Session — Class of 2023–24}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GGrn},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {04};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Info Session — Class of 2023–24}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {04};} & {\large\bfseries\color{Ink}Info Session — Class of 2023–24} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}The annual onboarding session opening the 2023–24 cycle under new leadership. It re-introduced the community to incoming students and re-recruited the year's volunteer core, framing the roadmap of workshops, study jams and hackathons to come.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 19 September 2023\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 11:00 AM IST \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Chandan Pandey \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & — \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{120} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/04/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/04/img-02.jpg} \end{minipage}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/04/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/04/img-02.jpg} \end{minipage}
 \end{tcolorbox}
 
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{05.~Google Cloud Study Jams}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GBlue},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {05};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Google Cloud Study Jams}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {05};} & {\large\bfseries\color{Ink}Google Cloud Study Jams} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A multi-week, self-paced cloud-skilling cohort on Google Cloud Skills Boost. Around a hundred participants worked through hands-on labs toward completion tiers and swag milestones, deepening the chapter's cloud-computing track and connecting members directly to Google's official learning platform.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 1 October – 2 November 2023\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & ~2 months \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Facilitated cohort \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google Cloud Skills Boost \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{100} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/05/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/05/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{06.~Hack the Source}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GRed},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {06};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Hack the Source}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {06};} & {\large\bfseries\color{Ink}Hack the Source} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}An on-site open-source contribution session led by a panel of student and community speakers. It demystified contributing to real repositories across the GitHub, Google and Salesforce ecosystems, and pushed members from consumers of software toward first-time open-source contributors.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 25 November 2023\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 12:00 – 2:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Harshbardhan Bajoriya, Shinjini Roy, Ronit Banerjee, Khayati Mehta, Aniruddha Basak \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & GitHub, Google, Salesforce \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{60–70} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/06/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/06/img-02.jpg} \end{minipage}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/06/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/06/img-02.jpg} \end{minipage}
 \end{tcolorbox}
 
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{07.~Google Study Jams 2023}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GYel},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {07};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Google Study Jams 2023}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {07};} & {\large\bfseries\color{Ink}Google Study Jams 2023} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A month-long distributed cloud study-jam cohort that closed with swag distribution for 80+ completions. It reinforced consistent, milestone-based skilling on Google Cloud, and the high completion count reflected the chapter's growing ability to sustain longer-form programs.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 11 October – 12 November 2023\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & ~1 month \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Facilitated cohort \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google Cloud Skills Boost \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{80–90} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/07/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/07/img-02.jpg} \end{minipage}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/07/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/07/img-02.jpg} \end{minipage}
 \end{tcolorbox}
 
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{08.~Web Mastery BootCamp}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GGrn},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {08};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Web Mastery BootCamp}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {08};} & {\large\bfseries\color{Ink}Web Mastery BootCamp} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A hands-on web-development bootcamp structured as a guided roadmap — HTML, CSS, JavaScript and a capstone mini-project — facilitated by a chapter member. It took beginners from fundamentals to something shipped, strengthening the core web-dev pipeline for junior students.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 20 January 2024\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 10:00 AM – 12:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Manish Gupta \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & — \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{50–60} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/08/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/08/img-02.jpg} \end{minipage}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/08/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/08/img-02.jpg} \end{minipage}
 \end{tcolorbox}
-
 
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
 
@@ -398,102 +431,109 @@ not unique members.}
 \end{tcolorbox}
 \vspace{5pt}
 
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{09.~Info Session 2024}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GBlue},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {09};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Info Session 2024}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {09};} & {\large\bfseries\color{Ink}Info Session 2024} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}The 2024–25 onboarding session, now under the Google Developer Groups (GDG) on Campus brand following the rebrand from GDSC. Featuring past and present leads, it welcomed a new cohort and explained the year's direction, marking the chapter's change of identity while preserving continuity.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 20 September 2024\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 11:00 AM – 1:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Ankita Chakraborty, Abhishek Kushwaha, Shemanti Pal \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{80–90} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/09/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/09/img-02.jpg} \end{minipage}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/09/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/09/img-02.jpg} \end{minipage}
 \end{tcolorbox}
 
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{10.~Keeping Data Safe}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GRed},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {10};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Keeping Data Safe}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {10};} & {\large\bfseries\color{Ink}Keeping Data Safe} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A virtual talk on data privacy and safety led by a founder working in the space, run as a cross-chapter collaboration. It introduced students to responsible data handling and security-minded thinking, adding a privacy dimension to the year's programming.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 13 December 2024\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 10:00 – 11:00 AM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Heera Sharma \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Go Laadli \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{80–90} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/10/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/10/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{11.~Rectify: The Ultimate React Workshop}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GYel},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {11};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Rectify: The Ultimate React Workshop}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {11};} & {\large\bfseries\color{Ink}Rectify: The Ultimate React Workshop} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A multi-chapter React workshop bringing together speakers from industry and several GDG campuses. It gave students practical, component-first frontend skills, and its wide co-host list signalled the chapter's growing inter-campus network.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 26 December 2024\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 7:00 – 9:30 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Ayushman Bhattacharya, Manish Gupta, Krishnendu Dasgupta \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Altor Smart Mobility, GDG JISU, GDG GCECT, GDG SNJB, GDG XIE \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{80–90} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/11/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/11/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{12.~Google Solution Challenge Workshop}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GGrn},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {12};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Google Solution Challenge Workshop}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {12};} & {\large\bfseries\color{Ink}Google Solution Challenge Workshop} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A preparatory workshop for Google's global Solution Challenge, co-hosted across seven GDG chapters. It explained the challenge format and helped students shape socially-impactful project ideas, positioning members to compete on an international stage.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 26 December 2024\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 7:00 – 9:30 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Arijit Ghosal \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & GDG JISU, GDG GCECT, GDG SNJB, GDG XIE, GDG GCELT, GDG TMSL, GDG TIU \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{80–90} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/12/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/12/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{13.~Cybersecurity 101: Step Into the World of Ethical Hacking}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GBlue},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {13};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Cybersecurity 101: Step Into the World of Ethical Hacking}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {13};} & {\large\bfseries\color{Ink}Cybersecurity 101: Step Into the World of Ethical Hacking} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}An introductory ethical-hacking session for newcomers to security. It covered the mindset and entry points of penetration testing and responsible disclosure, seeding the security track that the chapter would expand considerably in later seasons.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 22 January 2025\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 7:30 – 9:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Shreya Dutta \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{90} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]{\footnotesize\color{Slate}\faImage~\emph{No gallery photo on record — drop images into }\texttt{assets/gallery/13/}\emph{\ to populate.}}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]{\footnotesize\color{Slate}\faImage~\emph{No gallery photo on record — drop images into }\texttt{assets/gallery/13/}\emph{\ to populate.}}
 \end{tcolorbox}
 
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{14.~Navigating the Future: Embracing Web3 and Blockchain Technology}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GRed},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {14};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Navigating the Future: Embracing Web3 and Blockchain Technology}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {14};} & {\large\bfseries\color{Ink}Navigating the Future: Embracing Web3 and Blockchain Technology} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A Web3 and AI workshop delivered by a DevRel engineer from Quill AI Network. It introduced students to the current blockchain ecosystem and the career paths within it, continuing the chapter's recurring exposure to decentralised and emerging technology.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 25 January 2025\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 7:00 – 9:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Sachindra Singh \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Quill AI Network \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{80–90} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/14/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/14/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{15.~Build with AI}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GYel},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {15};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Build with AI}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {15};} & {\large\bfseries\color{Ink}Build with AI} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}The chapter's first Build with AI event, part of Google's global series. It walked students through building applications with modern AI and natural-language tooling, planting what would become a central, recurring focus on applied artificial intelligence.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 5 March 2025\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 7:00 – 9:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Ayushman Bhattacharya \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{50} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/15/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/15/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
-
 
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
 
@@ -507,1750 +547,323 @@ not unique members.}
   {\large Organiser \;\textbf{Ayushman Bhattacharya}}\;\textcolor{white!85}{\small(Roll No.\ 23CS2021016)}\\[8pt]
   {\small The largest season on record — national hackathons, Hacktoberfest, GSoC preparation, live CTF and system-design tracks, a Kubernetes/CNCF meetup and cross-community welcomes with OWASP. This report is compiled during, and as part of, this tenure.}\\[10pt]
   \textcolor{white}{\rule{\linewidth}{0.6pt}}\\[6pt]
-  {\small\mbox{\faLayerGroup~\textbf{20} events} \quad\mbox{\faUserFriends~\textbf{12} core} \quad\mbox{\faUserPlus~\textbf{$\sim$1,800} members} \quad\mbox{\faUsers~\textbf{2,720} footfall} \quad\mbox{\faTag~GDG brand}}
+  {\small\mbox{\faLayerGroup~\textbf{21} events} \quad\mbox{\faUserFriends~\textbf{12} core} \quad\mbox{\faUserPlus~\textbf{$\sim$1,800} members} \quad\mbox{\faUsers~\textbf{2,864} footfall} \quad\mbox{\faTag~GDG brand}}
 \end{tcolorbox}
 \vspace{5pt}
 
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{16.~Codesprint 2.0 — Internal Nomination for SIH}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GGrn},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {16};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Codesprint 2.0 — Internal Nomination for SIH}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {16};} & {\large\bfseries\color{Ink}Codesprint 2.0 — Internal Nomination for SIH} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A two-day, on-site hackathon that served as the internal nomination round for the Smart India Hackathon, drawing 290 participants — the season's largest gathering. Backed by IEEE Australia, IEEE ComSoc, IIST and industry mentors, it channelled the campus's builders toward a national competition pipeline.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 22 September 2025\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 2 Days \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Debmitra Ghosh, Ayushman Bhattacharya, Abiroy Karmakar, TCS \& industry members \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & IEEE Australia, IEEE ComSoc, IIST, JIS Group, Pollinations.ai, GDG JISU \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{290} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/16/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/16/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 145 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Abhishek Kundu~\dotfill~\textbf{4th}\\
-Abhishek Pandey~\dotfill~\textbf{1st}\\
-Adarsh Malik~\dotfill~\textbf{3rd}\\
-Afroja Karmakar~\dotfill~\textbf{3rd}\\
-Afroja Washim~\dotfill~\textbf{3rd}\\
-Akshit Mandal~\dotfill~\textbf{2nd}\\
-Amit Mazumdar~\dotfill~\textbf{3rd}\\
-Amit Modak~\dotfill~\textbf{2nd}\\
-Amit Mondal~\dotfill~\textbf{2nd}\\
-Amrita Begam~\dotfill~\textbf{1st}\\
-Amrita Sadhukhan~\dotfill~\textbf{3rd}\\
-Anamika Pailan~\dotfill~\textbf{2nd}\\
-Anamika Singha Roy~\dotfill~\textbf{4th}\\
-Anamika Tiwari~\dotfill~\textbf{3rd}\\
-Aniruddha Mitra~\dotfill~\textbf{4th}\\
-Anjistha Imam~\dotfill~\textbf{2nd}\\
-Ankit Jha~\dotfill~\textbf{4th}\\
-Ankit Sharma~\dotfill~\textbf{1st}\\
-Ankita Raj~\dotfill~\textbf{2nd}\\
-Antara Acharya~\dotfill~\textbf{2nd}\\
-Anuja Rana~\dotfill~\textbf{4th}\\
-Arghadeep Basuri~\dotfill~\textbf{4th}\\
-Arghadeep Kotak~\dotfill~\textbf{2nd}\\
-Arit Choubey~\dotfill~\textbf{4th}\\
-Aritra Singha Roy~\dotfill~\textbf{2nd}\\
-Arkadeep Kour~\dotfill~\textbf{2nd}\\
-Arpan Giri~\dotfill~\textbf{1st}\\
-Arunanshu Modak~\dotfill~\textbf{4th}\\
-Aryan Choshmitha~\dotfill~\textbf{4th}\\
-Aryan Ranjan~\dotfill~\textbf{1st}\\
-Baibhav Kumar Pandey~\dotfill~\textbf{1st}\\
-Baibhav Kumar Thakur~\dotfill~\textbf{3rd}\\
-Banani Sarkar~\dotfill~\textbf{2nd}\\
-Dhiraj Das~\dotfill~\textbf{4th}\\
-Dhiraj Sarkar~\dotfill~\textbf{2nd}\\
-Dipanjan Verma~\dotfill~\textbf{4th}\\
-Disha Kundu~\dotfill~\textbf{2nd}\\
-Disha Mondal~\dotfill~\textbf{4th}\\
-Divyanshu Acharya~\dotfill~\textbf{4th}\\
-Divyanshu Mandal~\dotfill~\textbf{4th}\\
-Divyanshu Naser~\dotfill~\textbf{4th}\\
-Divyanshu Pan~\dotfill~\textbf{4th}\\
-Farhan Sarkar~\dotfill~\textbf{4th}\\
-Gyan Prakash Das~\dotfill~\textbf{2nd}\\
-Gyan Prakash Rana~\dotfill~\textbf{4th}\\
-Gyan Prakash Ranjan~\dotfill~\textbf{4th}\\
-Ishika Pailan~\dotfill~\textbf{2nd}\\
-Karnika Kour~\dotfill~\textbf{1st}\\
-Kazi Md Biswas~\dotfill~\textbf{2nd}\\
-Kazi Md Dikshit~\dotfill~\textbf{3rd}\\
-Laukik Naser~\dotfill~\textbf{4th}\\
-Mintu Pal~\dotfill~\textbf{4th}\\
-Mohammad Barnwal~\dotfill~\textbf{3rd}\\
-Mohammed Roy~\dotfill~\textbf{1st}\\
-Monomoy Barnwal~\dotfill~\textbf{4th}\\
-Monomoy Kumar~\dotfill~\textbf{1st}\\
-Monomoy Modak~\dotfill~\textbf{3rd}\\
-Monomoy Somkuwar~\dotfill~\textbf{4th}\\
-Munmun Sagar~\dotfill~\textbf{2nd}\\
-Nandini Jha~\dotfill~\textbf{1st}\\
-Nandini Rana~\dotfill~\textbf{2nd}\\
-Nayab Gupta~\dotfill~\textbf{2nd}\\
-Nayab Khan~\dotfill~\textbf{1st}\\
-Nayab Mandal~\dotfill~\textbf{2nd}\\
-Nazreen Agarwal~\dotfill~\textbf{1st}\\
-Nazreen Debnath~\dotfill~\textbf{1st}\\
-Nazreen Verma~\dotfill~\textbf{3rd}\\
-Omkar Goyal~\dotfill~\textbf{4th}\\
-Omkar Sah~\dotfill~\textbf{2nd}\\
-Paramita Datta~\dotfill~\textbf{4th}\\
-Paramita Mondal~\dotfill~\textbf{4th}\\
-Paramita Shukla~\dotfill~\textbf{1st}\\
-Prem Ranjan~\dotfill~\textbf{2nd}\\
-Prerna Paul~\dotfill~\textbf{2nd}\\
-Prerna Sebai~\dotfill~\textbf{3rd}\\
-Priti Modak~\dotfill~\textbf{3rd}\\
-Priyabrata Yadav~\dotfill~\textbf{1st}\\
-Priyanka Barnwal~\dotfill~\textbf{1st}\\
-Priyanka Sarkar~\dotfill~\textbf{2nd}\\
-Raghav Biswas~\dotfill~\textbf{2nd}\\
-Raghav Sagar~\dotfill~\textbf{2nd}\\
-Raghvendra Imam~\dotfill~\textbf{3rd}\\
-Raghvendra Prashar~\dotfill~\textbf{1st}\\
-Raghvendra Sharma~\dotfill~\textbf{4th}\\
-Raj Kumar Bhakta~\dotfill~\textbf{2nd}\\
-Raj Kumar Chakraborty~\dotfill~\textbf{1st}\\
-Ramkrishna Thakur~\dotfill~\textbf{1st}\\
-Ramkrishna Washim~\dotfill~\textbf{2nd}\\
-Rohit Sagar~\dotfill~\textbf{3rd}\\
-Sagar Paul~\dotfill~\textbf{4th}\\
-Sagnik Bhakta~\dotfill~\textbf{2nd}\\
-Sanchit Acharya~\dotfill~\textbf{1st}\\
-Sanjana Biswas~\dotfill~\textbf{1st}\\
-Sanjana Choshmitha~\dotfill~\textbf{4th}\\
-Sanjana Sharma~\dotfill~\textbf{3rd}\\
-Saptak Sadhukhan~\dotfill~\textbf{4th}\\
-Saptaparna Ghosh~\dotfill~\textbf{2nd}\\
-Saptaparna Karmakar~\dotfill~\textbf{2nd}\\
-Saptaparna Yadav~\dotfill~\textbf{2nd}\\
-Saswat Barnwal~\dotfill~\textbf{4th}\\
-Saswat Bhattacharya~\dotfill~\textbf{1st}\\
-Saswat Mondal~\dotfill~\textbf{1st}\\
-Sathi Mitra~\dotfill~\textbf{2nd}\\
-Satodeep Pal~\dotfill~\textbf{1st}\\
-Satodeep Shukla~\dotfill~\textbf{2nd}\\
-Satodeep Somkuwar~\dotfill~\textbf{2nd}\\
-Sayantani Yadav~\dotfill~\textbf{4th}\\
-Senthil Begam~\dotfill~\textbf{3rd}\\
-Senthil Dhara~\dotfill~\textbf{2nd}\\
-Senthil Imam~\dotfill~\textbf{2nd}\\
-Shahbaz Basuri~\dotfill~\textbf{1st}\\
-Shahbaz Dhara~\dotfill~\textbf{3rd}\\
-Shalini Dutta~\dotfill~\textbf{3rd}\\
-Shinjini Modak~\dotfill~\textbf{4th}\\
-Shivam Mondal~\dotfill~\textbf{2nd}\\
-Shrimant Nath~\dotfill~\textbf{2nd}\\
-Soniya Ranjan~\dotfill~\textbf{2nd}\\
-Sougata Kumar Gupta~\dotfill~\textbf{1st}\\
-Soumadip Hiwrale~\dotfill~\textbf{3rd}\\
-Soumita Ghosh~\dotfill~\textbf{3rd}\\
-Soumya Nain~\dotfill~\textbf{1st}\\
-Soumyadeep Adhikari~\dotfill~\textbf{3rd}\\
-Souvik Saha~\dotfill~\textbf{3rd}\\
-Sowdarjya Adhikari~\dotfill~\textbf{3rd}\\
-Sowdarjya Biswas~\dotfill~\textbf{2nd}\\
-Sowdarjya Pan~\dotfill~\textbf{4th}\\
-Sowdarjya Raj~\dotfill~\textbf{4th}\\
-Subhajit Saha~\dotfill~\textbf{1st}\\
-Subhankar Chakrabarti~\dotfill~\textbf{1st}\\
-Subhankar Sagar~\dotfill~\textbf{1st}\\
-Supradip Naser~\dotfill~\textbf{2nd}\\
-Supradip Prashar~\dotfill~\textbf{3rd}\\
-Suvodeep Bandyopadhyay~\dotfill~\textbf{2nd}\\
-Suvodeep Sah~\dotfill~\textbf{2nd}\\
-Suvodeep Saha~\dotfill~\textbf{1st}\\
-Syeda Mondal~\dotfill~\textbf{3rd}\\
-Tamajit Sah~\dotfill~\textbf{2nd}\\
-Utsav Bandyopadhyay~\dotfill~\textbf{1st}\\
-Utsav Sharma~\dotfill~\textbf{1st}\\
-Uttiyo Agarwal~\dotfill~\textbf{3rd}\\
-Viraj Kumar~\dotfill~\textbf{3rd}\\
-Viraj Kumar Gupta~\dotfill~\textbf{1st}\\
-Vivek Pathak~\dotfill~\textbf{4th}\\
-Vivek Rana~\dotfill~\textbf{4th}\\
-Vivek Shaw~\dotfill~\textbf{1st}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{17.~Kickstart Hacktoberfest 2025 \& Google Study Jams}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GBlue},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {17};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Kickstart Hacktoberfest 2025 \& Google Study Jams}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {17};} & {\large\bfseries\color{Ink}Kickstart Hacktoberfest 2025 \& Google Study Jams} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}The on-site launch of the chapter's Hacktoberfest drive alongside a Google Cloud study-jam cohort. It onboarded students into open-source contribution and cloud skilling for the season ahead, pairing real pull requests with structured learning.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 13 October 2025\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 10:00 AM – 1:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Ayushman Bhattacharya, Debasish Mitra, Samrat Talukdar \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{80–90} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/17/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/17/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 42 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Abhishek Sah~\dotfill~\textbf{2nd}\\
-Amrita Shukla~\dotfill~\textbf{4th}\\
-Anjula Dikshit~\dotfill~\textbf{3rd}\\
-Anjula Singh~\dotfill~\textbf{2nd}\\
-Antara Ray~\dotfill~\textbf{4th}\\
-Anuska Singha Roy~\dotfill~\textbf{3rd}\\
-Arghadeep Jha~\dotfill~\textbf{4th}\\
-Arghadeep Samim Faraj~\dotfill~\textbf{2nd}\\
-Arnab Sharma~\dotfill~\textbf{4th}\\
-Arunanshu Bhakta~\dotfill~\textbf{1st}\\
-Arunanshu Kour~\dotfill~\textbf{2nd}\\
-Avash Hiwrale~\dotfill~\textbf{4th}\\
-Avash Singha Roy~\dotfill~\textbf{2nd}\\
-Ayushman Jha~\dotfill~\textbf{4th}\\
-Ayushman Kumar Gupta~\dotfill~\textbf{1st}\\
-Banani Pailan~\dotfill~\textbf{3rd}\\
-Dhiraj Mazumdar~\dotfill~\textbf{3rd}\\
-Gyan Prakash Basuri~\dotfill~\textbf{4th}\\
-Gyan Prakash Mazumdar~\dotfill~\textbf{1st}\\
-Khushi Choubey~\dotfill~\textbf{3rd}\\
-Kiran Pan~\dotfill~\textbf{3rd}\\
-Kritika Sah~\dotfill~\textbf{2nd}\\
-Moly Kundu~\dotfill~\textbf{2nd}\\
-Moupiya Roy~\dotfill~\textbf{4th}\\
-Navya Acharya~\dotfill~\textbf{1st}\\
-Nayab Choubey~\dotfill~\textbf{2nd}\\
-Omkar Karmakar~\dotfill~\textbf{3rd}\\
-Paramita Imam~\dotfill~\textbf{2nd}\\
-Payel Basuri~\dotfill~\textbf{4th}\\
-Priti Basuri~\dotfill~\textbf{2nd}\\
-Rohan Ray~\dotfill~\textbf{2nd}\\
-Sathi Nath~\dotfill~\textbf{3rd}\\
-Sayantani Goyal~\dotfill~\textbf{2nd}\\
-Senthil Rana~\dotfill~\textbf{2nd}\\
-Souvik Saha~\dotfill~\textbf{1st}\\
-Sowdarjya Saha~\dotfill~\textbf{3rd}\\
-Sumit Kumar De~\dotfill~\textbf{3rd}\\
-Syeda Paul~\dotfill~\textbf{4th}\\
-Tanishk Basuri~\dotfill~\textbf{4th}\\
-Tanishk Rathod~\dotfill~\textbf{3rd}\\
-Uttiyo Sebai~\dotfill~\textbf{2nd}\\
-Viraj Raj~\dotfill~\textbf{4th}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{18.~Hacktoberfest Meetup Kolkata 2025}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GRed},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {18};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Hacktoberfest Meetup Kolkata 2025}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {18};} & {\large\bfseries\color{Ink}Hacktoberfest Meetup Kolkata 2025} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
-  {\small\color{Ink!85}A full-day flagship Hacktoberfest meetup co-organised across the Kolkata community, with 120 attendees. It combined talks, contribution sprints and networking around open source, cementing the chapter's role as a regional open-source hub.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 27 October 2025\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 9:00 AM – 5:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Ayushman Bhattacharya, Abhishek Kushwaha, Saugata Sarkar, Shreya Dutta, Rahul Kamiliya \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google, Pollinations.ai \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{190} participants \\[3pt]\end{tabularx}
+  {\small\color{Ink!85}A full-day flagship Hacktoberfest meetup co-organised across the Kolkata community, with approximately 270 attendees. It combined talks, contribution sprints and networking around open source, cementing the chapter's role as a regional open-source hub.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 27 October 2025\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 9:00 AM – 5:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Ayushman Bhattacharya, Abhishek Kushwaha, Saugata Sarkar, Shreya Dutta, Rahul Kamiliya \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google, Pollinations.ai \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{$\sim$270} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/18/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/18/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 60 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Abhranil Mazumdar~\dotfill~\textbf{2nd}\\
-Abhranil Somkuwar~\dotfill~\textbf{1st}\\
-Adarsh Hiwrale~\dotfill~\textbf{3rd}\\
-Adarsh Rana~\dotfill~\textbf{4th}\\
-Adarsh Ranjan~\dotfill~\textbf{1st}\\
-Amit Sett~\dotfill~\textbf{4th}\\
-Anamika Bhattacharya~\dotfill~\textbf{2nd}\\
-Ankita Kotak~\dotfill~\textbf{3rd}\\
-Ankita Pal~\dotfill~\textbf{1st}\\
-Arghadeep Debnath~\dotfill~\textbf{2nd}\\
-Avash Bhakta~\dotfill~\textbf{1st}\\
-Ayush Biswas~\dotfill~\textbf{2nd}\\
-Baibhav Kumar Ayesha~\dotfill~\textbf{4th}\\
-Baibhav Kumar Pandey~\dotfill~\textbf{2nd}\\
-Divyam Goyal~\dotfill~\textbf{3rd}\\
-Ishika Sah~\dotfill~\textbf{2nd}\\
-Karnika Mukherjee~\dotfill~\textbf{3rd}\\
-Khushi Prashar~\dotfill~\textbf{3rd}\\
-Khushi Tiwari~\dotfill~\textbf{3rd}\\
-Kiran Barnwal~\dotfill~\textbf{3rd}\\
-Kiran Somkuwar~\dotfill~\textbf{4th}\\
-Krishnendu Pal~\dotfill~\textbf{3rd}\\
-Kritika Sadhukhan~\dotfill~\textbf{2nd}\\
-Mohammed Maity~\dotfill~\textbf{4th}\\
-Moly Kundu~\dotfill~\textbf{4th}\\
-Munmun Babu~\dotfill~\textbf{1st}\\
-Munmun Kundu~\dotfill~\textbf{1st}\\
-Navya Sagar~\dotfill~\textbf{3rd}\\
-Navya Shaw~\dotfill~\textbf{3rd}\\
-Nayab Jha~\dotfill~\textbf{1st}\\
-Nivriti Dhara~\dotfill~\textbf{1st}\\
-Omkar Tiwari~\dotfill~\textbf{2nd}\\
-Padavala Chakraborty~\dotfill~\textbf{2nd}\\
-Priti Samim Faraj~\dotfill~\textbf{3rd}\\
-Priyabrata Kundu~\dotfill~\textbf{3rd}\\
-Rachana Pathak~\dotfill~\textbf{3rd}\\
-Raghav Koley~\dotfill~\textbf{1st}\\
-Ramkrishna Singh~\dotfill~\textbf{4th}\\
-Rohit Dikshit~\dotfill~\textbf{4th}\\
-Rohit Kolay~\dotfill~\textbf{1st}\\
-Sagar Pathak~\dotfill~\textbf{2nd}\\
-Sanjana Karmakar~\dotfill~\textbf{1st}\\
-Saptak Nain~\dotfill~\textbf{2nd}\\
-Sashi Kumar Rathod~\dotfill~\textbf{1st}\\
-Saswat Basuri~\dotfill~\textbf{4th}\\
-Satodeep Giri~\dotfill~\textbf{2nd}\\
-Shalini Bhakta~\dotfill~\textbf{1st}\\
-Shilpi Kour~\dotfill~\textbf{4th}\\
-Shinjini Nath~\dotfill~\textbf{4th}\\
-Shreya Prashar~\dotfill~\textbf{3rd}\\
-Sneha Malik~\dotfill~\textbf{2nd}\\
-Soumita Sagar~\dotfill~\textbf{2nd}\\
-Soumya Sett~\dotfill~\textbf{1st}\\
-Sowdarjya Kotak~\dotfill~\textbf{3rd}\\
-Subhajit Das~\dotfill~\textbf{2nd}\\
-Subhajit Thakur~\dotfill~\textbf{1st}\\
-Supradip Debnath~\dotfill~\textbf{4th}\\
-Supradip Pailan~\dotfill~\textbf{3rd}\\
-Utsav Kour~\dotfill~\textbf{1st}\\
-Uttiyo Verma~\dotfill~\textbf{2nd}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{19.~Zero to Hero: The Ultimate Web Development Career Path}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GYel},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {19};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Zero to Hero: The Ultimate Web Development Career Path}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {19};} & {\large\bfseries\color{Ink}Zero to Hero: The Ultimate Web Development Career Path} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}We will talk about how to manage co-operate and open source attention to get paid clients and earn money in college for web development, how to choose UI/UX framework and perform easy creations using AI and your creativity.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 10 April 2026\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 6:00 PM – 7:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Anuska Kapuria, Vivek Yadav \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & GDG JISU \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{60} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/19/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/19/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 30 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Aadarsh Debnath~\dotfill~\textbf{3rd}\\
-Aniruddha Washim~\dotfill~\textbf{1st}\\
-Anjula Dhara~\dotfill~\textbf{1st}\\
-Ankita Mukherjee~\dotfill~\textbf{3rd}\\
-Anuja Choubey~\dotfill~\textbf{1st}\\
-Arunanshu Chadokar~\dotfill~\textbf{2nd}\\
-Disha Imam~\dotfill~\textbf{4th}\\
-Divyanshu Imam~\dotfill~\textbf{2nd}\\
-Indrayudh Paul~\dotfill~\textbf{3rd}\\
-Karan Modak~\dotfill~\textbf{2nd}\\
-Karan Shukla~\dotfill~\textbf{3rd}\\
-Mintu Koley~\dotfill~\textbf{1st}\\
-Nivriti Rana~\dotfill~\textbf{3rd}\\
-Payal Ghosh~\dotfill~\textbf{4th}\\
-Priti Pan~\dotfill~\textbf{4th}\\
-Priyabrata Babu~\dotfill~\textbf{4th}\\
-Priyabrata Ghosh~\dotfill~\textbf{3rd}\\
-Priyabrata Singh~\dotfill~\textbf{4th}\\
-Raghav Rathod~\dotfill~\textbf{2nd}\\
-Ramkrishna Thakur~\dotfill~\textbf{3rd}\\
-Rohan Verma~\dotfill~\textbf{1st}\\
-Sanchit Agarwal~\dotfill~\textbf{2nd}\\
-Sathi Mazumdar~\dotfill~\textbf{2nd}\\
-Sayanti Mitra~\dotfill~\textbf{3rd}\\
-Sneha Singh~\dotfill~\textbf{2nd}\\
-Sonia Pathak~\dotfill~\textbf{1st}\\
-Sougata Kumar Gupta~\dotfill~\textbf{3rd}\\
-Subhajit Pan~\dotfill~\textbf{3rd}\\
-Sumit Kumar Shukla~\dotfill~\textbf{4th}\\
-Utsav Pal~\dotfill~\textbf{4th}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{20.~Chill Out \& Level Up: Fun with Git \& GitHub!}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GGrn},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {20};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Chill Out \& Level Up: Fun with Git \& GitHub!}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {20};} & {\large\bfseries\color{Ink}Chill Out \& Level Up: Fun with Git \& GitHub!} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A relaxed, hands-on virtual session teaching Git and GitHub fundamentals. Aimed squarely at beginners, it turned version-control basics into an approachable, low-pressure workshop and lowered the barrier for first-time contributors ahead of larger events.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 13 October 2025\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 7:00 – 9:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Anuska Kapuria, Vivek Yadav \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & GitHub, Pollinations.ai \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{60} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/20/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/20/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 30 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Anamika Pan~\dotfill~\textbf{1st}\\
-Ankana Mazumdar~\dotfill~\textbf{2nd}\\
-Aritra Pathak~\dotfill~\textbf{2nd}\\
-Aritra Singh~\dotfill~\textbf{3rd}\\
-Arnab Bhattacharya~\dotfill~\textbf{2nd}\\
-Arpan Yadav~\dotfill~\textbf{2nd}\\
-Dipanjan Prashar~\dotfill~\textbf{4th}\\
-Disha Ayesha~\dotfill~\textbf{3rd}\\
-Divyanshu Pandey~\dotfill~\textbf{3rd}\\
-Indrayudh Yadav~\dotfill~\textbf{4th}\\
-Laukik Naser~\dotfill~\textbf{2nd}\\
-Monomoy Rana~\dotfill~\textbf{3rd}\\
-Nandini Saha~\dotfill~\textbf{1st}\\
-Navya Ray~\dotfill~\textbf{1st}\\
-Navya Sarkar~\dotfill~\textbf{3rd}\\
-Priyabrata Choshmitha~\dotfill~\textbf{4th}\\
-Raj Kumar Mandal~\dotfill~\textbf{1st}\\
-Saptak Giri~\dotfill~\textbf{1st}\\
-Shalini Singha Roy~\dotfill~\textbf{3rd}\\
-Shinjini Washim~\dotfill~\textbf{3rd}\\
-Sonia Sah~\dotfill~\textbf{2nd}\\
-Soumyadeep Bhakta~\dotfill~\textbf{2nd}\\
-Soumyadeep Prashar~\dotfill~\textbf{3rd}\\
-Subhajit Chadokar~\dotfill~\textbf{4th}\\
-Subhankar Hiwrale~\dotfill~\textbf{3rd}\\
-Tanishk Singha Roy~\dotfill~\textbf{4th}\\
-Tiya Biswas~\dotfill~\textbf{2nd}\\
-Tiya Tiwari~\dotfill~\textbf{4th}\\
-Vivek Raj~\dotfill~\textbf{4th}\\
-Vivek Singha Roy~\dotfill~\textbf{2nd}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{21.~GDG TechSprint Hackathon 2026}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GBlue},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {21};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{GDG TechSprint Hackathon 2026}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {21};} & {\large\bfseries\color{Ink}GDG TechSprint Hackathon 2026} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A month-long virtual hackathon under the TechSprint banner, themed around leveraging AI. Teams built and iterated over an extended window, competing for official Google swag, and the long format sustained the chapter's project-first culture.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 20 December 2025\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & ~1 month \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Ayushman Bhattacharya \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{60} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/21/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/21/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 30 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Abhishek Pandey~\dotfill~\textbf{3rd}\\
-Aditya Sagar~\dotfill~\textbf{2nd}\\
-Anuska Bhakta~\dotfill~\textbf{2nd}\\
-Anuska Rathod~\dotfill~\textbf{1st}\\
-Arnab De~\dotfill~\textbf{4th}\\
-Avash Dutta~\dotfill~\textbf{4th}\\
-Avash Tiwari~\dotfill~\textbf{2nd}\\
-Chayanika Kolay~\dotfill~\textbf{1st}\\
-Chayanika Singh~\dotfill~\textbf{4th}\\
-Divyam Mishra~\dotfill~\textbf{2nd}\\
-Farhan Banyal~\dotfill~\textbf{1st}\\
-Khushi Debnath~\dotfill~\textbf{2nd}\\
-Mohammed Imam~\dotfill~\textbf{4th}\\
-Nayab Thakur~\dotfill~\textbf{1st}\\
-Omkar Banyal~\dotfill~\textbf{3rd}\\
-Pradipan Sadhukhan~\dotfill~\textbf{3rd}\\
-Prem Chadokar~\dotfill~\textbf{3rd}\\
-Priyabrata Banyal~\dotfill~\textbf{4th}\\
-Raj Kumar Khan~\dotfill~\textbf{3rd}\\
-Sashi Kumar Somkuwar~\dotfill~\textbf{1st}\\
-Sayanti Mukherjee~\dotfill~\textbf{1st}\\
-Shreya Pailan~\dotfill~\textbf{3rd}\\
-Shrimant Somkuwar~\dotfill~\textbf{3rd}\\
-Sougata Mukherjee~\dotfill~\textbf{3rd}\\
-Soumadip Kundu~\dotfill~\textbf{1st}\\
-Soumita Dey~\dotfill~\textbf{4th}\\
-Soumyadeep Prashar~\dotfill~\textbf{1st}\\
-Sowdarjya Goyal~\dotfill~\textbf{2nd}\\
-Subhankar Prashar~\dotfill~\textbf{3rd}\\
-Sushmita Begam~\dotfill~\textbf{2nd}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{22.~Google TechSprint Chill Talk 101: Unwind and Unleash Your Creativity}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GRed},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {22};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Google TechSprint Chill Talk 101: Unwind and Unleash Your Creativity}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {22};} & {\large\bfseries\color{Ink}Google TechSprint Chill Talk 101: Unwind and Unleash Your Creativity} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A light, creativity-focused virtual talk that closed out the TechSprint cycle. It gave participants room to reflect, share and decompress after the hackathon push, reinforcing community and well-being alongside technical intensity.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 23 December 2025\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 8:30 – 9:30 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Ayushman Bhattacharya, Debasish Mitra \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{40–50} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/22/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/22/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 22 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Afroja Nath~\dotfill~\textbf{3rd}\\
-Ankit Roy~\dotfill~\textbf{4th}\\
-Antara Chakrabarti~\dotfill~\textbf{1st}\\
-Arnab Naser~\dotfill~\textbf{4th}\\
-Arunanshu Sebai~\dotfill~\textbf{2nd}\\
-Divyam Chadokar~\dotfill~\textbf{2nd}\\
-Farhan Adhikari~\dotfill~\textbf{1st}\\
-Monomoy Raj~\dotfill~\textbf{4th}\\
-Padavala Bandyopadhyay~\dotfill~\textbf{3rd}\\
-Payal Singh~\dotfill~\textbf{4th}\\
-Payel Babu~\dotfill~\textbf{3rd}\\
-Prerna Nain~\dotfill~\textbf{1st}\\
-Prerna Pan~\dotfill~\textbf{3rd}\\
-Raghvendra Tiwari~\dotfill~\textbf{4th}\\
-Raj Kumar Adhikari~\dotfill~\textbf{4th}\\
-Shilpi Somkuwar~\dotfill~\textbf{4th}\\
-Somdeepta Karmakar~\dotfill~\textbf{4th}\\
-Soniya Koley~\dotfill~\textbf{1st}\\
-Soumadip Choubey~\dotfill~\textbf{1st}\\
-Soumita Jha~\dotfill~\textbf{1st}\\
-Souvik Sarkar~\dotfill~\textbf{2nd}\\
-Vivek Sarkar~\dotfill~\textbf{1st}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{23.~Tech Winter Break Cohost 2026}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GYel},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {23};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Tech Winter Break Cohost 2026}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {23};} & {\large\bfseries\color{Ink}Tech Winter Break Cohost 2026} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A multi-day, multi-track virtual cohost with GDG GNIT spanning system design, ML/AI roadmaps, keynotes and low-level systems, with 170+ participants. It packed several specialised sessions into a winter-break program and showcased the chapter's ability to run breadth and depth at once.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 22 \& 24 January 2026\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 6:00 – 8:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Nandini Verma, Debankur Dutta, Sagnik Roy, Chandramouli Halder (GDG GNIT) \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google, Pollinations.ai \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{170–180} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/23/img-01.jpg}\\[6pt]\galimg{assets/gallery/23/img-03.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/23/img-02.jpg}\\[6pt]\galimg{assets/gallery/23/img-04.jpg} \end{minipage}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/23/img-01.jpg}\\[6pt]\galimg{assets/gallery/23/img-03.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/23/img-02.jpg}\\[6pt]\galimg{assets/gallery/23/img-04.jpg} \end{minipage}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 88 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Adarsh Roy~\dotfill~\textbf{1st}\\
-Afroja Kundu~\dotfill~\textbf{3rd}\\
-Aniruddha Raj~\dotfill~\textbf{2nd}\\
-Anjistha Shukla~\dotfill~\textbf{2nd}\\
-Ankana Mitra~\dotfill~\textbf{4th}\\
-Ankit Sett~\dotfill~\textbf{3rd}\\
-Anuja Basuri~\dotfill~\textbf{2nd}\\
-Anuja Gupta~\dotfill~\textbf{1st}\\
-Anuska Mazumdar~\dotfill~\textbf{2nd}\\
-Anuska Sagar~\dotfill~\textbf{4th}\\
-Anuska Sarkar~\dotfill~\textbf{4th}\\
-Arghadeep Gupta~\dotfill~\textbf{2nd}\\
-Arghyadip Nain~\dotfill~\textbf{4th}\\
-Arghyadip Sagar~\dotfill~\textbf{2nd}\\
-Arit Verma~\dotfill~\textbf{3rd}\\
-Arkadeep Pathak~\dotfill~\textbf{1st}\\
-Arnab Chakraborty~\dotfill~\textbf{3rd}\\
-Avash Barnwal~\dotfill~\textbf{2nd}\\
-Avash Begam~\dotfill~\textbf{4th}\\
-Ayush Agarwal~\dotfill~\textbf{3rd}\\
-Ayush Babu~\dotfill~\textbf{4th}\\
-Ayush Koley~\dotfill~\textbf{1st}\\
-Baibhav Kumar Babu~\dotfill~\textbf{2nd}\\
-Chayanika De~\dotfill~\textbf{4th}\\
-Debashis Dutta~\dotfill~\textbf{2nd}\\
-Dhiraj Ray~\dotfill~\textbf{3rd}\\
-Disha Kotak~\dotfill~\textbf{1st}\\
-Disha Raj~\dotfill~\textbf{4th}\\
-Divyam Sah~\dotfill~\textbf{1st}\\
-Gyan Prakash Yadav~\dotfill~\textbf{1st}\\
-Ishika Acharya~\dotfill~\textbf{3rd}\\
-Ishika Hiwrale~\dotfill~\textbf{2nd}\\
-Ishika Thakur~\dotfill~\textbf{1st}\\
-Karan Sagar~\dotfill~\textbf{2nd}\\
-Khushi Biswas~\dotfill~\textbf{1st}\\
-Krishnendu Mandal~\dotfill~\textbf{1st}\\
-Laukik Bandyopadhyay~\dotfill~\textbf{4th}\\
-Laukik Mishra~\dotfill~\textbf{1st}\\
-Laukik Shaw~\dotfill~\textbf{1st}\\
-Mintu Karmakar~\dotfill~\textbf{4th}\\
-Mintu Nain~\dotfill~\textbf{4th}\\
-Mohammed Roy~\dotfill~\textbf{2nd}\\
-Moly Washim~\dotfill~\textbf{1st}\\
-Moupiya Giri~\dotfill~\textbf{4th}\\
-Munmun Singh~\dotfill~\textbf{1st}\\
-Nayab Ayesha~\dotfill~\textbf{4th}\\
-Nazreen Pal~\dotfill~\textbf{1st}\\
-Nivriti Sharma~\dotfill~\textbf{3rd}\\
-Padavala Das~\dotfill~\textbf{1st}\\
-Paramita Dey~\dotfill~\textbf{3rd}\\
-Paramita Pandey~\dotfill~\textbf{1st}\\
-Payal Karmakar~\dotfill~\textbf{3rd}\\
-Payal Raj~\dotfill~\textbf{1st}\\
-Payel Kumar Gupta~\dotfill~\textbf{3rd}\\
-Pradipan Koley~\dotfill~\textbf{1st}\\
-Pradipan Mishra~\dotfill~\textbf{2nd}\\
-Priti Khan~\dotfill~\textbf{1st}\\
-Priyabrata Banyal~\dotfill~\textbf{4th}\\
-Priyabrata Bhattacharya~\dotfill~\textbf{4th}\\
-Priyanka Sharma~\dotfill~\textbf{2nd}\\
-Rachana Dey~\dotfill~\textbf{2nd}\\
-Raghvendra Choubey~\dotfill~\textbf{2nd}\\
-Raj Kumar Prashar~\dotfill~\textbf{4th}\\
-Ramkrishna Singh~\dotfill~\textbf{3rd}\\
-Rohit Sett~\dotfill~\textbf{1st}\\
-Sagar Chakrabarti~\dotfill~\textbf{1st}\\
-Sagnik Jha~\dotfill~\textbf{1st}\\
-Sanjana Rathod~\dotfill~\textbf{1st}\\
-Saptak Sett~\dotfill~\textbf{1st}\\
-Sathi Koley~\dotfill~\textbf{2nd}\\
-Sayantani Imam~\dotfill~\textbf{2nd}\\
-Sayantani Nain~\dotfill~\textbf{1st}\\
-Shalini Pandey~\dotfill~\textbf{4th}\\
-Shilpi Raj~\dotfill~\textbf{2nd}\\
-Shreya Dey~\dotfill~\textbf{3rd}\\
-Soniya Rana~\dotfill~\textbf{4th}\\
-Sougata Jha~\dotfill~\textbf{1st}\\
-Sougata Sarkar~\dotfill~\textbf{3rd}\\
-Soumadip Sah~\dotfill~\textbf{2nd}\\
-Soumya Karmakar~\dotfill~\textbf{4th}\\
-Souvik Choshmitha~\dotfill~\textbf{4th}\\
-Souvik Kotak~\dotfill~\textbf{3rd}\\
-Subhajit Ghosh~\dotfill~\textbf{3rd}\\
-Tamajit Raj~\dotfill~\textbf{4th}\\
-Tirthankar Mondal~\dotfill~\textbf{3rd}\\
-Tirthankar Pailan~\dotfill~\textbf{1st}\\
-Titas Ayesha~\dotfill~\textbf{1st}\\
-Utsav Nain~\dotfill~\textbf{3rd}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{24.~GSoC Info Session 2026 — GSOC Crack Karna Hain? For Sure}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GGrn},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {24};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{GSoC Info Session 2026 — \enquote{GSOC Crack Karna Hain? For Sure}}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {24};} & {\large\bfseries\color{Ink}GSoC Info Session 2026 — \enquote{GSOC Crack Karna Hain? For Sure}} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}An on-site session demystifying Google Summer of Code for aspiring contributors. It covered proposal writing, organisation selection and the contribution timeline — with Pollinations.ai as a live example org — aiming to convert curiosity into serious GSoC applications.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 28 January 2026\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 10:00 AM – 1:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Ayushman Bhattacharya \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google Summer of Code, Pollinations.ai \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{50–60} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/24/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/24/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 28 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Abhigayan Datta~\dotfill~\textbf{4th}\\
-Ankita Biswas~\dotfill~\textbf{2nd}\\
-Arghadeep Dutta~\dotfill~\textbf{3rd}\\
-Aryan Maity~\dotfill~\textbf{2nd}\\
-Banani Maity~\dotfill~\textbf{2nd}\\
-Chayanika Dutta~\dotfill~\textbf{3rd}\\
-Krishnendu Naser~\dotfill~\textbf{3rd}\\
-Mintu Naser~\dotfill~\textbf{1st}\\
-Moly Agarwal~\dotfill~\textbf{3rd}\\
-Monomoy Ghosh~\dotfill~\textbf{1st}\\
-Munmun Mandal~\dotfill~\textbf{2nd}\\
-Munmun Paul~\dotfill~\textbf{3rd}\\
-Nandini Paul~\dotfill~\textbf{3rd}\\
-Navya Thakur~\dotfill~\textbf{4th}\\
-Padavala Mondal~\dotfill~\textbf{3rd}\\
-Raghvendra Sah~\dotfill~\textbf{3rd}\\
-Rohit Mondal~\dotfill~\textbf{3rd}\\
-Sagnik Paul~\dotfill~\textbf{2nd}\\
-Saptak Dutta~\dotfill~\textbf{3rd}\\
-Saptaparna Somkuwar~\dotfill~\textbf{4th}\\
-Sashi Kumar Nath~\dotfill~\textbf{2nd}\\
-Sougata Nath~\dotfill~\textbf{3rd}\\
-Sumit Kumar Chakraborty~\dotfill~\textbf{2nd}\\
-Sumit Kumar Verma~\dotfill~\textbf{2nd}\\
-Supradip Dhara~\dotfill~\textbf{3rd}\\
-Tirthankar Shaw~\dotfill~\textbf{2nd}\\
-Utsav Kumar Gupta~\dotfill~\textbf{4th}\\
-Vishal Begam~\dotfill~\textbf{2nd}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{25.~How I Audit Codebases as a Pentester (Live CTF Workshop)}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GBlue},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {25};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{How I Audit Codebases as a Pentester (Live CTF Workshop)}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {25};} & {\large\bfseries\color{Ink}How I Audit Codebases as a Pentester (Live CTF Workshop)} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A hands-on, on-site live Capture-the-Flag workshop on real-world code auditing, run with OWASP. Participants worked through practical vulnerability discovery the way a pentester would, advancing the chapter's maturing security and OWASP track.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 16 February 2026\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 10:00 AM – 1:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Sagnik Roy, Shreya Dutta \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & OWASP, Pollinations.ai \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{30} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/25/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/25/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 15 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Ankita Modak~\dotfill~\textbf{4th}\\
-Arghyadip Tiwari~\dotfill~\textbf{4th}\\
-Arit Sharma~\dotfill~\textbf{4th}\\
-Arnab Bandyopadhyay~\dotfill~\textbf{1st}\\
-Avash Choubey~\dotfill~\textbf{3rd}\\
-Indrayudh Sadhukhan~\dotfill~\textbf{1st}\\
-Kazi Md Ayesha~\dotfill~\textbf{2nd}\\
-Kiran Ghosh~\dotfill~\textbf{1st}\\
-Mintu Modak~\dotfill~\textbf{1st}\\
-Navya Shukla~\dotfill~\textbf{1st}\\
-Sayanti Modak~\dotfill~\textbf{2nd}\\
-Shivam Pathak~\dotfill~\textbf{3rd}\\
-Sneha Banyal~\dotfill~\textbf{1st}\\
-Uttiyo Basuri~\dotfill~\textbf{2nd}\\
-Vivek Ayesha~\dotfill~\textbf{1st}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{26.~Boss vs Freshers: System Designer Cracker!}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GRed},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {26};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Boss vs Freshers: System Designer Cracker!}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {26};} & {\large\bfseries\color{Ink}Boss vs Freshers: System Designer Cracker!} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}An on-site system-design session framed as a friendly challenge across experience levels. It designed a real system — a URL shortener — from first principles, making scalability and architecture concepts approachable for newcomers.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 20 February 2026\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 10:30 AM – 1:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Nandini Verma \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google, Pollinations.ai \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{50–60} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/26/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/26/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 28 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Aritra Nain~\dotfill~\textbf{4th}\\
-Aryan Koley~\dotfill~\textbf{1st}\\
-Avash Pailan~\dotfill~\textbf{4th}\\
-Ayush Kumar Gupta~\dotfill~\textbf{1st}\\
-Dipanjan Verma~\dotfill~\textbf{4th}\\
-Moly Choshmitha~\dotfill~\textbf{1st}\\
-Moly Shaw~\dotfill~\textbf{4th}\\
-Nandini Acharya~\dotfill~\textbf{1st}\\
-Nazreen Mandal~\dotfill~\textbf{3rd}\\
-Paramita Adhikari~\dotfill~\textbf{1st}\\
-Prerna Pathak~\dotfill~\textbf{2nd}\\
-Raghvendra Ayesha~\dotfill~\textbf{3rd}\\
-Raj Kumar Ghosh~\dotfill~\textbf{4th}\\
-Sanjana Bhattacharya~\dotfill~\textbf{3rd}\\
-Satodeep Paul~\dotfill~\textbf{4th}\\
-Senthil Ray~\dotfill~\textbf{1st}\\
-Shivam Sadhukhan~\dotfill~\textbf{3rd}\\
-Shreya Yadav~\dotfill~\textbf{3rd}\\
-Sonia Sarkar~\dotfill~\textbf{4th}\\
-Sougata Prashar~\dotfill~\textbf{2nd}\\
-Soumadip Dutta~\dotfill~\textbf{3rd}\\
-Sowdarjya Adhikari~\dotfill~\textbf{4th}\\
-Srija Prashar~\dotfill~\textbf{3rd}\\
-Syeda Gupta~\dotfill~\textbf{1st}\\
-Tanishk Sharma~\dotfill~\textbf{4th}\\
-Tiya Raj~\dotfill~\textbf{4th}\\
-Viraj Roy~\dotfill~\textbf{1st}\\
-Vivek Yadav~\dotfill~\textbf{1st}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{27.~Kubernetes and Friends Meetup — CNCF Hooghly}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GYel},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {27};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Kubernetes and Friends Meetup — CNCF Hooghly}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {27};} & {\large\bfseries\color{Ink}Kubernetes and Friends Meetup — CNCF Hooghly} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A CNCF-aligned Kubernetes and cloud-native meetup with a strong speaker lineup and 110+ attendees. It connected campus students to the wider cloud-native community and its practitioners, extending the chapter's reach into professional DevOps circles.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 24 February 2026\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 11:00 AM – 1:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Hrittik Roy, Abhishek Kushwaha, Ayushman Bhattacharya, Shivay Lamba, Rajani Ekunde, Abhiroy \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google, PrepVerse, Pollinations.ai \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{110–120} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/27/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/27/img-02.jpg} \end{minipage}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/27/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/27/img-02.jpg} \end{minipage}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 58 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Abhigayan Somkuwar~\dotfill~\textbf{3rd}\\
-Abhranil Choshmitha~\dotfill~\textbf{1st}\\
-Abhranil Verma~\dotfill~\textbf{3rd}\\
-Akshit Sett~\dotfill~\textbf{1st}\\
-Anamika Choubey~\dotfill~\textbf{1st}\\
-Anjistha Dhara~\dotfill~\textbf{1st}\\
-Antara Rana~\dotfill~\textbf{2nd}\\
-Anuja Bhakta~\dotfill~\textbf{4th}\\
-Anuska Thakur~\dotfill~\textbf{3rd}\\
-Arit Adhikari~\dotfill~\textbf{4th}\\
-Arit Dey~\dotfill~\textbf{3rd}\\
-Arkadeep Bhattacharya~\dotfill~\textbf{3rd}\\
-Arunanshu Paul~\dotfill~\textbf{1st}\\
-Banani Malik~\dotfill~\textbf{4th}\\
-Divyam Malik~\dotfill~\textbf{3rd}\\
-Gyan Prakash Verma~\dotfill~\textbf{3rd}\\
-Ishika Kolay~\dotfill~\textbf{3rd}\\
-Khushi Barnwal~\dotfill~\textbf{3rd}\\
-Khushi Chadokar~\dotfill~\textbf{1st}\\
-Khushi Das~\dotfill~\textbf{1st}\\
-Khushi Singh~\dotfill~\textbf{4th}\\
-Kiran Mondal~\dotfill~\textbf{3rd}\\
-Kiran Paul~\dotfill~\textbf{2nd}\\
-Krishnendu Dey~\dotfill~\textbf{3rd}\\
-Kritika Jha~\dotfill~\textbf{3rd}\\
-Mintu Mishra~\dotfill~\textbf{2nd}\\
-Mohammad Babu~\dotfill~\textbf{1st}\\
-Mohammed Mukherjee~\dotfill~\textbf{4th}\\
-Moly Jha~\dotfill~\textbf{4th}\\
-Nazreen Shukla~\dotfill~\textbf{4th}\\
-Nivriti Kotak~\dotfill~\textbf{3rd}\\
-Nivriti Pailan~\dotfill~\textbf{2nd}\\
-Nivriti Pan~\dotfill~\textbf{2nd}\\
-Paramita Hiwrale~\dotfill~\textbf{1st}\\
-Payal Mazumdar~\dotfill~\textbf{2nd}\\
-Payel Nath~\dotfill~\textbf{4th}\\
-Priti Debnath~\dotfill~\textbf{2nd}\\
-Rachana Basuri~\dotfill~\textbf{3rd}\\
-Rachana Sharma~\dotfill~\textbf{1st}\\
-Raghvendra Sebai~\dotfill~\textbf{3rd}\\
-Sayanti Kumar Gupta~\dotfill~\textbf{1st}\\
-Sayanti Ray~\dotfill~\textbf{3rd}\\
-Shahbaz De~\dotfill~\textbf{4th}\\
-Shinjini Sharma~\dotfill~\textbf{3rd}\\
-Shreya Chakraborty~\dotfill~\textbf{1st}\\
-Shreya Dhara~\dotfill~\textbf{3rd}\\
-Shrimant Somkuwar~\dotfill~\textbf{2nd}\\
-Shrimant Yadav~\dotfill~\textbf{2nd}\\
-Sneha Verma~\dotfill~\textbf{1st}\\
-Somdeepta Jha~\dotfill~\textbf{1st}\\
-Somdeepta Modak~\dotfill~\textbf{2nd}\\
-Soumya Rathod~\dotfill~\textbf{3rd}\\
-Subhankar Dhara~\dotfill~\textbf{4th}\\
-Subhankar Ghosh~\dotfill~\textbf{4th}\\
-Sushmita Karmakar~\dotfill~\textbf{1st}\\
-Syeda Karmakar~\dotfill~\textbf{2nd}\\
-Titas Pailan~\dotfill~\textbf{2nd}\\
-Tiya Mondal~\dotfill~\textbf{4th}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{28.~Udyamini: Navigating Career with Confidence}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GGrn},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {28};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Udyamini: Navigating Career with Confidence}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {28};} & {\large\bfseries\color{Ink}Udyamini: Navigating Career with Confidence} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}An on-site career session run around International Women's Day, focused on building confidence and direction in early tech careers. It broadened the chapter's programming toward mentorship and inclusion.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 8 March 2026\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 6:00 – 8:30 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Anwesha Chakraborty, Khushi Yadav \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google, Pollinations.ai \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{70–80} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/28/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/28/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 38 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Aadarsh Sarkar~\dotfill~\textbf{1st}\\
-Abhigayan Pan~\dotfill~\textbf{4th}\\
-Abhigayan Sarkar~\dotfill~\textbf{4th}\\
-Amrita Biswas~\dotfill~\textbf{3rd}\\
-Anjistha Sebai~\dotfill~\textbf{1st}\\
-Aritra Prashar~\dotfill~\textbf{2nd}\\
-Arkadeep Barnwal~\dotfill~\textbf{4th}\\
-Arnab Bhakta~\dotfill~\textbf{4th}\\
-Debashis Sagar~\dotfill~\textbf{3rd}\\
-Divyanshu Washim~\dotfill~\textbf{1st}\\
-Indrayudh Mitra~\dotfill~\textbf{2nd}\\
-Kazi Md Kumar~\dotfill~\textbf{3rd}\\
-Krishnendu Adhikari~\dotfill~\textbf{1st}\\
-Laukik Karmakar~\dotfill~\textbf{4th}\\
-Monomoy Koley~\dotfill~\textbf{1st}\\
-Monomoy Mandal~\dotfill~\textbf{2nd}\\
-Nivriti Pal~\dotfill~\textbf{2nd}\\
-Payel Agarwal~\dotfill~\textbf{4th}\\
-Priti Dey~\dotfill~\textbf{2nd}\\
-Priyabrata Washim~\dotfill~\textbf{2nd}\\
-Rachana Prashar~\dotfill~\textbf{2nd}\\
-Sagnik Somkuwar~\dotfill~\textbf{2nd}\\
-Sanjana Singha Roy~\dotfill~\textbf{3rd}\\
-Sashi Kumar Dey~\dotfill~\textbf{1st}\\
-Sashi Kumar Rana~\dotfill~\textbf{2nd}\\
-Sayanti Mishra~\dotfill~\textbf{3rd}\\
-Sneha Modak~\dotfill~\textbf{3rd}\\
-Somdeepta Rathod~\dotfill~\textbf{4th}\\
-Soniya Chakraborty~\dotfill~\textbf{4th}\\
-Soniya Gupta~\dotfill~\textbf{1st}\\
-Soumyadeep Yadav~\dotfill~\textbf{3rd}\\
-Souvik Ayesha~\dotfill~\textbf{1st}\\
-Subhankar Roy~\dotfill~\textbf{2nd}\\
-Supradip Samim Faraj~\dotfill~\textbf{2nd}\\
-Suvodeep Kotak~\dotfill~\textbf{2nd}\\
-Syeda Adhikari~\dotfill~\textbf{1st}\\
-Tiya Ghosh~\dotfill~\textbf{2nd}\\
-Vivek Dutta~\dotfill~\textbf{4th}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{29.~A Grand Welcome — OWASP Community ft. dscjisu}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GBlue},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {29};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{A Grand Welcome — OWASP Community ft. dscjisu}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {29};} & {\large\bfseries\color{Ink}A Grand Welcome — OWASP Community ft. dscjisu} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A virtual welcome bridging the chapter with the OWASP community. It formalised a cross-community relationship around application security and set up the joint security programming that followed.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 6 April 2026\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 7:00 – 9:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Shreya Dutta, Rahul Kamiliya, Ayushman Bhattacharya, Sagnik Roy \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google, OWASP \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{40–50} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/29/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/29/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 22 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Anuja Chadokar~\dotfill~\textbf{2nd}\\
-Arit Singh~\dotfill~\textbf{2nd}\\
-Aritra Prashar~\dotfill~\textbf{1st}\\
-Indrayudh Naser~\dotfill~\textbf{2nd}\\
-Karnika Dikshit~\dotfill~\textbf{1st}\\
-Kazi Md Kour~\dotfill~\textbf{4th}\\
-Kritika Adhikari~\dotfill~\textbf{3rd}\\
-Mohammad Datta~\dotfill~\textbf{3rd}\\
-Mohammed Kour~\dotfill~\textbf{4th}\\
-Moly Jha~\dotfill~\textbf{1st}\\
-Nandini Agarwal~\dotfill~\textbf{1st}\\
-Prerna Kumar Gupta~\dotfill~\textbf{4th}\\
-Priti Shukla~\dotfill~\textbf{1st}\\
-Ramkrishna Prashar~\dotfill~\textbf{2nd}\\
-Sayantani Mandal~\dotfill~\textbf{4th}\\
-Shinjini Koley~\dotfill~\textbf{3rd}\\
-Subhajit Begam~\dotfill~\textbf{4th}\\
-Subhankar Ayesha~\dotfill~\textbf{1st}\\
-Sumit Kumar Mukherjee~\dotfill~\textbf{4th}\\
-Tirthankar Mitra~\dotfill~\textbf{4th}\\
-Tirthankar Raj~\dotfill~\textbf{2nd}\\
-Viraj Biswas~\dotfill~\textbf{4th}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{30.~It's Swags Time — @dscjisu ft. Google Bangalore}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GRed},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {30};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{It's Swags Time — @dscjisu ft. Google Bangalore}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {30};} & {\large\bfseries\color{Ink}It's Swags Time — @dscjisu ft. Google Bangalore} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}An on-site celebration and swag distribution featuring collaboration with Google Bangalore. It recognised active contributors and members with official swag, rewarding participation and strengthening a sense of belonging.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 20 April 2026\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 2:00 – 4:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Ayushman Bhattacharya, Abiroy Karmakar \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Google, Myceli.ai \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{95} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/30/img-01.jpg}\end{minipage}\end{center}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\begin{center}\begin{minipage}{0.62\linewidth}\galimg{assets/gallery/30/img-01.jpg}\end{minipage}\end{center}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 48 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Afroja Begam~\dotfill~\textbf{1st}\\
-Amit Chakraborty~\dotfill~\textbf{4th}\\
-Amrita Dey~\dotfill~\textbf{2nd}\\
-Anjistha De~\dotfill~\textbf{1st}\\
-Ankana Roy~\dotfill~\textbf{2nd}\\
-Arit Biswas~\dotfill~\textbf{1st}\\
-Aritra Sett~\dotfill~\textbf{4th}\\
-Aryan Babu~\dotfill~\textbf{1st}\\
-Aryan Khan~\dotfill~\textbf{3rd}\\
-Banani Shukla~\dotfill~\textbf{3rd}\\
-Disha Gupta~\dotfill~\textbf{4th}\\
-Divyam Naser~\dotfill~\textbf{4th}\\
-Karnika Rathod~\dotfill~\textbf{2nd}\\
-Khushi Malik~\dotfill~\textbf{4th}\\
-Kiran Mondal~\dotfill~\textbf{4th}\\
-Kiran Yadav~\dotfill~\textbf{2nd}\\
-Mintu Gupta~\dotfill~\textbf{2nd}\\
-Moly Banyal~\dotfill~\textbf{1st}\\
-Nazreen Bandyopadhyay~\dotfill~\textbf{3rd}\\
-Payal Chadokar~\dotfill~\textbf{2nd}\\
-Payel Banyal~\dotfill~\textbf{3rd}\\
-Pradipan Kolay~\dotfill~\textbf{4th}\\
-Prerna Mondal~\dotfill~\textbf{3rd}\\
-Raghav Pan~\dotfill~\textbf{3rd}\\
-Rohan Kundu~\dotfill~\textbf{1st}\\
-Rohan Pal~\dotfill~\textbf{4th}\\
-Rohit Chakraborty~\dotfill~\textbf{3rd}\\
-Rohit Rana~\dotfill~\textbf{2nd}\\
-Saptak Sharma~\dotfill~\textbf{2nd}\\
-Saptak Thakur~\dotfill~\textbf{4th}\\
-Saptaparna Giri~\dotfill~\textbf{3rd}\\
-Saptaparna Gupta~\dotfill~\textbf{4th}\\
-Saptaparna Kundu~\dotfill~\textbf{1st}\\
-Sayanti Bandyopadhyay~\dotfill~\textbf{4th}\\
-Senthil Banyal~\dotfill~\textbf{4th}\\
-Shreya Agarwal~\dotfill~\textbf{1st}\\
-Shrimant Ray~\dotfill~\textbf{3rd}\\
-Soumadip Kotak~\dotfill~\textbf{2nd}\\
-Soumya Sebai~\dotfill~\textbf{4th}\\
-Soumyadeep Pailan~\dotfill~\textbf{4th}\\
-Srija Mishra~\dotfill~\textbf{3rd}\\
-Subhajit Pal~\dotfill~\textbf{4th}\\
-Subhajit Raj~\dotfill~\textbf{4th}\\
-Sumit Kumar Ray~\dotfill~\textbf{4th}\\
-Tirthankar Kumar Gupta~\dotfill~\textbf{2nd}\\
-Tirthankar Ranjan~\dotfill~\textbf{3rd}\\
-Tiya Acharya~\dotfill~\textbf{4th}\\
-Vishal Nain~\dotfill~\textbf{3rd}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{31.~Maintainers Month: How to Be the Contributor that Maintainers Actually Want}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GYel},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {31};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Maintainers Month: How to Be the Contributor that Maintainers Actually Want}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {31};} & {\large\bfseries\color{Ink}Maintainers Month: How to Be the Contributor that Maintainers Actually Want} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A virtual session tied to GitHub's Maintainer Month on contributing in the ways maintainers actually value. Drawing on first-hand open-source maintenance experience, it covered etiquette, high-quality pull requests and sustainable contribution — closing the season on the chapter's open-source ethos.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 31 May 2026\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 7:00 – 9:00 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Ayushman Bhattacharya \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & GitHub, Myceli.ai \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{40} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/31/img-01.jpg}\\[6pt]\galimg{assets/gallery/31/img-03.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/31/img-02.jpg} \end{minipage}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/31/img-01.jpg}\\[6pt]\galimg{assets/gallery/31/img-03.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/31/img-02.jpg} \end{minipage}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 20 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Aadarsh Rathod~\dotfill~\textbf{2nd}\\
-Adarsh Choubey~\dotfill~\textbf{2nd}\\
-Anamika Sett~\dotfill~\textbf{1st}\\
-Ankana Khan~\dotfill~\textbf{2nd}\\
-Arghadeep Mishra~\dotfill~\textbf{1st}\\
-Farhan Dikshit~\dotfill~\textbf{4th}\\
-Ishika Maity~\dotfill~\textbf{3rd}\\
-Kiran Goyal~\dotfill~\textbf{4th}\\
-Mintu Prashar~\dotfill~\textbf{4th}\\
-Mohammad Malik~\dotfill~\textbf{2nd}\\
-Mohammed Khan~\dotfill~\textbf{2nd}\\
-Moupiya Adhikari~\dotfill~\textbf{1st}\\
-Payel Pathak~\dotfill~\textbf{4th}\\
-Pradipan Chakraborty~\dotfill~\textbf{3rd}\\
-Prem Nain~\dotfill~\textbf{1st}\\
-Raghav Kumar~\dotfill~\textbf{3rd}\\
-Sayantani Bandyopadhyay~\dotfill~\textbf{4th}\\
-Sayantani Mitra~\dotfill~\textbf{4th}\\
-Soumadip Gupta~\dotfill~\textbf{4th}\\
-Utsav Samim Faraj~\dotfill~\textbf{4th}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{32.~Understanding Prompt Injection Attacks in LLMs}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GGrn},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {32};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Understanding Prompt Injection Attacks in LLMs}}\hfill \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {32};} & {\large\bfseries\color{Ink}Understanding Prompt Injection Attacks in LLMs} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}An on-site security workshop on prompt-injection vulnerabilities in large language models, run with OWASP JISU alongside AI tooling partners Miro, Mastra AI and Elixpo. It examined how LLM-backed applications can be manipulated and how to defend them — sitting squarely at the intersection of AI and security, the chapter's most current technical frontier.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 18 June 2026\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 2.5 hours (from 10:30 AM) \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & — \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & OWASP JISU, Miro, Mastra AI, Elixpo \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{60} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/32/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/32/img-02.jpg} \end{minipage}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/32/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/32/img-02.jpg} \end{minipage}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 30 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Aditya Dey~\dotfill~\textbf{1st}\\
-Amit Sett~\dotfill~\textbf{4th}\\
-Amit Shukla~\dotfill~\textbf{3rd}\\
-Anjistha Ghosh~\dotfill~\textbf{2nd}\\
-Arghyadip Shukla~\dotfill~\textbf{2nd}\\
-Ayush Paul~\dotfill~\textbf{2nd}\\
-Ayushman Mazumdar~\dotfill~\textbf{3rd}\\
-Banani Agarwal~\dotfill~\textbf{2nd}\\
-Banani Babu~\dotfill~\textbf{2nd}\\
-Gyan Prakash Basuri~\dotfill~\textbf{3rd}\\
-Ishika Washim~\dotfill~\textbf{2nd}\\
-Karan Sagar~\dotfill~\textbf{3rd}\\
-Kiran Sharma~\dotfill~\textbf{4th}\\
-Mohammad De~\dotfill~\textbf{4th}\\
-Moly Saha~\dotfill~\textbf{3rd}\\
-Munmun Thakur~\dotfill~\textbf{2nd}\\
-Payal Sett~\dotfill~\textbf{2nd}\\
-Pradipan Somkuwar~\dotfill~\textbf{2nd}\\
-Priti Acharya~\dotfill~\textbf{2nd}\\
-Priyanka Hiwrale~\dotfill~\textbf{4th}\\
-Sanchit Jha~\dotfill~\textbf{1st}\\
-Sanjana Sagar~\dotfill~\textbf{1st}\\
-Saswat Bandyopadhyay~\dotfill~\textbf{2nd}\\
-Sayanti Malik~\dotfill~\textbf{4th}\\
-Soniya Acharya~\dotfill~\textbf{1st}\\
-Soumya Pathak~\dotfill~\textbf{1st}\\
-Subhajit Choubey~\dotfill~\textbf{3rd}\\
-Subhajit Datta~\dotfill~\textbf{2nd}\\
-Sumit Kumar Ghosh~\dotfill~\textbf{4th}\\
-Utsav Sadhukhan~\dotfill~\textbf{2nd}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{33.~Know Your Terminal: Zero to Hero on Bash Programming}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GBlue},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {33};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Know Your Terminal: Zero to Hero on Bash Programming}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GBlue,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {33};} & {\large\bfseries\color{Ink}Know Your Terminal: Zero to Hero on Bash Programming} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}A virtual, beginner-to-advanced workshop on Bash and the command line, co-delivered with GDG UEMK. Across two hours it took students from terminal basics to practical shell scripting, strengthening the foundational developer tooling skills that coursework often skips.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 23 June 2026\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 2 hours (from 6:30 PM) \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Ayushman Bhattacharya, Supriyo Saha \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & GDG UEMK, GDG JISU, Google Cloud Skills Boost \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{60–65} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/33/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/33/img-02.jpg} \end{minipage}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/33/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/33/img-02.jpg} \end{minipage}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 31 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Aadarsh Datta~\dotfill~\textbf{1st}\\
-Amit Pathak~\dotfill~\textbf{1st}\\
-Ankit Goyal~\dotfill~\textbf{4th}\\
-Avash Goyal~\dotfill~\textbf{3rd}\\
-Baibhav Kumar Kumar~\dotfill~\textbf{3rd}\\
-Baibhav Kumar Raj~\dotfill~\textbf{2nd}\\
-Divyam Shaw~\dotfill~\textbf{2nd}\\
-Karan Mitra~\dotfill~\textbf{1st}\\
-Krishnendu Nath~\dotfill~\textbf{4th}\\
-Mohammed Mondal~\dotfill~\textbf{3rd}\\
-Munmun Mondal~\dotfill~\textbf{1st}\\
-Nivriti Mukherjee~\dotfill~\textbf{3rd}\\
-Paramita Ghosh~\dotfill~\textbf{2nd}\\
-Priti Kumar~\dotfill~\textbf{1st}\\
-Ramkrishna Chakrabarti~\dotfill~\textbf{1st}\\
-Rohan Pal~\dotfill~\textbf{4th}\\
-Rohit Imam~\dotfill~\textbf{2nd}\\
-Sayanti Agarwal~\dotfill~\textbf{2nd}\\
-Senthil Mukherjee~\dotfill~\textbf{3rd}\\
-Shinjini Sarkar~\dotfill~\textbf{2nd}\\
-Shivam Maity~\dotfill~\textbf{4th}\\
-Shreya Pal~\dotfill~\textbf{4th}\\
-Shrimant Karmakar~\dotfill~\textbf{4th}\\
-Sneha Choshmitha~\dotfill~\textbf{1st}\\
-Sneha Mishra~\dotfill~\textbf{4th}\\
-Souvik Kumar Gupta~\dotfill~\textbf{1st}\\
-Subhankar Giri~\dotfill~\textbf{2nd}\\
-Supradip Barnwal~\dotfill~\textbf{1st}\\
-Suvodeep Kundu~\dotfill~\textbf{3rd}\\
-Viraj De~\dotfill~\textbf{1st}\\
-Vishal Sarkar~\dotfill~\textbf{1st}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{34.~Open Source Friday: Building the Contributor Pipeline at Pollinations.ai}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GRed},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {34};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Open Source Friday: Building the Contributor Pipeline at Pollinations.ai}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GRed,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {34};} & {\large\bfseries\color{Ink}Open Source Friday: Building the Contributor Pipeline at Pollinations.ai} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}In this Open Source Friday stream, Ayushman Bhattacharya shares how Pollinations.ai built the systems behind a fast-growing open source AI project. We’ll dig into contributor workflows, paid quests, AI-assisted PR review, app submission pipelines, model curation, and what maintainers really spend their day doing.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 10th July 2026\,\textperiodcentered\,GitHub Livestream (Virtual) \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 10:00 PM – 11:30 PM \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Ayushman Bhattacharya, Gwyneth Penya Seguenza \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & GitHub Events \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{850} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/34/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/34/img-02.jpg} \end{minipage}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/34/img-01.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/34/img-02.jpg} \end{minipage}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 425 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Aadarsh Tiwari~\dotfill~\textbf{4th}\\
-Abhigayan Naser~\dotfill~\textbf{4th}\\
-Abhigayan Rana~\dotfill~\textbf{2nd}\\
-Abhishek Das~\dotfill~\textbf{1st}\\
-Abhishek Dey~\dotfill~\textbf{4th}\\
-Abhishek Pan~\dotfill~\textbf{2nd}\\
-Abhishek Prashar~\dotfill~\textbf{4th}\\
-Abhranil Giri~\dotfill~\textbf{3rd}\\
-Abhranil Paul~\dotfill~\textbf{3rd}\\
-Abhranil Tiwari~\dotfill~\textbf{4th}\\
-Adarsh Karmakar~\dotfill~\textbf{1st}\\
-Adarsh Mishra~\dotfill~\textbf{1st}\\
-Adarsh Pandey~\dotfill~\textbf{4th}\\
-Adarsh Roy~\dotfill~\textbf{3rd}\\
-Aditya Mondal~\dotfill~\textbf{3rd}\\
-Afroja Singha Roy~\dotfill~\textbf{1st}\\
-Afroja Verma~\dotfill~\textbf{3rd}\\
-Akshit Acharya~\dotfill~\textbf{1st}\\
-Akshit Biswas~\dotfill~\textbf{1st}\\
-Akshit Dutta~\dotfill~\textbf{1st}\\
-Akshit Mondal~\dotfill~\textbf{3rd}\\
-Akshit Sebai~\dotfill~\textbf{2nd}\\
-Amit Agarwal~\dotfill~\textbf{2nd}\\
-Amrita Babu~\dotfill~\textbf{2nd}\\
-Amrita Basuri~\dotfill~\textbf{4th}\\
-Amrita Chakrabarti~\dotfill~\textbf{2nd}\\
-Amrita Dikshit~\dotfill~\textbf{4th}\\
-Amrita Giri~\dotfill~\textbf{2nd}\\
-Amrita Ray~\dotfill~\textbf{4th}\\
-Amrita Samim Faraj~\dotfill~\textbf{1st}\\
-Anamika Babu~\dotfill~\textbf{4th}\\
-Anamika Basuri~\dotfill~\textbf{3rd}\\
-Anamika Sagar~\dotfill~\textbf{1st}\\
-Aniruddha Bhattacharya~\dotfill~\textbf{1st}\\
-Aniruddha Chadokar~\dotfill~\textbf{2nd}\\
-Aniruddha Kundu~\dotfill~\textbf{2nd}\\
-Anjistha Chakraborty~\dotfill~\textbf{4th}\\
-Anjistha Malik~\dotfill~\textbf{2nd}\\
-Anjistha Mondal~\dotfill~\textbf{1st}\\
-Anjistha Ranjan~\dotfill~\textbf{3rd}\\
-Anjistha Thakur~\dotfill~\textbf{2nd}\\
-Anjula Adhikari~\dotfill~\textbf{4th}\\
-Anjula Verma~\dotfill~\textbf{2nd}\\
-Ankana Gupta~\dotfill~\textbf{2nd}\\
-Ankana Ray~\dotfill~\textbf{2nd}\\
-Ankana Singha Roy~\dotfill~\textbf{1st}\\
-Ankit Bhakta~\dotfill~\textbf{3rd}\\
-Ankit Datta~\dotfill~\textbf{4th}\\
-Ankit Kour~\dotfill~\textbf{1st}\\
-Ankit Kundu~\dotfill~\textbf{1st}\\
-Ankit Roy~\dotfill~\textbf{2nd}\\
-Ankita Ayesha~\dotfill~\textbf{2nd}\\
-Ankita Ghosh~\dotfill~\textbf{3rd}\\
-Antara Biswas~\dotfill~\textbf{2nd}\\
-Antara Nain~\dotfill~\textbf{4th}\\
-Antara Yadav~\dotfill~\textbf{1st}\\
-Anuja Dhara~\dotfill~\textbf{1st}\\
-Anuja Kumar Gupta~\dotfill~\textbf{4th}\\
-Anuja Mazumdar~\dotfill~\textbf{3rd}\\
-Anuja Raj~\dotfill~\textbf{1st}\\
-Anuja Washim~\dotfill~\textbf{1st}\\
-Anuska Begam~\dotfill~\textbf{3rd}\\
-Anuska Chakrabarti~\dotfill~\textbf{1st}\\
-Anuska Datta~\dotfill~\textbf{3rd}\\
-Anuska Hiwrale~\dotfill~\textbf{2nd}\\
-Anuska Mishra~\dotfill~\textbf{3rd}\\
-Arghyadip Jha~\dotfill~\textbf{4th}\\
-Arghyadip Malik~\dotfill~\textbf{1st}\\
-Arit Acharya~\dotfill~\textbf{3rd}\\
-Arit Babu~\dotfill~\textbf{3rd}\\
-Arit Chakrabarti~\dotfill~\textbf{1st}\\
-Arit Choshmitha~\dotfill~\textbf{3rd}\\
-Arit De~\dotfill~\textbf{1st}\\
-Aritra Imam~\dotfill~\textbf{3rd}\\
-Arnab Begam~\dotfill~\textbf{4th}\\
-Arnab Chakrabarti~\dotfill~\textbf{1st}\\
-Arnab Mandal~\dotfill~\textbf{4th}\\
-Arpan Dutta~\dotfill~\textbf{3rd}\\
-Arpan Kotak~\dotfill~\textbf{4th}\\
-Arpan Shukla~\dotfill~\textbf{4th}\\
-Arpan Tiwari~\dotfill~\textbf{4th}\\
-Arunanshu Adhikari~\dotfill~\textbf{1st}\\
-Arunanshu Kumar~\dotfill~\textbf{2nd}\\
-Arunanshu Sebai~\dotfill~\textbf{3rd}\\
-Arunanshu Sett~\dotfill~\textbf{3rd}\\
-Arunanshu Singha Roy~\dotfill~\textbf{1st}\\
-Arunanshu Tiwari~\dotfill~\textbf{1st}\\
-Aryan Chadokar~\dotfill~\textbf{2nd}\\
-Aryan Mishra~\dotfill~\textbf{4th}\\
-Aryan Pathak~\dotfill~\textbf{3rd}\\
-Aryan Paul~\dotfill~\textbf{1st}\\
-Avash Kotak~\dotfill~\textbf{3rd}\\
-Avash Raj~\dotfill~\textbf{3rd}\\
-Avash Sharma~\dotfill~\textbf{4th}\\
-Ayush Bhattacharya~\dotfill~\textbf{3rd}\\
-Ayush Chakrabarti~\dotfill~\textbf{1st}\\
-Ayush Kumar~\dotfill~\textbf{1st}\\
-Ayush Sharma~\dotfill~\textbf{3rd}\\
-Ayushman Barnwal~\dotfill~\textbf{3rd}\\
-Ayushman Chakrabarti~\dotfill~\textbf{1st}\\
-Ayushman Debnath~\dotfill~\textbf{4th}\\
-Ayushman Pailan~\dotfill~\textbf{4th}\\
-Ayushman Prashar~\dotfill~\textbf{4th}\\
-Baibhav Kumar Acharya~\dotfill~\textbf{3rd}\\
-Baibhav Kumar Agarwal~\dotfill~\textbf{2nd}\\
-Banani Kumar~\dotfill~\textbf{4th}\\
-Banani Pathak~\dotfill~\textbf{4th}\\
-Banani Shaw~\dotfill~\textbf{4th}\\
-Chayanika Mondal~\dotfill~\textbf{3rd}\\
-Chayanika Pandey~\dotfill~\textbf{4th}\\
-Debankur Koley~\dotfill~\textbf{4th}\\
-Debankur Prashar~\dotfill~\textbf{3rd}\\
-Debankur Rathod~\dotfill~\textbf{1st}\\
-Debashis Babu~\dotfill~\textbf{1st}\\
-Dhiraj Choshmitha~\dotfill~\textbf{1st}\\
-Dhiraj Jha~\dotfill~\textbf{1st}\\
-Dhiraj Nain~\dotfill~\textbf{3rd}\\
-Dhiraj Ray~\dotfill~\textbf{4th}\\
-Dipanjan Bandyopadhyay~\dotfill~\textbf{2nd}\\
-Dipanjan Pathak~\dotfill~\textbf{4th}\\
-Disha Koley~\dotfill~\textbf{2nd}\\
-Disha Kundu~\dotfill~\textbf{2nd}\\
-Disha Naser~\dotfill~\textbf{1st}\\
-Disha Nath~\dotfill~\textbf{3rd}\\
-Disha Sah~\dotfill~\textbf{3rd}\\
-Disha Sarkar~\dotfill~\textbf{1st}\\
-Disha Shaw~\dotfill~\textbf{3rd}\\
-Divyam Dhara~\dotfill~\textbf{1st}\\
-Divyam Dutta~\dotfill~\textbf{2nd}\\
-Divyam Karmakar~\dotfill~\textbf{1st}\\
-Divyam Kumar Gupta~\dotfill~\textbf{3rd}\\
-Divyanshu Bhakta~\dotfill~\textbf{2nd}\\
-Divyanshu Choubey~\dotfill~\textbf{1st}\\
-Divyanshu Mukherjee~\dotfill~\textbf{3rd}\\
-Divyanshu Prashar~\dotfill~\textbf{3rd}\\
-Divyanshu Singha Roy~\dotfill~\textbf{3rd}\\
-Divyanshu Somkuwar~\dotfill~\textbf{4th}\\
-Farhan Barnwal~\dotfill~\textbf{1st}\\
-Farhan Datta~\dotfill~\textbf{2nd}\\
-Farhan Kolay~\dotfill~\textbf{2nd}\\
-Farhan Pathak~\dotfill~\textbf{3rd}\\
-Farhan Ray~\dotfill~\textbf{4th}\\
-Farhan Sarkar~\dotfill~\textbf{2nd}\\
-Farhan Sebai~\dotfill~\textbf{4th}\\
-Gyan Prakash Karmakar~\dotfill~\textbf{2nd}\\
-Gyan Prakash Pan~\dotfill~\textbf{4th}\\
-Gyan Prakash Rana~\dotfill~\textbf{4th}\\
-Gyan Prakash Sebai~\dotfill~\textbf{1st}\\
-Indrayudh Acharya~\dotfill~\textbf{3rd}\\
-Indrayudh Datta~\dotfill~\textbf{2nd}\\
-Indrayudh Koley~\dotfill~\textbf{1st}\\
-Indrayudh Modak~\dotfill~\textbf{2nd}\\
-Indrayudh Sagar~\dotfill~\textbf{3rd}\\
-Ishika Biswas~\dotfill~\textbf{2nd}\\
-Ishika Debnath~\dotfill~\textbf{3rd}\\
-Ishika Mondal~\dotfill~\textbf{3rd}\\
-Ishika Prashar~\dotfill~\textbf{1st}\\
-Ishika Sett~\dotfill~\textbf{2nd}\\
-Ishika Shaw~\dotfill~\textbf{1st}\\
-Karan Sett~\dotfill~\textbf{3rd}\\
-Karnika Hiwrale~\dotfill~\textbf{1st}\\
-Karnika Mitra~\dotfill~\textbf{4th}\\
-Karnika Pan~\dotfill~\textbf{3rd}\\
-Kazi Md Basuri~\dotfill~\textbf{2nd}\\
-Kazi Md Goyal~\dotfill~\textbf{2nd}\\
-Kazi Md Kundu~\dotfill~\textbf{4th}\\
-Kazi Md Modak~\dotfill~\textbf{4th}\\
-Kazi Md Paul~\dotfill~\textbf{2nd}\\
-Khushi Ghosh~\dotfill~\textbf{4th}\\
-Khushi Kumar~\dotfill~\textbf{3rd}\\
-Khushi Singh~\dotfill~\textbf{1st}\\
-Kiran Dey~\dotfill~\textbf{2nd}\\
-Kiran Washim~\dotfill~\textbf{4th}\\
-Krishnendu Imam~\dotfill~\textbf{4th}\\
-Kritika Sebai~\dotfill~\textbf{4th}\\
-Laukik De~\dotfill~\textbf{2nd}\\
-Laukik Koley~\dotfill~\textbf{1st}\\
-Mintu Begam~\dotfill~\textbf{3rd}\\
-Mintu Pandey~\dotfill~\textbf{3rd}\\
-Mohammad Pandey~\dotfill~\textbf{2nd}\\
-Mohammad Rana~\dotfill~\textbf{2nd}\\
-Mohammed Babu~\dotfill~\textbf{2nd}\\
-Mohammed Giri~\dotfill~\textbf{1st}\\
-Mohammed Mishra~\dotfill~\textbf{4th}\\
-Monomoy Kumar Gupta~\dotfill~\textbf{3rd}\\
-Monomoy Mitra~\dotfill~\textbf{1st}\\
-Moupiya Adhikari~\dotfill~\textbf{3rd}\\
-Moupiya Ayesha~\dotfill~\textbf{4th}\\
-Moupiya Bhakta~\dotfill~\textbf{2nd}\\
-Moupiya Pailan~\dotfill~\textbf{4th}\\
-Moupiya Shaw~\dotfill~\textbf{3rd}\\
-Munmun Choshmitha~\dotfill~\textbf{1st}\\
-Munmun Sebai~\dotfill~\textbf{3rd}\\
-Nandini Agarwal~\dotfill~\textbf{4th}\\
-Nandini Ayesha~\dotfill~\textbf{4th}\\
-Nandini Karmakar~\dotfill~\textbf{1st}\\
-Nandini Mandal~\dotfill~\textbf{4th}\\
-Nandini Mishra~\dotfill~\textbf{1st}\\
-Nandini Naser~\dotfill~\textbf{2nd}\\
-Nandini Pailan~\dotfill~\textbf{1st}\\
-Nandini Shukla~\dotfill~\textbf{3rd}\\
-Navya Choubey~\dotfill~\textbf{4th}\\
-Navya Verma~\dotfill~\textbf{1st}\\
-Nayab Biswas~\dotfill~\textbf{3rd}\\
-Nayab Modak~\dotfill~\textbf{3rd}\\
-Nayab Saha~\dotfill~\textbf{2nd}\\
-Nazreen Das~\dotfill~\textbf{3rd}\\
-Nazreen Jha~\dotfill~\textbf{2nd}\\
-Nazreen Sebai~\dotfill~\textbf{2nd}\\
-Omkar Babu~\dotfill~\textbf{3rd}\\
-Omkar Das~\dotfill~\textbf{2nd}\\
-Omkar Somkuwar~\dotfill~\textbf{4th}\\
-Padavala Biswas~\dotfill~\textbf{1st}\\
-Padavala Washim~\dotfill~\textbf{4th}\\
-Paramita Barnwal~\dotfill~\textbf{4th}\\
-Paramita Choshmitha~\dotfill~\textbf{2nd}\\
-Paramita Jha~\dotfill~\textbf{1st}\\
-Paramita Mazumdar~\dotfill~\textbf{1st}\\
-Paramita Mukherjee~\dotfill~\textbf{1st}\\
-Payal Dey~\dotfill~\textbf{3rd}\\
-Payel Begam~\dotfill~\textbf{4th}\\
-Payel Chadokar~\dotfill~\textbf{2nd}\\
-Payel Karmakar~\dotfill~\textbf{2nd}\\
-Payel Mandal~\dotfill~\textbf{3rd}\\
-Pradipan Datta~\dotfill~\textbf{1st}\\
-Pradipan Jha~\dotfill~\textbf{3rd}\\
-Pradipan Mishra~\dotfill~\textbf{2nd}\\
-Prem Chakrabarti~\dotfill~\textbf{4th}\\
-Prem Ghosh~\dotfill~\textbf{3rd}\\
-Prem Mazumdar~\dotfill~\textbf{2nd}\\
-Prem Pandey~\dotfill~\textbf{3rd}\\
-Prem Samim Faraj~\dotfill~\textbf{4th}\\
-Prerna Agarwal~\dotfill~\textbf{4th}\\
-Prerna Mondal~\dotfill~\textbf{2nd}\\
-Priti Begam~\dotfill~\textbf{1st}\\
-Priti Chadokar~\dotfill~\textbf{4th}\\
-Priyabrata Chakrabarti~\dotfill~\textbf{3rd}\\
-Priyabrata Dutta~\dotfill~\textbf{4th}\\
-Priyabrata Giri~\dotfill~\textbf{3rd}\\
-Priyabrata Jha~\dotfill~\textbf{2nd}\\
-Priyabrata Kundu~\dotfill~\textbf{1st}\\
-Priyabrata Maity~\dotfill~\textbf{3rd}\\
-Priyanka Sarkar~\dotfill~\textbf{1st}\\
-Rachana Ayesha~\dotfill~\textbf{3rd}\\
-Rachana Bhakta~\dotfill~\textbf{1st}\\
-Rachana Pailan~\dotfill~\textbf{4th}\\
-Rachana Thakur~\dotfill~\textbf{4th}\\
-Raghav Barnwal~\dotfill~\textbf{3rd}\\
-Raghav Debnath~\dotfill~\textbf{2nd}\\
-Raghav Gupta~\dotfill~\textbf{2nd}\\
-Raghvendra Bandyopadhyay~\dotfill~\textbf{2nd}\\
-Raghvendra Barnwal~\dotfill~\textbf{3rd}\\
-Raghvendra Dikshit~\dotfill~\textbf{1st}\\
-Raghvendra Malik~\dotfill~\textbf{2nd}\\
-Raghvendra Sadhukhan~\dotfill~\textbf{2nd}\\
-Raj Kumar Pailan~\dotfill~\textbf{2nd}\\
-Raj Kumar Roy~\dotfill~\textbf{1st}\\
-Raj Kumar Yadav~\dotfill~\textbf{2nd}\\
-Rohan Choubey~\dotfill~\textbf{1st}\\
-Rohan Shukla~\dotfill~\textbf{4th}\\
-Rohan Singh~\dotfill~\textbf{2nd}\\
-Rohit Koley~\dotfill~\textbf{4th}\\
-Sagar Verma~\dotfill~\textbf{1st}\\
-Sagnik Bhakta~\dotfill~\textbf{1st}\\
-Sagnik Das~\dotfill~\textbf{3rd}\\
-Sagnik Kumar~\dotfill~\textbf{1st}\\
-Sagnik Pan~\dotfill~\textbf{4th}\\
-Sagnik Raj~\dotfill~\textbf{3rd}\\
-Sagnik Ray~\dotfill~\textbf{3rd}\\
-Sagnik Shaw~\dotfill~\textbf{2nd}\\
-Sanchit Ghosh~\dotfill~\textbf{3rd}\\
-Sanchit Kumar~\dotfill~\textbf{1st}\\
-Sanchit Rana~\dotfill~\textbf{4th}\\
-Sanchit Sharma~\dotfill~\textbf{4th}\\
-Sanchit Verma~\dotfill~\textbf{1st}\\
-Sanjana Acharya~\dotfill~\textbf{1st}\\
-Sanjana Rana~\dotfill~\textbf{4th}\\
-Saptak Washim~\dotfill~\textbf{2nd}\\
-Saptaparna Ayesha~\dotfill~\textbf{2nd}\\
-Saptaparna Banyal~\dotfill~\textbf{1st}\\
-Saptaparna Bhakta~\dotfill~\textbf{3rd}\\
-Saptaparna Dutta~\dotfill~\textbf{3rd}\\
-Sashi Kumar Barnwal~\dotfill~\textbf{2nd}\\
-Sashi Kumar Dhara~\dotfill~\textbf{1st}\\
-Sashi Kumar Goyal~\dotfill~\textbf{3rd}\\
-Sashi Kumar Sah~\dotfill~\textbf{2nd}\\
-Sashi Kumar Verma~\dotfill~\textbf{1st}\\
-Saswat Adhikari~\dotfill~\textbf{2nd}\\
-Saswat Imam~\dotfill~\textbf{3rd}\\
-Saswat Modak~\dotfill~\textbf{1st}\\
-Saswat Sett~\dotfill~\textbf{3rd}\\
-Satodeep Mandal~\dotfill~\textbf{1st}\\
-Satodeep Thakur~\dotfill~\textbf{3rd}\\
-Satodeep Washim~\dotfill~\textbf{3rd}\\
-Sayantani Giri~\dotfill~\textbf{3rd}\\
-Sayantani Imam~\dotfill~\textbf{3rd}\\
-Sayantani Kolay~\dotfill~\textbf{3rd}\\
-Sayantani Sebai~\dotfill~\textbf{3rd}\\
-Sayanti Chakraborty~\dotfill~\textbf{2nd}\\
-Sayanti Imam~\dotfill~\textbf{1st}\\
-Sayanti Karmakar~\dotfill~\textbf{4th}\\
-Sayanti Maity~\dotfill~\textbf{4th}\\
-Sayanti Sarkar~\dotfill~\textbf{4th}\\
-Senthil Karmakar~\dotfill~\textbf{1st}\\
-Senthil Kundu~\dotfill~\textbf{1st}\\
-Shahbaz Mazumdar~\dotfill~\textbf{1st}\\
-Shahbaz Raj~\dotfill~\textbf{2nd}\\
-Shahbaz Sarkar~\dotfill~\textbf{2nd}\\
-Shalini Maity~\dotfill~\textbf{4th}\\
-Shalini Ranjan~\dotfill~\textbf{2nd}\\
-Shilpi Malik~\dotfill~\textbf{2nd}\\
-Shilpi Shukla~\dotfill~\textbf{1st}\\
-Shinjini Acharya~\dotfill~\textbf{1st}\\
-Shinjini Bhattacharya~\dotfill~\textbf{3rd}\\
-Shinjini Choubey~\dotfill~\textbf{4th}\\
-Shinjini Das~\dotfill~\textbf{1st}\\
-Shinjini Dikshit~\dotfill~\textbf{4th}\\
-Shivam Acharya~\dotfill~\textbf{4th}\\
-Shivam Agarwal~\dotfill~\textbf{3rd}\\
-Shivam Chakraborty~\dotfill~\textbf{4th}\\
-Shivam Choubey~\dotfill~\textbf{3rd}\\
-Shivam Naser~\dotfill~\textbf{3rd}\\
-Shivam Pal~\dotfill~\textbf{2nd}\\
-Shreya Goyal~\dotfill~\textbf{3rd}\\
-Shreya Imam~\dotfill~\textbf{2nd}\\
-Shreya Raj~\dotfill~\textbf{3rd}\\
-Shreya Rana~\dotfill~\textbf{4th}\\
-Shreya Ray~\dotfill~\textbf{1st}\\
-Shrimant Hiwrale~\dotfill~\textbf{2nd}\\
-Shrimant Modak~\dotfill~\textbf{2nd}\\
-Shrimant Nath~\dotfill~\textbf{1st}\\
-Shrimant Shaw~\dotfill~\textbf{2nd}\\
-Shrimant Shukla~\dotfill~\textbf{2nd}\\
-Shuvam Acharya~\dotfill~\textbf{3rd}\\
-Shuvam Bhattacharya~\dotfill~\textbf{4th}\\
-Shuvam Biswas~\dotfill~\textbf{4th}\\
-Shuvam Ghosh~\dotfill~\textbf{1st}\\
-Shuvam Giri~\dotfill~\textbf{3rd}\\
-Shuvam Paul~\dotfill~\textbf{2nd}\\
-Shuvam Sharma~\dotfill~\textbf{4th}\\
-Sneha Bhakta~\dotfill~\textbf{3rd}\\
-Sneha Dey~\dotfill~\textbf{1st}\\
-Somdeepta Debnath~\dotfill~\textbf{4th}\\
-Sonia Barnwal~\dotfill~\textbf{3rd}\\
-Sonia Jha~\dotfill~\textbf{3rd}\\
-Soniya Acharya~\dotfill~\textbf{2nd}\\
-Soniya Jha~\dotfill~\textbf{3rd}\\
-Sougata Imam~\dotfill~\textbf{1st}\\
-Sougata Mazumdar~\dotfill~\textbf{2nd}\\
-Sougata Sah~\dotfill~\textbf{2nd}\\
-Sougata Tiwari~\dotfill~\textbf{1st}\\
-Soumadip Kour~\dotfill~\textbf{2nd}\\
-Soumadip Nath~\dotfill~\textbf{3rd}\\
-Soumadip Shukla~\dotfill~\textbf{2nd}\\
-Soumita Kour~\dotfill~\textbf{2nd}\\
-Soumita Kumar Gupta~\dotfill~\textbf{4th}\\
-Soumita Mondal~\dotfill~\textbf{2nd}\\
-Soumita Sarkar~\dotfill~\textbf{4th}\\
-Soumita Tiwari~\dotfill~\textbf{2nd}\\
-Soumya Acharya~\dotfill~\textbf{1st}\\
-Soumya Begam~\dotfill~\textbf{2nd}\\
-Soumya Dutta~\dotfill~\textbf{2nd}\\
-Soumya Mandal~\dotfill~\textbf{1st}\\
-Soumya Singha Roy~\dotfill~\textbf{2nd}\\
-Soumya Tiwari~\dotfill~\textbf{2nd}\\
-Soumyadeep Acharya~\dotfill~\textbf{2nd}\\
-Soumyadeep Ayesha~\dotfill~\textbf{3rd}\\
-Soumyadeep Modak~\dotfill~\textbf{3rd}\\
-Souvik Ayesha~\dotfill~\textbf{2nd}\\
-Souvik Barnwal~\dotfill~\textbf{1st}\\
-Souvik Jha~\dotfill~\textbf{2nd}\\
-Souvik Mishra~\dotfill~\textbf{1st}\\
-Souvik Ray~\dotfill~\textbf{1st}\\
-Sowdarjya Nain~\dotfill~\textbf{2nd}\\
-Sowdarjya Ranjan~\dotfill~\textbf{2nd}\\
-Sowdarjya Saha~\dotfill~\textbf{2nd}\\
-Sowdarjya Verma~\dotfill~\textbf{3rd}\\
-Srija Sett~\dotfill~\textbf{4th}\\
-Subhajit Dikshit~\dotfill~\textbf{4th}\\
-Subhajit Mondal~\dotfill~\textbf{3rd}\\
-Subhajit Pathak~\dotfill~\textbf{2nd}\\
-Subhajit Rana~\dotfill~\textbf{4th}\\
-Subhajit Singha Roy~\dotfill~\textbf{1st}\\
-Subhajit Tiwari~\dotfill~\textbf{2nd}\\
-Subhankar Pathak~\dotfill~\textbf{2nd}\\
-Sumit Kumar Begam~\dotfill~\textbf{4th}\\
-Sumit Kumar Prashar~\dotfill~\textbf{3rd}\\
-Sumit Kumar Rana~\dotfill~\textbf{2nd}\\
-Supradip Goyal~\dotfill~\textbf{1st}\\
-Supradip Mukherjee~\dotfill~\textbf{3rd}\\
-Sushmita Bandyopadhyay~\dotfill~\textbf{4th}\\
-Sushmita Bhattacharya~\dotfill~\textbf{4th}\\
-Sushmita Kolay~\dotfill~\textbf{1st}\\
-Sushmita Saha~\dotfill~\textbf{3rd}\\
-Suvodeep Banyal~\dotfill~\textbf{1st}\\
-Suvodeep Kour~\dotfill~\textbf{3rd}\\
-Suvodeep Roy~\dotfill~\textbf{3rd}\\
-Suvodeep Sarkar~\dotfill~\textbf{3rd}\\
-Syeda Ray~\dotfill~\textbf{4th}\\
-Tamajit Dhara~\dotfill~\textbf{3rd}\\
-Tamajit Imam~\dotfill~\textbf{2nd}\\
-Tamajit Kour~\dotfill~\textbf{3rd}\\
-Tamajit Kumar~\dotfill~\textbf{1st}\\
-Tanishk Choshmitha~\dotfill~\textbf{1st}\\
-Tanishk Pal~\dotfill~\textbf{2nd}\\
-Tanishk Prashar~\dotfill~\textbf{3rd}\\
-Tirthankar Agarwal~\dotfill~\textbf{2nd}\\
-Tirthankar Dutta~\dotfill~\textbf{2nd}\\
-Tirthankar Imam~\dotfill~\textbf{1st}\\
-Tirthankar Karmakar~\dotfill~\textbf{1st}\\
-Tirthankar Singh~\dotfill~\textbf{2nd}\\
-Titas Jha~\dotfill~\textbf{2nd}\\
-Utsav Biswas~\dotfill~\textbf{2nd}\\
-Utsav Jha~\dotfill~\textbf{1st}\\
-Uttiyo Singha Roy~\dotfill~\textbf{1st}\\
-Uttiyo Somkuwar~\dotfill~\textbf{3rd}\\
-Uttiyo Verma~\dotfill~\textbf{1st}\\
-Viraj Tiwari~\dotfill~\textbf{3rd}\\
-Vishal Mukherjee~\dotfill~\textbf{4th}\\
-Vishal Sebai~\dotfill~\textbf{1st}\\
-Vivek Bhakta~\dotfill~\textbf{1st}\\
-Vivek Dhara~\dotfill~\textbf{3rd}\\
-Vivek Hiwrale~\dotfill~\textbf{3rd}\\
-Vivek Nath~\dotfill~\textbf{3rd}\\
-Vivek Shaw~\dotfill~\textbf{1st}\\
-\end{multicols}
-\endgroup
-
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
-
+\Needspace{7cm}
 \phantomsection\addcontentsline{toc}{subsection}{35.~Gemma for Bharat - Hackathon}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{GYel},before skip=8pt,after skip=12pt]
-  {\tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {35};}}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{Gemma for Bharat - Hackathon}}\hfill \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GYel,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {35};} & {\large\bfseries\color{Ink}Gemma for Bharat - Hackathon} & \tikz[baseline]{\node[fill=GBlue,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{wifi}~Virtual};}
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   {\small\color{Ink!85}The most useful AI in India will not come from copying what already exists. It will come from builders who understand a specific problem and ship a small, sharp tool that solves it. Gemma, Google DeepMind's family of open-weight models, gives you the raw capability. What you do with it is up to you.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 14th July 2026\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & 10 Days (From 10:00 AM) of 4th July \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & Nihal Gazi, Saugata Sarkar, Ayushman Bhattacharya, Sitam Meur \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & GDG UEMK, GDG GCECT, GDG GNIT, GDG NiT, GDG JISU, Google Cloud Skills Boost, Miro, ML Kol, Elixpo \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{273} participants \\[3pt]\end{tabularx}
   \vspace{4pt}
-  \vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/35/img-01.jpg}\\[6pt]\galimg{assets/gallery/35/img-04.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/35/img-02.jpg}\\[6pt]\galimg{assets/gallery/35/img-03.jpg} \end{minipage}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/35/img-01.jpg}\\[6pt]\galimg{assets/gallery/35/img-04.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/35/img-02.jpg}\\[6pt]\galimg{assets/gallery/35/img-03.jpg} \end{minipage}
 \end{tcolorbox}
 
-\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\% sample \textperiodcentered\ 112 names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%
-\begin{multicols}{3}\raggedright
-Aadarsh Choshmitha~\dotfill~\textbf{2nd}\\
-Aadarsh Dhara~\dotfill~\textbf{1st}\\
-Abhishek Chakrabarti~\dotfill~\textbf{2nd}\\
-Aditya Malik~\dotfill~\textbf{2nd}\\
-Aditya Paul~\dotfill~\textbf{3rd}\\
-Akshit Pailan~\dotfill~\textbf{1st}\\
-Akshit Saha~\dotfill~\textbf{2nd}\\
-Amit Ranjan~\dotfill~\textbf{3rd}\\
-Amit Shukla~\dotfill~\textbf{2nd}\\
-Aniruddha Kumar Gupta~\dotfill~\textbf{2nd}\\
-Ankit Choshmitha~\dotfill~\textbf{3rd}\\
-Ankit Singh~\dotfill~\textbf{2nd}\\
-Ankita Mondal~\dotfill~\textbf{2nd}\\
-Ankita Paul~\dotfill~\textbf{1st}\\
-Antara Pailan~\dotfill~\textbf{4th}\\
-Anuja Pathak~\dotfill~\textbf{1st}\\
-Anuska Dey~\dotfill~\textbf{2nd}\\
-Arghadeep Dikshit~\dotfill~\textbf{4th}\\
-Arghyadip Mukherjee~\dotfill~\textbf{4th}\\
-Arghyadip Pan~\dotfill~\textbf{2nd}\\
-Arit Dey~\dotfill~\textbf{1st}\\
-Aritra Biswas~\dotfill~\textbf{3rd}\\
-Aritra Koley~\dotfill~\textbf{1st}\\
-Arkadeep Modak~\dotfill~\textbf{2nd}\\
-Arpan Mitra~\dotfill~\textbf{1st}\\
-Arpan Prashar~\dotfill~\textbf{4th}\\
-Arunanshu Bhakta~\dotfill~\textbf{1st}\\
-Arunanshu Mitra~\dotfill~\textbf{2nd}\\
-Avash Dutta~\dotfill~\textbf{1st}\\
-Avash Somkuwar~\dotfill~\textbf{2nd}\\
-Ayushman Kolay~\dotfill~\textbf{2nd}\\
-Ayushman Ray~\dotfill~\textbf{2nd}\\
-Chayanika Ranjan~\dotfill~\textbf{2nd}\\
-Debashis Kour~\dotfill~\textbf{3rd}\\
-Dhiraj Bhattacharya~\dotfill~\textbf{2nd}\\
-Dhiraj Somkuwar~\dotfill~\textbf{3rd}\\
-Dipanjan Ayesha~\dotfill~\textbf{2nd}\\
-Farhan Karmakar~\dotfill~\textbf{2nd}\\
-Farhan Nain~\dotfill~\textbf{2nd}\\
-Indrayudh Debnath~\dotfill~\textbf{4th}\\
-Ishika Kotak~\dotfill~\textbf{2nd}\\
-Karan Bhattacharya~\dotfill~\textbf{2nd}\\
-Karnika Singha Roy~\dotfill~\textbf{1st}\\
-Khushi Nath~\dotfill~\textbf{4th}\\
-Krishnendu Biswas~\dotfill~\textbf{1st}\\
-Laukik Rana~\dotfill~\textbf{1st}\\
-Mintu Naser~\dotfill~\textbf{3rd}\\
-Mohammad Kumar Gupta~\dotfill~\textbf{4th}\\
-Mohammed Begam~\dotfill~\textbf{2nd}\\
-Monomoy Roy~\dotfill~\textbf{3rd}\\
-Munmun Sadhukhan~\dotfill~\textbf{2nd}\\
-Nandini Yadav~\dotfill~\textbf{3rd}\\
-Navya Nath~\dotfill~\textbf{4th}\\
-Nayab Datta~\dotfill~\textbf{4th}\\
-Nayab Dey~\dotfill~\textbf{2nd}\\
-Nayab Somkuwar~\dotfill~\textbf{1st}\\
-Nazreen Jha~\dotfill~\textbf{3rd}\\
-Padavala Hiwrale~\dotfill~\textbf{1st}\\
-Paramita Goyal~\dotfill~\textbf{2nd}\\
-Paramita Ray~\dotfill~\textbf{1st}\\
-Paramita Shukla~\dotfill~\textbf{1st}\\
-Prem Kour~\dotfill~\textbf{4th}\\
-Prem Mukherjee~\dotfill~\textbf{2nd}\\
-Prem Tiwari~\dotfill~\textbf{3rd}\\
-Prem Washim~\dotfill~\textbf{3rd}\\
-Priti Kumar~\dotfill~\textbf{2nd}\\
-Priti Rana~\dotfill~\textbf{2nd}\\
-Priti Singh~\dotfill~\textbf{3rd}\\
-Priyanka Debnath~\dotfill~\textbf{1st}\\
-Rachana Bandyopadhyay~\dotfill~\textbf{4th}\\
-Raghav Pandey~\dotfill~\textbf{3rd}\\
-Raj Kumar Imam~\dotfill~\textbf{4th}\\
-Raj Kumar Rathod~\dotfill~\textbf{3rd}\\
-Rohit Barnwal~\dotfill~\textbf{3rd}\\
-Sagar Debnath~\dotfill~\textbf{2nd}\\
-Sanjana Rana~\dotfill~\textbf{2nd}\\
-Saptak Naser~\dotfill~\textbf{3rd}\\
-Saptaparna Hiwrale~\dotfill~\textbf{3rd}\\
-Saptaparna Malik~\dotfill~\textbf{3rd}\\
-Sashi Kumar Kotak~\dotfill~\textbf{3rd}\\
-Saswat Kour~\dotfill~\textbf{3rd}\\
-Sathi Biswas~\dotfill~\textbf{4th}\\
-Sayanti Saha~\dotfill~\textbf{1st}\\
-Senthil Mazumdar~\dotfill~\textbf{2nd}\\
-Senthil Ranjan~\dotfill~\textbf{1st}\\
-Shalini Adhikari~\dotfill~\textbf{4th}\\
-Shalini Dutta~\dotfill~\textbf{3rd}\\
-Shalini Nath~\dotfill~\textbf{3rd}\\
-Shilpi Karmakar~\dotfill~\textbf{1st}\\
-Shinjini Barnwal~\dotfill~\textbf{4th}\\
-Shinjini Chakrabarti~\dotfill~\textbf{1st}\\
-Shivam Dikshit~\dotfill~\textbf{3rd}\\
-Shivam Kolay~\dotfill~\textbf{4th}\\
-Shivam Mazumdar~\dotfill~\textbf{3rd}\\
-Shrimant Mitra~\dotfill~\textbf{3rd}\\
-Shrimant Singha Roy~\dotfill~\textbf{4th}\\
-Sneha Jha~\dotfill~\textbf{2nd}\\
-Sonia Rana~\dotfill~\textbf{1st}\\
-Soniya Sarkar~\dotfill~\textbf{2nd}\\
-Soumadip Sarkar~\dotfill~\textbf{4th}\\
-Soumita Pandey~\dotfill~\textbf{1st}\\
-Soumyadeep Shukla~\dotfill~\textbf{4th}\\
-Sowdarjya Hiwrale~\dotfill~\textbf{4th}\\
-Sowdarjya Kundu~\dotfill~\textbf{2nd}\\
-Srija Nain~\dotfill~\textbf{4th}\\
-Sumit Kumar Thakur~\dotfill~\textbf{4th}\\
-Sumit Kumar Tiwari~\dotfill~\textbf{4th}\\
-Supradip Maity~\dotfill~\textbf{1st}\\
-Titas Basuri~\dotfill~\textbf{4th}\\
-Utsav Kolay~\dotfill~\textbf{3rd}\\
-Viraj Pal~\dotfill~\textbf{1st}\\
-Vivek Sett~\dotfill~\textbf{3rd}\\
-\end{multicols}
-\endgroup
+\vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
+\Needspace{11cm}
+\phantomsection\addcontentsline{toc}{subsection}{36.~Swag Distribution \& Workshop - Gemma For Bharat Hackathon ft. Miro}
+\begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
+    left=14pt,right=14pt,top=12pt,bottom=12pt,
+    borderline west={3.5pt}{0pt}{GGrn},before skip=8pt,after skip=12pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    \tikz[baseline]{\node[fill=GGrn,text=white,font=\bfseries\small,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {36};} & {\large\bfseries\color{Ink}Swag Distribution \& Workshop - Gemma For Bharat Hackathon ft. Miro} & \tikz[baseline]{\node[fill=GGrn,text=white,font=\footnotesize\bfseries,rounded corners=3pt,inner xsep=6pt,inner ysep=2.5pt] {\faIcon{map-marker-alt}~On-Site};}
+  \end{tabularx}\\[8pt]
+  {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
+  {\small\color{Ink!85}An on-site celebration and workshop marking the Gemma for Bharat Hackathon, combining project showcases, participant recognition and swag distribution with a hands-on Miro-supported session. The event brought together 64 attendees and partner communities from across Kolkata's student developer ecosystem.}\\[9pt]\renewcommand{\arraystretch}{1.05}\begin{tabularx}{\linewidth}{@{}c l X@{}}\textcolor{Slate}{\faIcon{calendar-alt}} & \textbf{Date} & 22 July 2026\,\textperiodcentered\,JIS University \\[3pt]\textcolor{Slate}{\faIcon{clock}} & \textbf{Duration} & On-site celebration and workshop \\[3pt]\textcolor{Slate}{\faIcon{microphone}} & \textbf{Speaker(s)} & GDG on Campus JIS University team \\[3pt]\textcolor{Slate}{\faIcon{handshake}} & \textbf{Partners} & Kaggle, Miro, GDGoC GCECT, GDGoC NiT, GDGoC GNIT, GDGoC UEMK, Google Gemini Student Chapter, Elixpo \\[3pt]\textcolor{Slate}{\faIcon{external-link-alt}} & \textbf{Event Page} & \href{https://gdg.community.dev/events/details/google-gdg-on-campus-jis-university-kolkata-india-presents-swag-distribution-amp-workshop-gemma-for-bharat-hackathon-ft-miro/cohost-gdg-on-campus-jis-university-kolkata-india}{\textcolor{GBlue}{View official event page}} \\[3pt]\textcolor{Slate}{\faIcon{users}} & \textbf{Attendance} & \textbf{64} participants \\[3pt]\end{tabularx}
+  \vspace{4pt}
+  \Needspace{4cm}\vspace{9pt}\noindent{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]\noindent \begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/36/img-01.jpg}\\[6pt]\galimg{assets/gallery/36/img-03.jpg} \end{minipage}\hfill\begin{minipage}[t]{0.485\linewidth}\centering \galimg{assets/gallery/36/img-02.jpg}\\[6pt]\galimg{assets/gallery/36/img-04.jpg} \end{minipage}
+\end{tcolorbox}
 
 \vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}
 
@@ -2266,14 +879,12 @@ lead shall carry it on — appending each new season to the record and keeping i
 \vspace{18pt}
 \begin{tcolorbox}[enhanced,colback=Mist,colframe=Mist,arc=5pt,left=16pt,right=16pt,top=14pt,bottom=16pt]
 \begin{minipage}[t]{0.47\linewidth}
-  {\footnotesize\color{Slate}\textsc{Initiated by}}\\[22pt]
-  {\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]
+  {\footnotesize\color{Slate}\textsc{Initiated by}}\\[5pt]
   \textbf{Ayushman Bhattacharya}\\
   {\small\color{Slate}Organiser, GDG on Campus JIS University\\ Season 2025–26 \;\textperiodcentered\; Roll No.\ 23CS2021016}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.47\linewidth}
-  {\footnotesize\color{Slate}\textsc{Continued by}}\\[22pt]
-  {\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]
+  {\footnotesize\color{Slate}\textsc{Continued by}}\\[5pt]
   \textbf{\color{Slate}Next Organiser}\\
   {\small\color{Slate}Organiser, GDG on Campus JIS University\\ Season 2026–27 \;\textperiodcentered\; Roll No.\ \rule{2.6cm}{0.4pt}}
 \end{minipage}

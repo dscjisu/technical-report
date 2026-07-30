@@ -16,7 +16,7 @@ How to add a new event / season
 Append a dict to EVENTS (and, for a new season, an entry to SEASONS). Nothing
 else needs changing — TOC, stats, chart and galleries all recompute.
 """
-import os, glob, subprocess, json, csv
+import os, glob, subprocess, json
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 GAL = "assets/gallery"
@@ -57,7 +57,7 @@ SEASONS = [
     dict(year="2025 – 26", brand="GDG",
          organiser="Ayushman Bhattacharya", role="Organiser (current)", roll="23CS2021016", core=12,
          members="~1,800", members_n=1800,
-         evs=(16, 35),
+         evs=(16, 36),
          note="The largest season on record — national hackathons, Hacktoberfest, GSoC "
               "preparation, live CTF and system-design tracks, a Kubernetes/CNCF meetup and "
               "cross-community welcomes with OWASP. This report is compiled during, and as "
@@ -247,7 +247,7 @@ if os.path.exists(_REC):
 # helpers
 # ----------------------------------------------------------------------------
 def att_mid(a):
-    a = (a or "").replace("–", "-").strip()
+    a = (a or "").replace("–", "-").strip().lstrip("~≈").strip()
     if a in ("", "—"): return 0.0
     if "-" in a:
         lo, hi = a.split("-")
@@ -310,6 +310,12 @@ def mem_tex(s):
         return ""
     return (r"$\sim$" + m[1:].lstrip()) if m.startswith("~") else m
 
+def att_tex(a):
+    """Render approximate attendance figures without letting a plain TeX tilde
+    disappear as non-breaking whitespace."""
+    a = (a or "").strip()
+    return (r"$\sim$" + a[1:].lstrip()) if a.startswith(("~", "≈")) else a
+
 def season_stats(s):
     lo, hi = s["evs"]
     evs = [e for e in EVENTS if lo <= e["n"] <= hi]
@@ -348,7 +354,7 @@ PREAMBLE = r"""% !TEX program = pdflatex
 \usepackage{colortbl}
 \usepackage{multicol}
 \usepackage{csquotes}
-\usepackage{truncate}
+\usepackage{needspace}
 \usepackage[hidelinks]{hyperref}
 \usepackage{bookmark}
 \hypersetup{pdftitle={GDG on Campus JIS University — Technical Report 2022–},
@@ -381,6 +387,11 @@ PREAMBLE = r"""% !TEX program = pdflatex
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{1.5em}
+% Event cards intentionally combine ragged title columns, rules and image
+% grids; suppress harmless loose-box diagnostics while retaining overfull-box
+% warnings, which indicate content escaping its allotted width.
+\hbadness=10000
 
 % four-colour rule used as a divider throughout
 \newcommand{\gbar}[1][\linewidth]{%
@@ -405,7 +416,8 @@ PREAMBLE = r"""% !TEX program = pdflatex
 % (portrait) photos can't overflow the page and push a gallery onto the next one.
 \newlength{\galmaxh}\setlength{\galmaxh}{7.5cm}
 \newcommand{\galimg}[1]{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{0.6pt}%
-  \fcolorbox{Line}{white}{\includegraphics[width=\linewidth,height=\galmaxh,keepaspectratio]{#1}}}
+  \fcolorbox{Line}{white}{\includegraphics[
+    width=\dimexpr\linewidth-2\fboxrule\relax,height=\galmaxh,keepaspectratio]{#1}}}
 """
 
 def season_brand_name(brand):
@@ -452,9 +464,10 @@ def verification():
 \section*{\color{Ink}Verification}
 \gbar[\linewidth]\\[14pt]
 
-This report has been reviewed and \textbf{verified by the Faculty Advisor} of GDG on Campus JIS
-University, Department of Computer Science \& Engineering. The events, figures and records set out in
-this document are certified as accurate to the best of the chapter's knowledge.
+This report has been reviewed by the \textbf{Head of Department}, \textbf{Faculty Advisor}, and
+\textbf{Initiative Lead} of GDG on Campus JIS University, Department of Computer Science \&
+Engineering. The events, figures and records set out in this document are certified as accurate to
+the best of the chapter's knowledge.
 
 This verification is made under the \textbf{2025–26} tenure, during which this document is itself
 compiled and published.
@@ -469,12 +482,30 @@ compiled and published.
 
 \vspace{48pt}
 \begin{center}
-\begin{tcolorbox}[enhanced,width=12.8cm,colback=Mist,colframe=Mist,arc=5pt,
-    left=20pt,right=20pt,top=16pt,bottom=20pt]
-  {\footnotesize\color{Slate}\textsc{Verified by \;\textperiodcentered\; Faculty Advisor}}\\[46pt]
-  \begin{minipage}[b]{0.58\linewidth}{\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]\textbf{Dr.\ Kaushik Adhikary}\;{\small\color{Slate}(2025–26)}\end{minipage}\hfill
-  \begin{minipage}[b]{0.36\linewidth}\makebox[\linewidth]{\includegraphics[height=1.05cm]{assets/brand/faculty_signature.png}}\\[-1pt]{\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]{\small\color{Slate}Signature}\end{minipage}\\[14pt]
-  {\small\color{Slate}Faculty Advisor, GDG on Campus JIS University\\ Department of Computer Science \& Engineering, JIS University}
+\begin{tcolorbox}[enhanced,width=15.8cm,colback=Mist,colframe=Mist,arc=5pt,
+    left=14pt,right=14pt,top=16pt,bottom=18pt]
+  {\footnotesize\color{Slate}\textsc{Review and approval signatures}}\\[26pt]
+  \begin{minipage}[b]{0.31\linewidth}\centering
+    {\small\bfseries Head of Department}\\[9pt]
+    \rule{0pt}{1.05cm}\\[-1pt]
+    {\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]
+    \textbf{Dr.\ Sandip Roy}\\[-1pt]
+    {\small\color{Slate}Dept. Computer Science and Engineering}
+  \end{minipage}\hfill
+  \begin{minipage}[b]{0.31\linewidth}\centering
+    {\small\bfseries Faculty Advisor}\\[9pt]
+    \makebox[\linewidth]{\includegraphics[height=1.05cm]{assets/brand/faculty_signature.png}}\\[-1pt]
+    {\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]
+    \textbf{Dr.\ Kaushik Adhikary}\\[-1pt]
+    {\small\color{Slate}GDG on Campus JIS University}
+  \end{minipage}\hfill
+  \begin{minipage}[b]{0.31\linewidth}\centering
+    {\small\bfseries Initiative Lead}\\[9pt]
+    \makebox[\linewidth]{\includegraphics[height=1.05cm]{assets/brand/ayushman_signature.jpeg}}\\[-1pt]
+    {\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]
+    \textbf{Ayushman Bhattacharya}\\[-1pt]
+    {\small\color{Slate}GDG on Campus JIS University}
+  \end{minipage}
 \end{tcolorbox}
 \end{center}
 \clearpage
@@ -555,7 +586,7 @@ def dashboard():
         tile(GRED, "layer-group", "%d" % tot_ev,
              "Events held" + (r" \small(+%d upcoming)" % tot_inc if tot_inc else "")),
         tile(GYEL, "users", "%s{\\small k}" % (f"{tot_ft/1000:.1f}"), "Cumulative footfall"),
-        tile(GGRN, "user-friends", "$\\sim$1.8{\\small k}", "Community members"),
+        tile(GGRN, "user-friends", r"\textasciitilde\,1.8{\small k}", "Community members"),
     ))
 
     # growth chart
@@ -632,7 +663,7 @@ def dashboard():
 """ + tiles + r"""
 \vspace{9pt}
 
-{\bfseries\color{Ink}Events per season}\quad{\footnotesize\color{Slate}— cadence has grown every year, from 3 in the founding season to 19 in 2025–26.}
+{\bfseries\color{Ink}Events per season}\quad{\footnotesize\color{Slate}— cadence has grown every year, from 3 in the founding season to 21 in 2025–26.}
 """ + chart + r"""
 \vspace{8pt}
 
@@ -704,7 +735,9 @@ def season_divider(s, idx):
 def gallery_caption():
     # styled rule first, then the label sits UNDER the rule — so the gallery is
     # unambiguously anchored to its event.
-    return (r"\vspace{9pt}\noindent"
+    # Keep enough room for the heading and the beginning of its first image so
+    # a page break cannot orphan "EVENT GALLERY" at the bottom of a page.
+    return (r"\Needspace{4cm}\vspace{9pt}\noindent"
             r"{\color{Line}\rule{\linewidth}{0.7pt}}\\[4pt]"
             r"{\footnotesize\bfseries\color{Slate}\faImages~~EVENT GALLERY}"
             r"\hfill\raisebox{1pt}{\gbar[4.2cm]}\\[7pt]")
@@ -774,22 +807,33 @@ def event_card(e, idx):
     ]
     if e.get("reg"):
         rows.append(meta_row("ticket-alt", "Registration", e["reg"]))
+    if e.get("url"):
+        rows.append(meta_row(
+            "external-link-alt", "Event Page",
+            r"\href{%s}{\textcolor{GBlue}{View official event page}}" % e["url"]))
     if upcoming:
         rows.append(meta_row("info-circle", "Status", r"\textbf{Upcoming} — registrations open"))
     else:
         rows.append(meta_row("users", "Attendance",
-                             (r"\textbf{%s} participants" % att) if att not in ("—", "") else "—"))
+                             (r"\textbf{%s} participants" % att_tex(att))
+                             if att not in ("—", "") else "—"))
     metatable = (r"\renewcommand{\arraystretch}{1.05}"
                  r"\begin{tabularx}{\linewidth}{@{}c l X@{}}" + "".join(rows) + r"\end{tabularx}")
 
     blurb = e.get("blurb", "")
     blurb_tex = (r"{\small\color{Ink!85}%s}\\[9pt]" % blurb) if blurb else ""
-    return (r"""
+    # Cards with extra metadata (registration or event links) need more room
+    # before starting; otherwise tcolorbox can split an unbreakable tabularx at
+    # the page boundary and visually clip its left columns.
+    min_space = "11cm" if len(rows) >= 6 else "7cm"
+    return ((r"\Needspace{%s}" % min_space) + r"""
 \phantomsection\addcontentsline{toc}{subsection}{%02d.~%s}
 \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=Line,boxrule=0.6pt,arc=5pt,
     left=14pt,right=14pt,top=12pt,bottom=12pt,
     borderline west={3.5pt}{0pt}{%s},before skip=8pt,after skip=12pt]
-  {%s}\;\;{\large\bfseries\color{Ink}\truncate{0.66\linewidth}{%s}}\hfill %s\\[8pt]
+  \noindent\begin{tabularx}{\linewidth}{@{}c@{\hspace{7pt}}>{\raggedright\arraybackslash}X@{\hspace{7pt}}r@{}}
+    %s & {\large\bfseries\color{Ink}%s} & %s
+  \end{tabularx}\\[8pt]
   {\color{Line}\rule{\linewidth}{0.5pt}}\\[7pt]
   %s%s
   \vspace{4pt}
@@ -802,41 +846,6 @@ def event_card(e, idx):
 def separator():
     return r"\vspace{1pt}\centerline{\gbar[6cm]}\vspace{6pt}"
 
-
-def _tex_name(s):
-    for a, b in (("\\", r"\textbackslash "), ("&", r"\&"), ("%", r"\%"),
-                 ("#", r"\#"), ("_", r"\_"), ("$", r"\$")):
-        s = s.replace(a, b)
-    return s
-
-
-def attendance_register(e):
-    """Render an event's attendance roster from
-    assets/attendance/<NN>/roster.csv (modular, like the gallery). Returns ""
-    when no roster file is present, so only events with a sheet show one."""
-    n = e["n"]
-    path = os.path.join(BASE, "assets/attendance/%02d/roster.csv" % n)
-    if not os.path.exists(path):
-        return ""
-    with open(path, encoding="utf-8") as f:
-        rows = [r for r in csv.reader(f) if r and any(c.strip() for c in r)]
-    if len(rows) < 2:
-        return ""
-    data = rows[1:]  # skip header
-    ncols = 3 if len(data) > 14 else 2
-    entries = "\n".join(
-        r"%s~\dotfill~\textbf{%s}\\" % (_tex_name(name.strip()), (year or "").strip())
-        for name, year in ((r[0], r[1] if len(r) > 1 else "") for r in data))
-    return (r"""\vspace{3pt}\noindent
-{\footnotesize\bfseries\color{Slate}\faListOl~~ATTENDANCE REGISTER}%%
-\hfill{\scriptsize\itshape\color{Slate}representative $\sim$50\%% sample \textperiodcentered\ %d names}\\[3pt]
-{\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-\begingroup\footnotesize\setlength{\columnsep}{20pt}\setlength{\parskip}{1pt}%%
-\begin{multicols}{%d}\raggedright
-%s
-\end{multicols}
-\endgroup
-""" % (len(data), ncols, entries))
 
 def closing():
     return r"""
@@ -852,14 +861,12 @@ lead shall carry it on — appending each new season to the record and keeping i
 \vspace{18pt}
 \begin{tcolorbox}[enhanced,colback=Mist,colframe=Mist,arc=5pt,left=16pt,right=16pt,top=14pt,bottom=16pt]
 \begin{minipage}[t]{0.47\linewidth}
-  {\footnotesize\color{Slate}\textsc{Initiated by}}\\[22pt]
-  {\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]
+  {\footnotesize\color{Slate}\textsc{Initiated by}}\\[5pt]
   \textbf{Ayushman Bhattacharya}\\
   {\small\color{Slate}Organiser, GDG on Campus JIS University\\ Season 2025–26 \;\textperiodcentered\; Roll No.\ 23CS2021016}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.47\linewidth}
-  {\footnotesize\color{Slate}\textsc{Continued by}}\\[22pt]
-  {\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]
+  {\footnotesize\color{Slate}\textsc{Continued by}}\\[5pt]
   \textbf{\color{Slate}Next Organiser}\\
   {\small\color{Slate}Organiser, GDG on Campus JIS University\\ Season 2026–27 \;\textperiodcentered\; Roll No.\ \rule{2.6cm}{0.4pt}}
 \end{minipage}
@@ -893,7 +900,6 @@ def build():
         out.append(season_divider(s, idx))
         for e in evs:
             out.append(event_card(e, idx))
-            out.append(attendance_register(e))
             out.append(separator())
     out.append(closing())
     out.append(r"\end{document}")
