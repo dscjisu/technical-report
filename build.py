@@ -127,7 +127,7 @@ EVENTS = [
          date="22 September 2025", venue="JIS University", dur="2 Days",
          speakers="Debmitra Ghosh, Ayushman Bhattacharya, Abiroy Karmakar, TCS \\& industry members",
          partners="IEEE Australia, IEEE ComSoc, IIST, JIS Group, Pollinations.ai, GDG JISU",
-         att="290", mode="On-Site"),
+         att="~290", metric_suffix="attendees across two days", mode="On-Site"),
     dict(n=17, title="Kickstart Hacktoberfest 2025 \\& Google Study Jams",
          date="13 October 2025", venue="JIS University", dur="10:00 AM – 1:00 PM",
          speakers="Ayushman Bhattacharya, Debasish Mitra, Samrat Talukdar", partners="Google",
@@ -135,7 +135,7 @@ EVENTS = [
     dict(n=18, title="Hacktoberfest Meetup Kolkata 2025",
          date="27 October 2025", venue="JIS University", dur="9:00 AM – 5:00 PM",
          speakers="Ayushman Bhattacharya, Abhishek Kushwaha, Saugata Sarkar, Shreya Dutta, Rahul Kamiliya",
-         partners="Google, Pollinations.ai", att="120", mode="On-Site"),
+         partners="Google, Pollinations.ai", att="~270", mode="On-Site"),
     dict(n=19, title="CodeSprint 2026 Hackathon",
          date="13 October 2025", venue="JIS University", dur="10:00 AM – 1:00 PM",
          speakers="Anuska Kapuria, Vivek Yadav", partners="GitHub, Pollinations.ai", att="60", mode="Virtual"),
@@ -154,7 +154,7 @@ EVENTS = [
          partners="Google, Pollinations.ai", att="170–180", mode="Virtual"),
     dict(n=24, title="GSoC Info Session 2026 — \\enquote{GSOC Crack Karna Hain? For Sure}",
          date="28 January 2026", venue="JIS University", dur="10:00 AM – 1:00 PM",
-         speakers="Ayushman Bhattacharya", partners="Google Summer of Code, Pollinations.ai",
+         speakers="Ayushman Bhattacharya", partners="Pollinations.ai",
          att="50–60", mode="On-Site"),
     dict(n=25, title="How I Audit Codebases as a Pentester (Live CTF Workshop)",
          date="16 February 2026", venue="JIS University", dur="10:00 AM – 1:00 PM",
@@ -188,6 +188,21 @@ EVENTS = [
     dict(n=33, title="Understanding Prompt Injection Attacks in LLMs",
          date="18 June 2026", venue="JIS University", dur="2.5 hours (from 10:30 AM)",
          speakers="—", partners="OWASP JISU, Miro, Mastra AI, Elixpo", att="60", mode="On-Site"),
+    dict(n=34, title="Open Source Friday: Building the Contributor Pipeline at Pollinations.ai",
+         date="10 July 2026", venue="GitHub Livestream (Virtual)", dur="10:00 PM – 11:30 PM",
+         speakers="Ayushman Bhattacharya, Gwyneth Penya Seguenza",
+         partners="GitHub Events", att="850", mode="Virtual"),
+    dict(n=35, title="Gemma for Bharat - Hackathon",
+         date="4–14 July 2026", venue="Kaggle (Virtual)", dur="10 days",
+         speakers="Nihal Gazi, Saugata Sarkar, Ayushman Bhattacharya, Sitam Meur",
+         partners="GDG UEMK, GDG GCECT, GDG GNIT, GDG NiT, GDG JISU, Google Cloud Skills Boost, Miro, Elixpo",
+         att="~273", metric_label="Entrants", metric_suffix="entrants", mode="Virtual"),
+    dict(n=36, title="Swag Distribution \\& Workshop - Gemma For Bharat Hackathon ft. Miro",
+         date="22 July 2026", venue="JIS University", dur="On-site celebration and workshop",
+         speakers="GDG on Campus JIS University team",
+         partners="Kaggle, Miro, GDGoC GCECT, GDGoC NiT, GDGoC GNIT, GDGoC UEMK, Google Gemini Student Chapter, Elixpo",
+         att="64", mode="On-Site",
+         url="https://gdg.community.dev/events/details/google-gdg-on-campus-jis-university-kolkata-india-presents-swag-distribution-amp-workshop-gemma-for-bharat-hackathon-ft-miro/cohost-gdg-on-campus-jis-university-kolkata-india"),
 ]
 
 # One-line "at a glance" purpose for every event (fills whitespace; inferred from
@@ -208,9 +223,9 @@ BLURBS = {
  13: "An introductory ethical-hacking session for newcomers to security. It covered the mindset and entry points of penetration testing and responsible disclosure, seeding the security track that the chapter would expand considerably in later seasons.",
  14: "A Web3 and AI workshop delivered by a DevRel engineer from Quill AI Network. It introduced students to the current blockchain ecosystem and the career paths within it, continuing the chapter's recurring exposure to decentralised and emerging technology.",
  15: "The chapter's first Build with AI event, part of Google's global series. It walked students through building applications with modern AI and natural-language tooling, planting what would become a central, recurring focus on applied artificial intelligence.",
- 16: "A two-day, on-site hackathon that served as the internal nomination round for the Smart India Hackathon, drawing 290 participants — the season's largest gathering. Backed by IEEE Australia, IEEE ComSoc, IIST and industry mentors, it channelled the campus's builders toward a national competition pipeline.",
+ 16: "A two-day, on-site hackathon that served as the internal nomination round for the Smart India Hackathon, with approximately 290 attendees across both days. Backed by IEEE Australia, IEEE ComSoc, IIST and industry mentors, it channelled the campus's builders toward a national competition pipeline.",
  17: "The on-site launch of the chapter's Hacktoberfest drive alongside a Google Cloud study-jam cohort. It onboarded students into open-source contribution and cloud skilling for the season ahead, pairing real pull requests with structured learning.",
- 18: "A full-day flagship Hacktoberfest meetup co-organised across the Kolkata community, with 120 attendees. It combined talks, contribution sprints and networking around open source, cementing the chapter's role as a regional open-source hub.",
+ 18: "A full-day flagship Hacktoberfest meetup co-organised across the Kolkata community, with approximately 270 attendees. It combined talks, contribution sprints and networking around open source, cementing the chapter's role as a regional open-source hub.",
  19: "A virtual hackathon extending the CodeSprint series, run with GitHub and Pollinations.ai tooling. It gave remote participants a focused, deadline-driven build sprint and broadened access beyond on-campus attendees.",
  20: "A relaxed, hands-on virtual session teaching Git and GitHub fundamentals. Aimed squarely at beginners, it turned version-control basics into an approachable, low-pressure workshop and lowered the barrier for first-time contributors ahead of larger events.",
  21: "A month-long virtual hackathon under the TechSprint banner, themed around leveraging AI. Teams built and iterated over an extended window, competing for official Google swag, and the long format sustained the chapter's project-first culture.",
@@ -225,7 +240,10 @@ BLURBS = {
  30: "An on-site celebration and swag distribution featuring collaboration with Google Bangalore. It recognised active contributors and members with official swag, rewarding participation and strengthening a sense of belonging.",
  31: "A virtual session tied to GitHub's Maintainer Month on contributing in the ways maintainers actually value. Drawing on first-hand open-source maintenance experience, it covered etiquette, high-quality pull requests and sustainable contribution — closing the season on the chapter's open-source ethos.",
  32: "A virtual, beginner-to-advanced workshop on Bash and the command line, co-delivered with GDG UEMK. Across two hours it took students from terminal basics to practical shell scripting, strengthening the foundational developer tooling skills that coursework often skips.",
- 33: "An on-site security workshop on prompt-injection vulnerabilities in large language models, run with OWASP JISU alongside AI tooling partners Miro, Mastra AI and Elixpo. It examined how LLM-backed applications can be manipulated and how to defend them — sitting squarely at the intersection of AI and security, the chapter's most current technical frontier.",
+  33: "An on-site security workshop on prompt-injection vulnerabilities in large language models, run with OWASP JISU alongside AI tooling partners Miro, Mastra AI and Elixpo. It examined how LLM-backed applications can be manipulated and how to defend them — sitting squarely at the intersection of AI and security, the chapter's most current technical frontier.",
+ 34: "In this Open Source Friday stream, Ayushman Bhattacharya shared how Pollinations.ai built the systems behind a fast-growing open-source AI project, including contributor workflows, review and app-submission pipelines.",
+ 35: "A ten-day Kaggle competition built around Google Gemma, with approximately 273 entrants across 74 teams and 40 final submissions. Participants identified specific problems and built public working use cases with Google DeepMind's family of open-weight models.",
+ 36: "An on-site celebration and workshop marking the Gemma for Bharat Hackathon, combining project showcases, participant recognition and swag distribution with a hands-on Miro-supported session. The event brought together 64 attendees and partner communities from across Kolkata's student developer ecosystem.",
 }
 for _e in EVENTS:
     _e.setdefault("blurb", BLURBS.get(_e["n"], ""))
@@ -459,55 +477,27 @@ def cover():
 
 def verification():
     return r"""
-% ============================== VERIFICATION ==============================
-\phantomsection\addcontentsline{toc}{section}{Verification}
-\section*{\color{Ink}Verification}
+% ============================== DOCUMENT PROVENANCE ==============================
+\phantomsection\addcontentsline{toc}{section}{Document Provenance}
+\section*{\color{Ink}Document Provenance}
 \gbar[\linewidth]\\[14pt]
 
-This report has been reviewed by the \textbf{Head of Department}, \textbf{Faculty Advisor}, and
-\textbf{Initiative Lead} of GDG on Campus JIS University, Department of Computer Science \&
-Engineering. The events, figures and records set out in this document are certified as accurate to
-the best of the chapter's knowledge.
+This report was compiled by \textbf{Ayushman Bhattacharya}, Organiser of GDG on Campus JIS
+University for 2025--26, from the chapter's event records and public activity trail. Attendance,
+entrant and submission figures are labelled according to what each source measured.
 
-This verification is made under the \textbf{2025–26} tenure, during which this document is itself
-compiled and published.
+The report records \textbf{36 events across four organiser tenures}, including all \textbf{21
+events} completed during the 2025--26 organiser tenure. The 21st event was the Gemma for Bharat
+Swag Distribution \& Workshop on 22 July 2026. HexaFalls 2 is a separate departmental techfest and
+is not included in the DSCJISU event record.
 
-\vspace{34pt}
-\begin{center}
-  \begin{tikzpicture}
-    \node[draw=GGrn,line width=1.6pt,rounded corners=10pt,inner xsep=20pt,inner ysep=13pt,
-          text=GGrn,font=\LARGE\bfseries] {\faIcon{check-circle}~~VERIFIED};
-  \end{tikzpicture}
-\end{center}
-
-\vspace{48pt}
-\begin{center}
-\begin{tcolorbox}[enhanced,width=15.8cm,colback=Mist,colframe=Mist,arc=5pt,
-    left=14pt,right=14pt,top=16pt,bottom=18pt]
-  {\footnotesize\color{Slate}\textsc{Review and approval signatures}}\\[26pt]
-  \begin{minipage}[b]{0.31\linewidth}\centering
-    {\small\bfseries Head of Department}\\[9pt]
-    \rule{0pt}{1.05cm}\\[-1pt]
-    {\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]
-    \textbf{Dr.\ Sandip Roy}\\[-1pt]
-    {\small\color{Slate}Dept. Computer Science and Engineering}
-  \end{minipage}\hfill
-  \begin{minipage}[b]{0.31\linewidth}\centering
-    {\small\bfseries Faculty Advisor}\\[9pt]
-    \makebox[\linewidth]{\includegraphics[height=1.05cm]{assets/brand/faculty_signature.png}}\\[-1pt]
-    {\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]
-    \textbf{Dr.\ Kaushik Adhikary}\\[-1pt]
-    {\small\color{Slate}GDG on Campus JIS University}
-  \end{minipage}\hfill
-  \begin{minipage}[b]{0.31\linewidth}\centering
-    {\small\bfseries Initiative Lead}\\[9pt]
-    \makebox[\linewidth]{\includegraphics[height=1.05cm]{assets/brand/ayushman_signature.jpeg}}\\[-1pt]
-    {\color{Line}\rule{\linewidth}{0.6pt}}\\[3pt]
-    \textbf{Ayushman Bhattacharya}\\[-1pt]
-    {\small\color{Slate}GDG on Campus JIS University}
-  \end{minipage}
+\vspace{14pt}
+\begin{tcolorbox}[enhanced,colback=Mist,colframe=Mist,arc=4pt,
+    left=14pt,right=14pt,top=10pt,bottom=10pt,borderline west={3pt}{0pt}{GBlue}]
+  {\bfseries\color{Ink}Revision note.}\\[2pt]
+  Attendance terminology and the completed-season total were reconciled on 31 July 2026 before
+  publication of this edition.
 \end{tcolorbox}
-\end{center}
 \clearpage
 """
 
@@ -814,8 +804,10 @@ def event_card(e, idx):
     if upcoming:
         rows.append(meta_row("info-circle", "Status", r"\textbf{Upcoming} — registrations open"))
     else:
-        rows.append(meta_row("users", "Attendance",
-                             (r"\textbf{%s} participants" % att_tex(att))
+        metric_label = e.get("metric_label", "Attendance")
+        metric_suffix = e.get("metric_suffix", "participants")
+        rows.append(meta_row("users", metric_label,
+                             (r"\textbf{%s} %s" % (att_tex(att), metric_suffix))
                              if att not in ("—", "") else "—"))
     metatable = (r"\renewcommand{\arraystretch}{1.05}"
                  r"\begin{tabularx}{\linewidth}{@{}c l X@{}}" + "".join(rows) + r"\end{tabularx}")

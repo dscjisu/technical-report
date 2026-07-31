@@ -32,9 +32,8 @@ GDG on Campus JIS University · Department of Computer Science &amp; Engineering
 
 ## Coverage note
 
-The PDF records the chapter’s first 35 events, including the first 20 events of
-the 2025–26 season. The Gemma for Bharat Swag Distribution & Workshop on
-22 July occurred after that reporting cutoff and brought the completed
-organiser-tenure total to 21 events.
+The PDF records 36 chapter events across four seasons, including all 21 events
+completed during the 2025–26 organiser tenure. The 21st event was the Gemma for
+Bharat Swag Distribution & Workshop on 22 July.
 
 HexaFalls 2 is not part of the DSCJISU event record.
