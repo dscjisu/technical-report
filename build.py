@@ -55,7 +55,7 @@ SEASONS = [
               "cross-chapter collaborations (Solution Challenge, React), security and Web3 "
               "tracks, and the first Build with AI."),
     dict(year="2025 – 26", brand="GDG",
-         organiser="Ayushman Bhattacharya", role="Organiser (current)", roll="23CS2021016", core=12,
+         organiser="Ayushman Bhattacharya", role="Organiser (current)", roll="23CS2021016", core=17,
          members="~1,800", members_n=1800,
          evs=(16, 36),
          note="The largest season on record — national hackathons, Hacktoberfest, GSoC "
