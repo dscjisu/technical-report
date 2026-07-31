@@ -124,7 +124,7 @@ EVENTS = [
          speakers="Ayushman Bhattacharya", partners="Google", att="50", mode="Virtual"),
 
     dict(n=16, title="Codesprint 2.0 — Internal Nomination for SIH",
-         date="22 September 2025", venue="JIS University", dur="2 Days",
+         date="15–16 September 2025", venue="JIS University", dur="2 Days",
          speakers="Debmitra Ghosh, Ayushman Bhattacharya, Abiroy Karmakar, TCS \\& industry members",
          partners="IEEE Australia, IEEE ComSoc, IIST, JIS Group, Pollinations.ai, GDG JISU",
          att="~290", metric_suffix="attendees across two days", mode="On-Site"),
@@ -242,7 +242,7 @@ BLURBS = {
  32: "A virtual, beginner-to-advanced workshop on Bash and the command line, co-delivered with GDG UEMK. Across two hours it took students from terminal basics to practical shell scripting, strengthening the foundational developer tooling skills that coursework often skips.",
   33: "An on-site security workshop on prompt-injection vulnerabilities in large language models, run with OWASP JISU alongside AI tooling partners Miro, Mastra AI and Elixpo. It examined how LLM-backed applications can be manipulated and how to defend them — sitting squarely at the intersection of AI and security, the chapter's most current technical frontier.",
  34: "In this Open Source Friday stream, Ayushman Bhattacharya shared how Pollinations.ai built the systems behind a fast-growing open-source AI project, including contributor workflows, review and app-submission pipelines.",
- 35: "A ten-day Kaggle competition built around Google Gemma, with approximately 273 entrants across 74 teams and 40 final submissions. Participants identified specific problems and built public working use cases with Google DeepMind's family of open-weight models.",
+ 35: "A Kaggle competition built around Google Gemma, with approximately 273 entrants across 74 teams and 40 final submissions. Participants identified specific problems and built public working use cases with Google DeepMind's family of open-weight models.",
  36: "An on-site celebration and workshop marking the Gemma for Bharat Hackathon, combining project showcases, participant recognition and swag distribution with a hands-on Miro-supported session. The event brought together 64 attendees and partner communities from across Kolkata's student developer ecosystem.",
 }
 for _e in EVENTS:
