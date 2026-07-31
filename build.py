@@ -64,7 +64,7 @@ SEASONS = [
               "part of, this tenure."),
 ]
 
-# Each event: number, title, date, venue, duration, speakers, partners, attendance, mode.
+# Each event: number, title, date, venue, duration, speakers, partners, participation, mode.
 # Optional: status="upcoming"; reg="Free registration"/"External registration".
 # Images come from assets/gallery/<NN>/ automatically.
 EVENTS = [
@@ -329,7 +329,7 @@ def mem_tex(s):
     return (r"$\sim$" + m[1:].lstrip()) if m.startswith("~") else m
 
 def att_tex(a):
-    """Render approximate attendance figures without letting a plain TeX tilde
+    """Render approximate participation figures without letting a plain TeX tilde
     disappear as non-breaking whitespace."""
     a = (a or "").strip()
     return (r"$\sim$" + a[1:].lstrip()) if a.startswith(("~", "≈")) else a
@@ -483,7 +483,7 @@ def verification():
 \gbar[\linewidth]\\[14pt]
 
 This report was compiled by \textbf{Ayushman Bhattacharya}, Organiser of GDG on Campus JIS
-University for 2025--26, from the chapter's event records and public activity trail. Attendance,
+University for 2025--26, from the chapter's event records and public activity trail. Participation,
 entrant and submission figures are labelled according to what each source measured.
 
 The report records \textbf{36 events across four organiser tenures}, including all \textbf{21
@@ -495,7 +495,7 @@ is not included in the DSCJISU event record.
 \begin{tcolorbox}[enhanced,colback=Mist,colframe=Mist,arc=4pt,
     left=14pt,right=14pt,top=10pt,bottom=10pt,borderline west={3pt}{0pt}{GBlue}]
   {\bfseries\color{Ink}Revision note.}\\[2pt]
-  Attendance terminology and the completed-season total were reconciled on 31 July 2026 before
+  Participation terminology and the completed-season total were reconciled on 31 July 2026 before
   publication of this edition.
 \end{tcolorbox}
 \clearpage
@@ -527,8 +527,8 @@ the next.
   {\bfseries\color{Ink}Why this document exists.}\\[2pt]
   This is the chapter's institutional memory. Leadership turns over every year; the work should not
   start from zero each time. The report records \emph{what was run, by whom, with which partners, and
-  at what scale} — season by season, since 2022. It is deliberately factual: attendance figures are
-  reported as recorded on the day, and event details are preserved as documented by the organising
+  at what scale} — season by season, since 2022. It is deliberately factual: event totals are
+  reported as recorded, and event details are preserved as documented by the organising
   team of each season.
 \end{tcolorbox}
 
@@ -663,7 +663,7 @@ def dashboard():
 """ + table + r"""
 
 \vspace{8pt}
-{\footnotesize\color{Slate}\emph{Footfall} is cumulative event attendance across the season (range
+{\footnotesize\color{Slate}\emph{Footfall} is cumulative event participation across the season (range
 midpoints where a range was recorded); attendees recur across events, so this counts participation,
 not unique members.""" + (r" \;$\uparrow$\,denotes events scheduled but not yet held." if tot_inc else "") + r"""}
 \clearpage
@@ -804,7 +804,7 @@ def event_card(e, idx):
     if upcoming:
         rows.append(meta_row("info-circle", "Status", r"\textbf{Upcoming} — registrations open"))
     else:
-        metric_label = e.get("metric_label", "Attendance")
+        metric_label = e.get("metric_label", "Participation")
         metric_suffix = e.get("metric_suffix", "participants")
         rows.append(meta_row("users", metric_label,
                              (r"\textbf{%s} %s" % (att_tex(att), metric_suffix))
