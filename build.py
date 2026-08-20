@@ -203,6 +203,12 @@ EVENTS = [
          partners="Kaggle, Miro, GDGoC GCECT, GDGoC NiT, GDGoC GNIT, GDGoC UEMK, Google Gemini Student Chapter, Elixpo",
          att="64", mode="On-Site",
          url="https://gdg.community.dev/events/details/google-gdg-on-campus-jis-university-kolkata-india-presents-swag-distribution-amp-workshop-gemma-for-bharat-hackathon-ft-miro/cohost-gdg-on-campus-jis-university-kolkata-india"),
+    dict(n=37, title=" - Gemma For Bharat Hackathon ft. Miro",
+        date="Agentic AI Connect 2026 ft. ML Kolkata", venue="JIS University", dur="On-site workshop with ML Kolkata Community",
+        speakers="Avirup Nandi, Sitam Meur, Nihal Gazi, Saugata Sarkar",
+        partners="Elixpo, ML Kolkta, Gemini Student Ambassador",
+        att="210", mode="On-Site",
+        url="https://gdg.community.dev/e/mrjy4a/"),
 ]
 
 # One-line "at a glance" purpose for every event (fills whitespace; inferred from
@@ -244,6 +250,7 @@ BLURBS = {
  34: "In this Open Source Friday stream, Ayushman Bhattacharya shared how Pollinations.ai built the systems behind a fast-growing open-source AI project, including contributor workflows, review and app-submission pipelines.",
  35: "A Kaggle competition built around Google Gemma, with approximately 273 entrants across 74 teams and 40 final submissions. Participants identified specific problems and built public working use cases with Google DeepMind's family of open-weight models.",
  36: "An on-site celebration and workshop marking the Gemma for Bharat Hackathon, combining project showcases, participant recognition and swag distribution with a hands-on Miro-supported session. The event brought together 64 attendees and partner communities from across Kolkata's student developer ecosystem.",
+ 37 : "Chill With Agentic AI, powered by ML KOLKATA × GDG JISU, is a beginner-friendly community session designed to make Agentic AI approachable, practical, and exciting.",
 }
 for _e in EVENTS:
     _e.setdefault("blurb", BLURBS.get(_e["n"], ""))
