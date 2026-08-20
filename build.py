@@ -210,14 +210,12 @@ EVENTS = [
          date="22 July 2026", venue="JIS University", dur="On-site celebration and workshop",
          speakers="GDG on Campus JIS University team",
          partners="Kaggle, Miro, GDGoC GCECT, GDGoC NiT, GDGoC GNIT, GDGoC UEMK, Google Gemini Student Chapter, Elixpo",
-         att="64", mode="On-Site",
-         url="https://gdg.community.dev/events/details/google-gdg-on-campus-jis-university-kolkata-india-presents-swag-distribution-amp-workshop-gemma-for-bharat-hackathon-ft-miro/cohost-gdg-on-campus-jis-university-kolkata-india"),
+         att="64", mode="On-Site"),
     dict(n=37, title="Agentic AI Connect 2026 ft. ML Kolkata",
         date="8 August 2026", venue="JIS University", dur="On-site workshop with ML Kolkata Community",
         speakers="Avirup Nandi, Sitam Meur, Nihal Gazi, Saugata Sarkar",
         partners="Elixpo, ML Kolkta, Gemini Student Ambassador",
-        att="210", mode="On-Site",
-        url="https://gdg.community.dev/e/mrjy4a/"),
+        att="210", mode="On-Site"),
 ]
 
 # One-line "at a glance" purpose for every event (fills whitespace; inferred from
@@ -259,7 +257,7 @@ BLURBS = {
  34: "In this Open Source Friday stream, Ayushman Bhattacharya shared how Pollinations.ai built the systems behind a fast-growing open-source AI project, including contributor workflows, review and app-submission pipelines.",
  35: "A Kaggle competition built around Google Gemma, with approximately 273 entrants across 74 teams and 40 final submissions. Participants identified specific problems and built public working use cases with Google DeepMind's family of open-weight models.",
  36: "An on-site celebration and workshop marking the Gemma for Bharat Hackathon, combining project showcases, participant recognition and swag distribution with a hands-on Miro-supported session. The event brought together 64 attendees and partner communities from across Kolkata's student developer ecosystem.",
- 37 : "Chill With Agentic AI, powered by ML KOLKATA × GDG JISU, is a beginner-friendly community session designed to make Agentic AI approachable, practical, and exciting.",
+ 37: "Chill With Agentic AI, powered by ML KOLKATA × GDG JISU, is a beginner-friendly community session designed to make Agentic AI approachable, practical, and exciting.",
 }
 for _e in EVENTS:
     _e.setdefault("blurb", BLURBS.get(_e["n"], ""))
@@ -478,7 +476,7 @@ def cover():
     return r"""
 % ============================== COVER ==============================
 \thispagestyle{empty}
-\vspace*{-2.55cm}%
+\vfill
 \noindent\makebox[\linewidth][c]{\includegraphics[width=\paperwidth]{assets/brand/banner_cover.png}}
 
 \vspace{0.45cm}
@@ -490,8 +488,12 @@ def cover():
   {\fontsize{37}{41}\selectfont\bfseries\color{Ink} Technical Report}\\[0.26cm]
   {\Large\color{GBlue}\bfseries GDG on Campus \textperiodcentered\ JIS University}\\[0.34cm]
   {\large\color{Slate} Started in 2022 \,--}\\[0.55cm]
-  \gbar[9cm]\\[0.75cm]
+    \gbar[9cm]\\[0.55cm]
+    {\small\itshape\color{Slate}``what a privilege it is\\
+    to be exhausted by an ambition\\
+    of your own choosing''}\\[0.75cm]
 \end{center}
+\vfill
 \clearpage
 """
 
@@ -880,9 +882,14 @@ lead shall carry it on — appending each new season to the record and keeping i
 \begin{minipage}[t]{0.47\linewidth}
   {\footnotesize\color{Slate}\textsc{Continued by}}\\[5pt]
   \textbf{\color{Slate}Next Organiser}\\
-  {\small\color{Slate}Organiser, GDG on Campus JIS University\\ Season 2026–27\\ Please continue after this with a new index page for 2026-27 season}
+    {\small\color{Slate}Organiser, GDG on Campus JIS University\\ Season 2026–27}
 \end{minipage}
 \end{tcolorbox}
+
+\vspace{12pt}
+\begin{center}
+    {\small\color{Slate}Please continue after this with a new index page for 2026-27 season}
+\end{center}
 
 \vfill
 \begin{center}
@@ -893,7 +900,7 @@ lead shall carry it on — appending each new season to the record and keeping i
 """
 
 def build():
-    out = [PREAMBLE, r"\begin{document}", cover(), verification(), foreword(), dashboard(), lineage()]
+    out = [PREAMBLE, r"\begin{document}", cover(), foreword(), dashboard(), lineage()]
     out.append(r"""
 \phantomsection\addcontentsline{toc}{section}{Contents (2022–26)}
 \section*{\color{Ink}Contents \normalsize\color{Slate}(2022–26)}
