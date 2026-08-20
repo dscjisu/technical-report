@@ -478,7 +478,7 @@ def cover():
     return r"""
 % ============================== COVER ==============================
 \thispagestyle{empty}
-\vspace*{-2.55cm}%
+\vfill
 \noindent\makebox[\linewidth][c]{\includegraphics[width=\paperwidth]{assets/brand/banner_cover.png}}
 
 \vspace{0.45cm}
@@ -492,6 +492,7 @@ def cover():
   {\large\color{Slate} Started in 2022 \,--}\\[0.55cm]
   \gbar[9cm]\\[0.75cm]
 \end{center}
+\vfill
 \clearpage
 """
 
@@ -880,9 +881,14 @@ lead shall carry it on — appending each new season to the record and keeping i
 \begin{minipage}[t]{0.47\linewidth}
   {\footnotesize\color{Slate}\textsc{Continued by}}\\[5pt]
   \textbf{\color{Slate}Next Organiser}\\
-  {\small\color{Slate}Organiser, GDG on Campus JIS University\\ Season 2026–27\\ Please continue after this with a new index page for 2026-27 season}
+    {\small\color{Slate}Organiser, GDG on Campus JIS University\\ Season 2026–27}
 \end{minipage}
 \end{tcolorbox}
+
+\vspace{12pt}
+\begin{center}
+    {\small\color{Slate}Please continue after this with a new index page for 2026-27 season}
+\end{center}
 
 \vfill
 \begin{center}
@@ -893,7 +899,7 @@ lead shall carry it on — appending each new season to the record and keeping i
 """
 
 def build():
-    out = [PREAMBLE, r"\begin{document}", cover(), verification(), foreword(), dashboard(), lineage()]
+    out = [PREAMBLE, r"\begin{document}", cover(), foreword(), dashboard(), lineage()]
     out.append(r"""
 \phantomsection\addcontentsline{toc}{section}{Contents (2022–26)}
 \section*{\color{Ink}Contents \normalsize\color{Slate}(2022–26)}
