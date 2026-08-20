@@ -56,7 +56,7 @@
       "members_n": 1800,
       "evs": [
         16,
-        36
+        37
       ],
       "note": "The largest season on record — national hackathons, Hacktoberfest, GSoC preparation, live CTF and system-design tracks, a Kubernetes/CNCF meetup and cross-community welcomes with OWASP. This report is compiled during, and as part of, this tenure."
     }

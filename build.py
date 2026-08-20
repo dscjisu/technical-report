@@ -18,6 +18,15 @@ else needs changing — TOC, stats, chart and galleries all recompute.
 """
 import os, glob, subprocess, json
 
+try:
+    from PIL import Image
+except ImportError:
+    raise ImportError(
+        "Pillow is required to build this document (used for image optimization and dimensions).\n"
+        "Please install it using: pip install Pillow (or pip install -r requirements.txt)"
+    )
+
+
 BASE = os.path.dirname(os.path.abspath(__file__))
 GAL = "assets/gallery"
 
@@ -57,7 +66,7 @@ SEASONS = [
     dict(year="2025 – 26", brand="GDG",
          organiser="Ayushman Bhattacharya", role="Organiser (current)", roll="23CS2021016", core=17,
          members="~1,800", members_n=1800,
-         evs=(16, 36),
+         evs=(16, 37),
          note="The largest season on record — national hackathons, Hacktoberfest, GSoC "
               "preparation, live CTF and system-design tracks, a Kubernetes/CNCF meetup and "
               "cross-community welcomes with OWASP. This report is compiled during, and as "
@@ -203,8 +212,8 @@ EVENTS = [
          partners="Kaggle, Miro, GDGoC GCECT, GDGoC NiT, GDGoC GNIT, GDGoC UEMK, Google Gemini Student Chapter, Elixpo",
          att="64", mode="On-Site",
          url="https://gdg.community.dev/events/details/google-gdg-on-campus-jis-university-kolkata-india-presents-swag-distribution-amp-workshop-gemma-for-bharat-hackathon-ft-miro/cohost-gdg-on-campus-jis-university-kolkata-india"),
-    dict(n=37, title=" - Gemma For Bharat Hackathon ft. Miro",
-        date="Agentic AI Connect 2026 ft. ML Kolkata", venue="JIS University", dur="On-site workshop with ML Kolkata Community",
+    dict(n=37, title="Agentic AI Connect 2026 ft. ML Kolkata",
+        date="8 August 2026", venue="JIS University", dur="On-site workshop with ML Kolkata Community",
         speakers="Avirup Nandi, Sitam Meur, Nihal Gazi, Saugata Sarkar",
         partners="Elixpo, ML Kolkta, Gemini Student Ambassador",
         att="210", mode="On-Site",
@@ -285,8 +294,8 @@ _dimcache = {}
 def dims(relpath):
     if relpath not in _dimcache:
         ap = os.path.join(BASE, relpath)
-        out = subprocess.check_output(["identify", "-format", "%w %h", ap + "[0]"]).decode().split()
-        _dimcache[relpath] = (int(out[0]), int(out[1]))
+        with Image.open(ap) as img:
+            _dimcache[relpath] = img.size
     return _dimcache[relpath]
 
 def optimize_gallery():
@@ -307,13 +316,29 @@ def optimize_gallery():
                 jpg = base + ".jpg"
                 if os.path.exists(jpg):
                     jpg = base + "-opt.jpg"       # never clobber an existing .jpg
-                r = subprocess.run(["magick", p, "-resize", "1400x1400>",
-                                    "-background", "white", "-flatten", "-quality", "84", jpg])
-                if r.returncode == 0 and os.path.exists(jpg):
-                    os.remove(p); converted += 1
+                try:
+                    with Image.open(p) as img:
+                        img.thumbnail((1400, 1400))
+                        # Convert to RGB to flatten transparent backgrounds (PNGs/GIFs) to white
+                        if img.mode in ("RGBA", "LA", "P"):
+                            bg = Image.new("RGB", img.size, (255, 255, 255))
+                            mask = img.convert("RGBA").split()[-1]
+                            bg.paste(img, mask=mask)
+                            bg.save(jpg, "JPEG", quality=84)
+                        else:
+                            img.convert("RGB").save(jpg, "JPEG", quality=84)
+                    os.remove(p)
+                    converted += 1
+                except Exception as e:
+                    print("Error optimizing %s: %s" % (p, e))
             elif ext == "jpg" and os.path.getsize(p) > 400 * 1024:
-                subprocess.run(["magick", p, "-resize", "1400x1400>", "-quality", "82", p])
-                capped += 1
+                try:
+                    with Image.open(p) as img:
+                        img.thumbnail((1400, 1400))
+                        img.save(p, "JPEG", quality=82)
+                    capped += 1
+                except Exception as e:
+                    print("Error resizing %s: %s" % (p, e))
     if converted or capped:
         print("optimized gallery: %d converted to jpeg, %d oversized jpegs capped"
               % (converted, capped))
@@ -466,18 +491,6 @@ def cover():
   {\Large\color{GBlue}\bfseries GDG on Campus \textperiodcentered\ JIS University}\\[0.34cm]
   {\large\color{Slate} Started in 2022 \,--}\\[0.55cm]
   \gbar[9cm]\\[0.75cm]
-
-  \begin{tcolorbox}[enhanced,width=12.4cm,colback=white,colframe=Line,boxrule=0.6pt,
-      arc=4pt,left=18pt,right=18pt,top=10pt,bottom=10pt,drop shadow={black!12}]
-    {\footnotesize\color{Slate}\textsc{Initiated by}}\\[2pt]
-    {\large\bfseries Ayushman Bhattacharya}\\
-    {\small\color{Slate} Organiser, GDG on Campus JIS University (2025–26)
-      \;\textperiodcentered\; Roll No.\ 23CS2021016}\\[6pt]
-    {\color{Line}\rule{\linewidth}{0.5pt}}\\[5pt]
-    {\footnotesize\color{Slate}\textsc{Maintained by}}\\[2pt]
-    {\large\bfseries Current Lead}\\
-    {\small\color{Slate} passed forward, lead to lead}
-  \end{tcolorbox}
 \end{center}
 \clearpage
 """
@@ -493,9 +506,9 @@ This report was compiled by \textbf{Ayushman Bhattacharya}, Organiser of GDG on 
 University for 2025--26, from the chapter's event records and public activity trail. Participation,
 entrant and submission figures are labelled according to what each source measured.
 
-The report records \textbf{36 events across four organiser tenures}, including all \textbf{21
-events} completed during the 2025--26 organiser tenure. The 21st event was the Gemma for Bharat
-Swag Distribution \& Workshop on 22 July 2026. HexaFalls 2 is a separate departmental techfest and
+The report records \textbf{37 events across four organiser tenures}, including all \textbf{22
+events} completed during the 2025--26 organiser tenure. The 22nd event was Agentic AI Connect 2026
+ft. ML Kolkata on 8 August 2026. HexaFalls 2 is a separate departmental techfest and
 is not included in the DSCJISU event record.
 
 \vspace{14pt}
@@ -660,7 +673,7 @@ def dashboard():
 """ + tiles + r"""
 \vspace{9pt}
 
-{\bfseries\color{Ink}Events per season}\quad{\footnotesize\color{Slate}— cadence has grown every year, from 3 in the founding season to 21 in 2025–26.}
+{\bfseries\color{Ink}Events per season}\quad{\footnotesize\color{Slate}— cadence has grown every year, from 3 in the founding season to 22 in 2025–26.}
 """ + chart + r"""
 \vspace{8pt}
 
@@ -850,8 +863,8 @@ def closing():
     return r"""
 % ============================== CLOSING ==============================
 \clearpage
-\phantomsection\addcontentsline{toc}{section}{Continuity \& Handover}
-\section*{\color{Ink}Continuity \& Handover}
+\phantomsection\addcontentsline{toc}{section}{Continuity \& Handover (upto 4 seasons)}
+\section*{\color{Ink}Continuity \& Handover \normalsize\color{Slate}(upto 4 seasons)}
 \gbar[\linewidth]\\[12pt]
 
 \textbf{Ayushman Bhattacharya} carried this audit through the 2025–26 season. From here, the next
@@ -867,7 +880,7 @@ lead shall carry it on — appending each new season to the record and keeping i
 \begin{minipage}[t]{0.47\linewidth}
   {\footnotesize\color{Slate}\textsc{Continued by}}\\[5pt]
   \textbf{\color{Slate}Next Organiser}\\
-  {\small\color{Slate}Organiser, GDG on Campus JIS University\\ Season 2026–27 \;\textperiodcentered\; Roll No.\ \rule{2.6cm}{0.4pt}}
+  {\small\color{Slate}Organiser, GDG on Campus JIS University\\ Season 2026–27\\ Please continue after this with a new index page for 2026-27 season}
 \end{minipage}
 \end{tcolorbox}
 
@@ -906,6 +919,6 @@ def build():
 
 if __name__ == "__main__":
     optimize_gallery()          # PNG/oversized -> capped JPEG, before layout
-    with open(os.path.join(BASE, "dscjisu_report_21_26.tex"), "w") as f:
+    with open(os.path.join(BASE, "dscjisu_report_21_26.tex"), "w", encoding="utf-8") as f:
         f.write(build())
     print("wrote dscjisu_report_21_26.tex  (%d events, %d seasons)" % (len(EVENTS), len(SEASONS)))
